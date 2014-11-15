@@ -1,0 +1,11 @@
+例如：
+
+<div id="a">
+　　<div id="b"> </div>
+</div>
+
+ 
+
+　　如果要实现b在a中居中放置，一般只需用CSS设置a的text-align属性为center。这样的方法在IE里看起来一切 正常；但是在Firefox中b却会是居左的。
+
+	解决办法就是设置b的横向margin为auto。例如设置b的CSS样式为：margin: 0 auto;。

@@ -1,0 +1,3 @@
+Ext.getDoc().on("contextmenu", function(e){
+    e.stopEvent();
+});

@@ -1,0 +1,45 @@
+博客网址：http://blog.csdn.net/goahead777/article/details/8787678
+
+内省(Introspector)
+
+利用反射,可以对JavaBean处理(换句话说，反射来处理类)，但是过于麻烦，sun公司开发一套API，专门用于操作对象的属性。
+内省提供了对JavaBean类属性、事件的一种缺省处理方法。通过getter、setter访问器，这是默认规则，通过内省API不需要了解规则来访问访问器
+
+JavaBean代码：
+
+public class Person {
+	private String Id;
+	private String FirstName;
+	public void setId(String id) {
+		this.Id = id;
+	}
+	public String getId() {
+		return this.Id;
+	}
+	public void setFirstName(String firstName) {
+		this.FirstName = firstName;
+	}
+	public String getFirstName() {
+		return this.FirstName;
+	}
+}
+
+具体操作代码：
+
+public void Test() throws Exception{		
+	//获取Bean信息
+	BeanInfo info=Introspector.getBeanInfo(Person.class);
+	//获取Bean所有属性
+	PropertyDescriptor[] pds=info.getPropertyDescriptors();
+	for(PropertyDescriptor p : pds){
+		System.out.println(p.getName());			
+	}
+	//操作id属性
+	Person person=new Person();
+	PropertyDescriptor pd=new PropertyDescriptor("Id",Person.class);
+	Method method=pd.getWriteMethod();
+	method.invoke(person, "N001");
+	System.out.println(person.getId());
+	//得到属性类型
+	System.out.println(pd.getPropertyType());
+}

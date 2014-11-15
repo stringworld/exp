@@ -1,0 +1,115 @@
+xml文件路径e:\音乐\test.xml
+
+内容:
+
+<?xml version="1.0" encoding="gbk"?>
+<grade>
+ <id>first</id>
+ <name>一年级</name>
+ <class>
+  <id>one</id>
+  <name>一(1)班</name>
+  <stu>
+   <name>杨某</name>
+   <gender>男</gender>
+   <age>25</age>
+  </stu>
+  <stu>
+   <name>李某</name>
+   <gender>女</gender>
+   <age>26</age>
+  </stu>
+ </class>
+ <class>
+  <id>two</id>
+  <name>一(2)班</name>
+  <stu>
+   <name>张某</name>
+   <gender>男</gender>
+   <age>23</age>
+  </stu>
+  <stu>
+   <name>王某</name>
+   <gender>女</gender>
+   <age>22</age>
+  </stu>
+ </class>
+</grade>
+
+代码部分:
+
+package test;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+public class Test {
+ public static void main(String[]args) throws ParserConfigurationException, SAXException, IOException{
+  DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
+  DocumentBuilder builder=factory.newDocumentBuilder();
+  File file=new File("e:\\音乐\\test.xml");
+  Document document=builder.parse(file);
+  Element element=document.getDocumentElement();
+  NodeList list=element.getChildNodes();
+  Grade grade=new Grade();
+  for(int i=0;i<list.getLength();i++){
+   String nodeName=list.item(i).getNodeName();
+   if(nodeName.equals("id"))
+    grade.id=list.item(i).getTextContent();
+   else if(nodeName.equals("name"))
+    grade.name=list.item(i).getTextContent();
+   else if(nodeName.equals("class")){
+    Class cls=new Class();
+    grade.classes.add(cls);
+    NodeList list1=list.item(i).getChildNodes();
+    for(int j=0;j<list1.getLength();j++){
+     String nodeName1=list1.item(j).getNodeName();
+     if(nodeName1.equals("id"))
+      cls.id=list1.item(j).getTextContent();
+     else if(nodeName1.equals("name"))
+      cls.name=list1.item(j).getTextContent();
+     else if(nodeName1.equals("stu")){
+      Stu stu=new Stu();
+      cls.stus.add(stu);
+      NodeList list2=list1.item(j).getChildNodes();
+      for(int k=0;k<list2.getLength();k++){
+       String nodeName2=list2.item(k).getNodeName();
+       if(nodeName2.equals("name"))
+        stu.name=list2.item(k).getTextContent();
+       else if(nodeName2.equals("gender"))
+        stu.gender=list2.item(k).getTextContent();
+       else if(nodeName2.equals("age"))
+        stu.age=list2.item(k).getTextContent();
+      }
+     }
+    }
+   }
+  }
+  //简单的测试下
+  System.out.println(grade.classes.get(0).stus.get(1).name);
+ }
+}
+class Grade{
+ public String id;
+ public String name;
+ public ArrayList<Class> classes=new ArrayList<Class>();
+}
+class Class{
+ public String id;
+ public String name;
+ public ArrayList<Stu> stus=new ArrayList<Stu>();
+}
+class Stu{
+ public String name;
+ public String gender;
+ public String age;
+}

@@ -1,0 +1,29 @@
+<jsp:useBean id="" class="" scope="page/session/request/application"></jsp:useBean>
+
+JavaBean
+本身是一种java类(封装数据)，它的属性根据get或set来决定，格式：
+a)必须有无参构造函数
+b)字段必须私有
+c)提供标准的getter或setter
+d)其实get或set开头的方法，称为类的属性
+
+public class Animal {
+	private String name;
+	private int age;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+}

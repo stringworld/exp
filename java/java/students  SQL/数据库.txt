@@ -1,0 +1,14 @@
+1.
+create database students
+
+
+2.
+create table students
+(
+stuNo varchar(10)not null,
+stuName varchar(10)not null,
+stuAge int(12)not null,
+stuSex varchar(10)not null,
+stuDeparment varchar(6)not null,
+stuPhone varchar(10)not null,
+stuEmail varchar(10)not null);

@@ -1,0 +1,1 @@
+CREATE RULE R_Ñ§ÆÚ AS  @xq like '[0-8]'

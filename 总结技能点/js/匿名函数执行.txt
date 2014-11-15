@@ -1,0 +1,11 @@
+(function(){
+	alert(0);
+})();
+
+!function(){
+	alert(0);
+}();
+
+void function(){
+	alert(0);
+}();

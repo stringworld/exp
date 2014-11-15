@@ -1,0 +1,1 @@
+DROP RULE R_ังทึ

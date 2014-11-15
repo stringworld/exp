@@ -1,0 +1,19 @@
+问题：
+	aaa bbb ccc  
+	截取后 "aaa""bbb""ccc"三个字符串
+
+
+
+public class temp
+{
+ public static  void main(String[] args)
+ {
+  String temps ="aaa bbb ccc";
+  String arrays[] = temps.split(" ");
+  
+  for(int i=0;i<arrays.length;i++)
+   System.out.print(arrays[i]+" ");
+  
+ }
+
+}

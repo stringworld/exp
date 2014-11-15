@@ -1,0 +1,2 @@
+包冲突的问题,你的项目中MyEclipse会加一个commons-collections-2.1.1.jar包和
+commons-collections.jar包,将前者删除即可. 

@@ -1,0 +1,1 @@
+EXEC SP_BINDEFAULT 'DF_政治面貌', '学生表.[政治面貌]'

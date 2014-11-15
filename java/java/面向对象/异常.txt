@@ -1,0 +1,3 @@
+什么是 error
+
+什么是 exception

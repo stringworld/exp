@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	</head>
+	<body>
+	</body>
+	<script>
+		function say(prefix,suffix) {
+			return prefix+"\""+this.color+"\""+suffix;
+		}
+		var obj={color:"red"};
+		var param=["the color","is nice"];
+		
+		console.log(say(param[0],param[1]));
+		console.log(say.call(obj,param[0],param[1]));//参数可以有多个，类型不限
+		console.log(say.apply(obj,param));//参数只有一个，数组类型，自动从索引0开始配置参数
+	</script>
+</html>

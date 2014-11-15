@@ -1,0 +1,8 @@
+实现程序能够再一次运行中重复的输入：
+	使用（变量名.hasNext())实现循环输入
+例子：	
+	while(sc.hasNext())
+	{
+		String s = sc.nextLine();
+		f(s);
+	}

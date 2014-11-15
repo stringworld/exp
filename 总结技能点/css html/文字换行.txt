@@ -1,0 +1,8 @@
+word-wrap:break-word;word-break:break-all;
+display:inline;
+
+
+white-space:nowrap	不换行
+换行
+word-break:break-all; /*支持IE，chrome，FF不支持*/
+word-wrap:break-word;/*支持IE，chrome，FF*/

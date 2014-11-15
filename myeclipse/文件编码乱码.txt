@@ -1,0 +1,32 @@
+出现的原因：
+	乱码的根本原因是字节和字符的问题
+
+
+1.Java乱码：
+
+a、windows->Preferences 打开"首选项"对话框，左侧导航树，导航到 general->Workspace，右侧Text file encoding，选择Other，改变为UTF-8，以后新建立工程其属性对话框中的Text file encoding即为UTF-8。 
+
+b.如果还不行的话，就用记事本打开源文件，复制，同理，新建数据库时也选择UTF-8编码
+
+
+2.JSP提交表单时乱码：（页面编码和服务端编码不一致）
+
+a.页面是jsp的时候，会经常出现的问题，这个比较容易发现和修改，只要改下jsp文件的头就可以了。
+      <%@ page contentType="text/html;charset=GB2312" language="java"  %>
+
+b.通过request.seCharacterEncoding ("gb2312")对请求进行统一编码，就实现了中文的正常显示。
+<%@ page contentType="text/html; charset=gb2312"%>
+<%
+	request.seCharacterEncoding("gb2312");
+%>
+
+3.系统之间接口调用出现乱码（如果两个应用的编码格式不一致，get和post方式都是会出现乱码问题的）
+
+ 解决方法是：
+           需要他们重新指定下http request的编码格式。
+
+4.和前端交互的时候容易出现乱码（同一个应用get方式）
+
+	暂时没有找到
+
+5.MySQL乱码

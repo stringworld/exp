@@ -1,0 +1,24 @@
+	在一个程序中如何来判断一个程序从计算到结束所消耗的时间?
+
+具体步骤：
+	1.在主程序main（）下添加  long time = System.currentTimeMillis(); （注释：其中time的类型只能是long型）
+	2.中间是要计算的程序   
+	3.输出时间：
+		time = System.currentTimeMillis() - time;    
+        	System.out.println(time / 1000.0 + "s"); 
+
+
+
+例子：
+ public static void main(String[] args){ 
+	//显示计算所消耗的时间
+    	long time = System.currentTimeMillis();    
+        // 0- 9 的 21 次方  
+        BigInteger[] pwd = {p(0),p(1),p(2),p(3),p(4),p(5),p(6),p(7),p(8),p(9)};  
+        // 0 - 9 出现的次数  
+        int[] nn = new int[10];  
+        f(pwd,nn,0,0); 
+        time = System.currentTimeMillis() - time;    
+        System.out.println(time / 1000.0 + "s"); 
+          
+    }  

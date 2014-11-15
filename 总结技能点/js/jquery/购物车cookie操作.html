@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+		<script>
+/*************封装Cookie操作*************/
+(function($){
+    /*
+     formatJSON
+     parseJSON
+     cookie
+    */
+    var $specialChars = { '\b': '\\b', '\t': '\\t', '\n': '\\n', '\f': '\\f', '\r': '\\r', '"': '\\"', '\\': '\\\\' };
+    var $replaceChars = function (chr) { return $specialChars[chr] || '\\u00' + Math.floor(chr.charCodeAt() / 16).toString(16) + (chr.charCodeAt() % 16).toString(16); };
+    //把对象转换为json格式的字符串
+    $.formatJSON = function (o) {
+        var s = [];
+        switch ($.type(o)) {
+            case 'string':
+                return '"' + o.replace(/[\x00-\x1f\\"]/g, $replaceChars) + '"';
+            case 'number':
+            case 'boolean':
+            case 'function':
+                return o.toString();
+            case 'date':
+                var year = o.getFullYear(), month = o.getMonth() + 1, day = o.getDate(), hours = o.getHours(), minutes = o.getMinutes(), seconds = o.getSeconds(), milli = o.getMilliseconds();
+                if (month < 10) { month = '0' + month; }
+                if (day < 10) { day = '0' + day; }
+                if (hours < 10) { hours = '0' + hours; }
+                if (minutes < 10) { minutes = '0' + minutes; }
+                if (seconds < 10) { seconds = '0' + seconds; }
+                if (milli < 10) { milli = '0' + milli; };
+                return '"' + year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds + '"';
+            case 'array':
+                for (var i = 0, l = o.length; i < l; i++) {
+                    s.push($.formatJSON(o[i]));
+                }
+                return '[' + s.join(',') + ']';
+            case 'object':
+            case 'error':
+                for (var p in o) {
+                    s.push(p + ':' + $.formatJSON(o[p]));
+                }
+                return '{' + s.join(',') + '}';
+            case 'undefined':
+                return 'undefined';
+            case 'null':
+                return 'null';
+            default:
+                return '';
+        }
+    };
+    //把json格式的字符串转换为对象
+    $.parseJSON = function (s) {
+        if ($.type(s) != 'string' || !s.length) return null;
+        var obj = null;
+        try {
+            obj = eval('(' + s + ')');
+        } catch (e) { }
+        return obj;
+    };
+    //封装cookie
+    //expires保存时间（秒，设置为0，有效期当前会话），path站点内可用路径，domain域名，secure是否使用其他协议（如：https）
+    //$.cookie("age",10,{expires:30,path:"/",domain:"jquery.com",secure:false});
+    $.cookie = function (name, value, options) {
+        if (typeof value != "undefined") {//如果第二个参数存在
+            options = options || {};//初始化第三个参数，如果不存在则设置为空字符串
+            if (value === null) {//如果第二个参数值为null，则表示删除该cookie值
+                value = "";//清空值
+                options.expires = -1;//设置失效时间
+            }
+            var expires = "";
+            if (options.expires && (typeof options.expires == "number" || options.expires.toUTCString)) {
+                var date;
+                if (typeof options.expires == "number") {//设置时间，把天数转换为毫秒数添加到时间对象中
+                    date = new Date();
+                    date.setTime(date.getTime() + options.expires * 1000);
+                } else {//如果是时间格式，则直接传递时间参数
+                    date = options.expires;
+                }
+                expires = ";expires=" + date.toUTCString();
+            }
+            var path = options.path ? ";path=" + options.path : "";//设置路径
+            var domain = options.domain ? ";domain=" + options.domain : "";//设置域
+            var secure = options.secure ? ";secure" : "";//设置安全措施
+            document.cookie = [name, "=", encodeURIComponent(value), expires, path, domain, secure].join("");
+        } else {//如果第二个参数不存在，则表示读取指定cookie信息
+            var cookieValue = null;
+            if (document.cookie && document.cookie != "") {//如果cookie信息不存在且不为空
+                var cookies = document.cookie.split(";");
+                for (var i = 0; i < cookies.length; i++) {//遍历cookie信息
+                    var cookie = (cookies[i] || "").replace(/^\s+|\s+$/g, "");//清除两侧空格
+                    if (cookie.substring(0, name.length + 1) == (name + "=")) {//匹配指定cookie名称
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    }
+})(jQuery);
+		</script>
+		<style>
+			.main{width:500px;margin:0px auto;overflow:hidden;}
+		</style>
+    </head>
+    <body>
+    	<div class="main">
+        	<div>
+        		<input type="hidden" id="pid" value="1" />
+            	名称：<input type="text" id="name"/>&nbsp;
+                数量：<input type="text" id="count"/>&nbsp;
+                <input type="button" value="修改" id="btn"/>
+            </div>
+            <hr />
+            <div id="show"></div>
+        </div>
+    </body>
+    <script>
+		var CartCookieName = "cartcookie";//购物车cookie名称
+        $(function(){
+			/*************购物车*************/
+			$("#btn").click(function(){
+				var pid=$("#pid").val();
+				var name=$("#name").val();
+				var count=$("#count").val();
+				var products=$.parseJSON($.cookie(CartCookieName));
+				for(var i=0;i<products.length;i++){
+					var p=products[i];
+					if(p.id==pid){
+						p.name=name;
+						p.count=count;
+						break;
+					}
+				}
+				$.cookie(CartCookieName,$.formatJSON(products),{expires:2592000});
+				$("#show").html($.cookie(CartCookieName));
+			});
+        });
+        (function(){
+        	var product={id:"1",name:"杯子",count:1};
+        	var products=[
+	        	product
+	        ];
+	        $("#pid").val(product.id);
+	        $("#name").val(product.name);
+	        $("#count").val(product.count);
+	        $.cookie(CartCookieName,$.formatJSON(products),{expires:2592000});
+        })();
+    </script>
+</html>

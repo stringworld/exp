@@ -1,0 +1,1 @@
+CREATE DEFAULT DF_政治面貌 AS '共青团员'

@@ -1,0 +1,7 @@
+1.使用include时，不要包含htnl的整体格式，只需要包含指令
+
+2.include（静态包含，它包含的所有的JSP会编译成一个server）
+<%@include file="/引用给的JSP文件"%>
+
+3.动态包含(运行时包含)，引用格式：
+	<%request.getPequestDispatcher("/引用的的JSP文件").include(request,response);%>

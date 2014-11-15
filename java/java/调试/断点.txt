@@ -1,0 +1,13 @@
+断点：
+
+f5 : step into
+f6 : step over
+f7 : step return
+
+drop to frame : 跳到当前程序的第一行
+resume ： 跳到下一个断点（如果没有下一个，则运行整个程序）
+watch : 观察变量或表达式的值
+
+断点注意的问题：
+1.断点调试完后，要在breakpoints视图中清除所有的断点
+2.断点调试完后，一定要记的结束运行断点的jvm .

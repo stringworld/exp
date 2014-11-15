@@ -1,0 +1,9 @@
+﻿需要引用gson-2.2.4.jar
+
+import com.google.gson.Gson;
+
+List<Employee> list=dao.get("select * from employee where "+where+" order by sortOrder desc,name asc limit ?,?",start,limit);
+long total=dao.count("select count(employeeId) from employee where "+where);
+Gson gson=new Gson();
+String data=gson.toJson(list);
+writeResponse(response,String.format("{\"success\":true,\"total\":%d,\"data\":%s}",total,data));

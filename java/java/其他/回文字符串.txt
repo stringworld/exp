@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class huiwenshu {
+	public static void f(String s){
+		boolean is=true;
+		char[] ch = null;
+		ch = s.toCharArray();
+		int k=s.length();
+		for(int i=0;i<k/2;i++){
+			if(ch[i]!=ch[k-i-1]){
+				is=false;
+			}
+		}
+		if(is==true){
+			System.out.print(s+"是一个回文串！");
+		}
+		else{
+			System.out.print(s+"不是一个回文串！");
+		}
+	}
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("请输入一个字符串：");
+		while(sc.hasNext()){
+			String s = sc.nextLine();
+			f(s);
+		}
+	}
+}

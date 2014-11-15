@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <link rel="stylesheet" href="public.css" />
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+    </head>
+    <body >
+    	<div style="width:1000px;height:1000px;margin:0px auto;background-color:#C99;">con</div>
+
+    	<div id="popup" style="position:fixed;z-index:1001;width:500px;height:430px;background-color:#F96;">popup</div>
+        <div id="popupbg" style="position:absolute;left:0px;top:0px;z-index:1000;background-color:#000;opacity:0.5;filter:alpha(opacity=50);"></div>
+    </body>
+    <script>
+		$(function(){
+			$(window).bind("resize scroll",function(){
+				var obj=$("#popup"),objbg=$("#popupbg");
+				objbg.css({width:Math.max(1000,$(window).width()),height:Math.max($(window).height(),$(document.body).height())});
+				var left=($(window).width()-obj.outerWidth())/2;
+				var top=($(window).height()-obj.outerHeight())/2;
+				if(left<0)left=0;
+				if(top<0)top=0;
+				if($.browser.msie&&parseInt($.browser.version)<7){//IE6绝对定位
+					left+=$(window).scrollLeft();
+					top+=$(window).scrollTop();
+					obj.css({position:"absolute"});
+				}
+				obj.css({left:left,top:top});
+			});
+			$(window).resize();
+		});
+    </script>
+</html>

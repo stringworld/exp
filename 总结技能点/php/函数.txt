@@ -1,0 +1,25 @@
+stripos(string,find,start)大小写不敏感
+	strpos大小写敏感
+
+ 函数返回字符串在另一个字符串中第一次出现的位置。
+如果没有找到该字符串，则返回 false。
+
+str_replace(find,replace,string,count)
+
+substr(string,start,length)
+
+str_replace("-"," ","-40-23-");
+
+preg_match("/^,(.+),$/","-40-23-",$match)
+
+implode（join,array）拼接数组元素
+explode(split,string) 分割字符串
+
+in_array(value,array)是否存在值
+array_key_exists(key,array)是否存在键
+
+
+number_format($carttotal["totalprice"],2,".","");
+30000.00
+
+json_decode($json,true)		当该参数为 TRUE 时，将返回 array 而非object

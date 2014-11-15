@@ -1,0 +1,15 @@
+
+//JSP引擎会自动把输出的页面转换成指定的字符集
+response.setCharacterEncoding("text/html;GB2312");
+  //使用request.getParpameter("21:24 2014/5/17参数名");获得参数值
+
+//参数值默认的字符集是ISO8859_1，如果不进行字符集转换，将导致汉字乱码
+	String sname = request.getParameter("name")
+	String name = new String(sname.getBytes("ISO8859_1"),"GB2312")
+	//new String（字符串值.getBytes(“原编码方式”)，”目录编码方式”）;
+
+
+
+在servlet代码中的首行中添加以下代码可以解决servlet乱码的问题
+response.setContentType("text/html;charset=UTF-8");
+

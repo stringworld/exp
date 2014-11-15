@@ -1,0 +1,5 @@
+过期时间设置为0，当前浏览器关闭才删除
+HttpCookie::set("member_id",HttpSession::get("member_id"),0);
+把值设置为空或者null立即删除
+
+setcookie("backurl",null,-1);

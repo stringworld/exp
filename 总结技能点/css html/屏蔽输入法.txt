@@ -1,0 +1,4 @@
+ime-mode: disabled;
+
+IE浏览器从IE5开始就支持该属性，FireFox浏览器从FireFox3.0开始也支持该ime-mode属性。
+不过chrome、opera、Safari浏览器还没有开始支持该属性。

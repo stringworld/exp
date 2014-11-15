@@ -1,0 +1,2 @@
+лМ╪срЩсц
+<script src="../ext-3.4.1/src/locale/ext-lang-zh_CN.js"></script>

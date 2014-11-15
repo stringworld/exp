@@ -1,0 +1,428 @@
+<codehints xmlns:MMString="http://www.macromedia.com/schemes/data/string/">
+	<menugroup MMString:name="codehints_jquery" id="CodeHints_jQuery" name="jQuery 1.3.2 Code Hints" enabled="true">
+	  <description>
+		  <![CDATA[ 
+			jquery.com
+			]]>
+	  </description>
+	  
+		<!-- API/1.3.2/ -->
+		<menu pattern="$/jQuery" additionaldismisschars=";:" allowwhitespaceprefix="true" displayrestriction="JavaScript" patternseparator="/">	
+		<!-- Core -->
+			<menuitem label="(obj)" value="(obj)" icon="shared/jquery_icon.png" />
+			<menuitem label="(document)" value="(document)" icon="shared/jquery_icon.png" />
+			<menuitem label="('html')" value="('html')" icon="shared/jquery_icon.png" />
+			<menuitem label="('html', [ownerDocument])" value="('html', [ownerDocument])" icon="shared/jquery_icon.png" />
+			<menuitem label="(elem)" value="(elem)" icon="shared/jquery_icon.png" />
+			<menuitem label="(elems)" value="(elems)" icon="shared/jquery_icon.png" />
+			<menuitem label="(fn)" value="(fn)" icon="shared/jquery_icon.png" />
+			<menuitem label="(function(){ })" value="(function(){ })" icon="shared/jquery_icon.png" />
+			<menuitem label="(expr, context)" value="(expr, context)" icon="shared/jquery_icon.png" />
+		</menu>
+
+		<menu pattern="$./jQuery." additionaldismisschars="();:" allowwhitespaceprefix="true" displayrestriction="JavaScript" patternseparator="/">	
+		
+		<!--  Core  插件机制  和 多库共存  -->
+			<menuitem label="extend(object)" value="extend(object)" icon="shared/jquery_icon.png" />
+			<menuitem label="fn.extend(object)" value="fn.extend(object)" icon="shared/jquery_icon.png" />		
+			<menuitem label="noConflict()" value="noConflict()" icon="shared/jquery_icon.png" />
+			<menuitem label="noConflict(extreme)" value="noConflict(extreme)" icon="shared/jquery_icon.png" />
+
+		<!-- 设置  -->
+			<menuitem label="fx.off" value="fx.off=true;" icon="shared/jquery_icon.png" />
+			
+		<!-- Ajax -->
+			<menuitem label="ajax([options])" value="ajax({type:'POST',url:'',data:'',success:''})" icon="shared/jquery_icon.png" />
+			<menuitem label="get(url,[data],[callback],[type])" value="get(url,[data],[callback],[type])" icon="shared/jquery_icon.png" />
+			<menuitem label="getJSON(url,[data],[callback])" value="getJSON(url,[data],[callback])" icon="shared/jquery_icon.png" />
+			<menuitem label="getScript(url,[callback])" value="getScript(url,[callback])" icon="shared/jquery_icon.png" />
+			<menuitem label="post(url,[data],[callback],[type])" value="post(url,[data],[callback],[type])" icon="shared/jquery_icon.png" />
+			<menuitem label="ajaxSetup([options])" value="ajaxSetup({global:false,type:'POST'})" icon="shared/jquery_icon.png" />
+
+		<!-- JavaScript -->
+			<menuitem label="support" value="support" icon="shared/jquery_icon.png" />	
+			<menuitem label="browser" value="browser" icon="shared/jquery_icon.png" />	
+			<menuitem label="browser.version"  value="browser.version" icon="shared/jquery_icon.png" />	
+			<menuitem label="boxModel" value="boxModel" icon="shared/jquery_icon.png" />	
+
+			<menuitem label="each(object, [callback])" value="each(object, [callback])" icon="shared/jquery_icon.png" />	
+			<menuitem label="extend([deep],target,object1,[objectN])" value="extend([deep],target,object1)" icon="shared/jquery_icon.png" />
+			<menuitem label="grep(array, callback, [invert])" value="grep(array, callback, [invert])" icon="shared/jquery_icon.png" />
+		
+			<menuitem label="makeArray(obj)" value="makeArray(obj)" icon="shared/jquery_icon.png" />
+			<menuitem label="map(array, callback)" value="map(array, callback)" icon="shared/jquery_icon.png" />
+			<menuitem label="inArray(value, array)" value="inArray(value, array)" icon="shared/jquery_icon.png" />
+		
+			<menuitem label="merge(first, second)" value="merge(first, second)" icon="shared/jquery_icon.png" />
+			<menuitem label="unique(array)" value="unique(array)" icon="shared/jquery_icon.png" />
+		
+			<menuitem label="isArray(obj)" value="isArray(obj)" icon="shared/jquery_icon.png" />
+			<menuitem label="isFunction(obj)" value="isFunction(obj)" icon="shared/jquery_icon.png" />
+			
+			<menuitem label="trim(str)" value="isArray(obj)" icon="shared/jquery_icon.png" />
+			<menuitem label="param(obj)" value="param(obj)" icon="shared/jquery_icon.png" />
+		
+		</menu>
+
+		
+		<!-- support -->
+		<menu pattern="support" additionaldismisschars=";:" allowwhitespaceprefix="true" patternseparator="/" displayrestriction="JavaScript">	
+			<menuitem label=".boxModel" icon="shared/jquery_icon.png" />
+			<menuitem label=".cssFloat" icon="shared/jquery_icon.png" />
+			<menuitem label=".hrefNormalized" icon="shared/jquery_icon.png" />
+			<menuitem label=".htmlSerialize"  icon="shared/jquery_icon.png" />
+			<menuitem label=".leadingWhitespace" icon="shared/jquery_icon.png" />
+			<menuitem label=".noCloneEvent" icon="shared/jquery_icon.png" />
+			<menuitem label=".objectAll" icon="shared/jquery_icon.png" />
+			<menuitem label=".opacity" icon="shared/jquery_icon.png" />
+			<menuitem label=".scriptEval" icon="shared/jquery_icon.png" />
+			<menuitem label=".style" icon="shared/jquery_icon.png" />
+			<menuitem label=".tbody" icon="shared/jquery_icon.png" />
+		</menu>
+		<!-- browser -->
+		<menu pattern="browser" additionaldismisschars=";:" allowwhitespaceprefix="true" patternseparator="/" displayrestriction="JavaScript">	
+			<menuitem label=".safari" icon="shared/safari.png" />
+			<menuitem label=".opera" icon="shared/opera.gif" />
+			<menuitem label=".msie" icon="shared/ie.gif" />
+			<menuitem label=".mozilla" icon="shared/mozilla.gif" />
+			<menuitem label=".version" icon="shared/jquery_icon.png" />
+		</menu>
+
+
+		<!-- Core -->
+		<menu pattern="$(/jQuery(" additionaldismisschars=";:" allowwhitespaceprefix="true" patternseparator="/" displayrestriction="JavaScript">	
+			<menuitem label="document" value="document)" icon="shared/jquery_icon.png" />
+			<menuitem label="function" value="fn)" icon="shared/jquery_icon.png" />
+			<menuitem label="html" value="'div')" icon="shared/jquery_icon.png" />
+			<menuitem label="#id" value="'#id')" icon="shared/jquery_icon.png" />
+			<menuitem label=".class" value="'.class')" icon="shared/jquery_icon.png" />
+			<menuitem label="element" value="obj)" icon="shared/jquery_icon.png" />
+			<menuitem label="selector1,selector2" value="selector1,selector2)" icon="shared/jquery_icon.png" />
+			<menuitem label="*" value="*)" icon="shared/jquery_icon.png" />
+
+			<menuitem label="ancestor descendant" value="ancestor descendant)" icon="shared/jquery_icon.png" />
+			<menuitem label="parent > child" value="parent > child)" icon="shared/jquery_icon.png" />
+			<menuitem label="prev + next" value="prev + next)" icon="shared/jquery_icon.png" />
+			<menuitem label="prev ~ siblings" value="prev ~ siblings)" icon="shared/jquery_icon.png" />
+		</menu>
+
+
+		<!-- Selectors -->
+		<!-- Filters -->
+		<menu pattern=":" additionaldismisschars=";.()" allowwhitespaceprefix="true" displayrestriction="JavaScript">	
+			<menuitem label="first" icon="shared/jquery_icon.png" />
+			<menuitem label="last" icon="shared/jquery_icon.png" />
+			<menuitem label="not" icon="shared/jquery_icon.png" />
+			<menuitem label="even" icon="shared/jquery_icon.png" />
+			<menuitem label="odd" icon="shared/jquery_icon.png" />
+			<menuitem label="eq" icon="shared/jquery_icon.png" />
+			<menuitem label="gt" icon="shared/jquery_icon.png" />
+			<menuitem label="lt" icon="shared/jquery_icon.png" />
+			<menuitem label="header" icon="shared/jquery_icon.png" />
+			<menuitem label="animated" icon="shared/jquery_icon.png" />
+		<!-- Content Filters -->
+			<menuitem label="contains" icon="shared/jquery_icon.png" />
+			<menuitem label="empty" icon="shared/jquery_icon.png" />
+			<menuitem label="has" icon="shared/jquery_icon.png" />
+			<menuitem label="parent" icon="shared/jquery_icon.png" />
+		<!-- Visibility Filters -->
+			<menuitem label="hidden" icon="shared/jquery_icon.png" />
+			<menuitem label="visible" icon="shared/jquery_icon.png" />
+		<!-- Selectors: Child Filters -->
+			<menuitem label="nth-child" icon="shared/jquery_icon.png" />
+			<menuitem label="first-child" icon="shared/jquery_icon.png" />
+			<menuitem label="last-child" icon="shared/jquery_icon.png" />
+			<menuitem label="only-child" icon="shared/jquery_icon.png" />
+
+		<!-- Selectors: Forms -->
+			<menuitem label="input" icon="shared/jquery_icon.png" />
+			<menuitem label="text" icon="shared/jquery_icon.png" />
+			<menuitem label="password" icon="shared/jquery_icon.png" />
+			<menuitem label="radio" icon="shared/jquery_icon.png" />
+			<menuitem label="checkbox" icon="shared/jquery_icon.png" />
+			<menuitem label="submit" icon="shared/jquery_icon.png" />
+			<menuitem label="image" icon="shared/jquery_icon.png" />
+			<menuitem label="reset" icon="shared/jquery_icon.png" />
+			<menuitem label="button" icon="shared/jquery_icon.png" />
+			<menuitem label="file" icon="shared/jquery_icon.png" />
+		<!-- Selectors: Forms Filters -->
+			<menuitem label="enabled" icon="shared/jquery_icon.png" />
+			<menuitem label="disabled" icon="shared/jquery_icon.png" />
+			<menuitem label="checked" icon="shared/jquery_icon.png" />
+			<menuitem label="selected" icon="shared/jquery_icon.png" />
+		</menu>
+
+
+		<menu pattern="[" additionaldismisschars=";.()" allowwhitespaceprefix="true" displayrestriction="JavaScript">	
+			<menuitem label="[attribute]"  value="attribute]" icon="shared/jquery_icon.png" />
+			<menuitem label="[attribute=value]" value="attribute=value]" icon="shared/jquery_icon.png" />
+			<menuitem label="[attribute!=value]" value="attribute!=value]" icon="shared/jquery_icon.png" />
+			<menuitem label="[attribute^=value]" value="attribute^=value]" icon="shared/jquery_icon.png" />
+			<menuitem label="[attribute$=value]" value="attribute$=value]" icon="shared/jquery_icon.png" />
+			<menuitem label="[attribute*=value]" value="attribute*=value]" icon="shared/jquery_icon.png" />
+			<menuitem label="[attr1][attr2][attrN]" value="attr1][attr2][attrN]" icon="shared/jquery_icon.png" />		
+		</menu>
+		
+
+		<!-- Effects -->
+		<menu pattern="hide(/show(/slideDown(/slideToggle(/slideUp(/fadein(/fadeOut(/fadeTo(" additionaldismisschars=";:" allowwhitespaceprefix="true" patternseparator="/" displayrestriction="JavaScript">	
+			<menuitem label="slow" value="'slow'" icon="shared/jquery_icon.png" />
+			<menuitem label="normal" value="'normal'" icon="shared/jquery_icon.png" />
+			<menuitem label="fast" value="'fast'" icon="shared/jquery_icon.png" />
+		</menu>
+
+		<!-- Events -->
+		<menu pattern="bind(/one(/trigger(/triggerHandler(/unbind(" additionaldismisschars=";:" allowwhitespaceprefix="true" patternseparator="/" displayrestriction="JavaScript">	
+			<menuitem label="blur" value="'blur'" icon="shared/jquery_icon.png" />
+			<menuitem label="change" value="'change'" icon="shared/jquery_icon.png" />
+			<menuitem label="click" value="'click'" icon="shared/jquery_icon.png" />
+			<menuitem label="dblclick" value="'dblclick'" icon="shared/jquery_icon.png" />
+			<menuitem label="error" value="'error'" icon="shared/jquery_icon.png" />
+			<menuitem label="focus" value="'focus'" icon="shared/jquery_icon.png" />
+			<menuitem label="keydown" value="'keydown'" icon="shared/xtnd/jquery/keyboard.png" />
+			<menuitem label="keypress" value="'keypress'" icon="shared/xtnd/jquery/keyboard.png" />
+			<menuitem label="keyup" value="'keyup'" icon="shared/xtnd/jquery/keyboard.png" />
+			<menuitem label="load" value="'load'" icon="shared/jquery_icon.png" />
+			<menuitem label="mousedown" value="'mousedown'" icon="shared/jquery_icon.png" />
+			<menuitem label="mousemove" value="'mousemove'" icon="shared/jquery_icon.png" />
+			<menuitem label="mouseout" value="'mouseout'" icon="shared/jquery_icon.png" />
+			<menuitem label="mouseover" value="'mouseover'" icon="shared/jquery_icon.png" />
+			<menuitem label="mouseup" value="'mouseup'" icon="shared/jquery_icon.png" />
+			<menuitem label="resize" value="'resize'" icon="shared/jquery_icon.png" />
+			<menuitem label="scroll" value="'scroll'" icon="shared/jquery_icon.png" />
+			<menuitem label="select" value="'select'" icon="shared/jquery_icon.png" />
+			<menuitem label="submit" value="'submit'" icon="shared/jquery_icon.png" />
+			<menuitem label="unload" value="'unload'" icon="shared/jquery_icon.png" />
+		</menu>
+
+
+
+		<menu pattern="$." additionaldismisschars=";:" allowwhitespaceprefix="true" displayrestriction="JavaScript">
+		<!-- Core jQuery对象访问 -->
+			<menuitem label="each" value="each(" icon="shared/jquery_icon.png" />
+			<menuitem label="size" value="size()" icon="shared/jquery_icon.png" />
+			<menuitem label="length" value="length" icon="shared/jquery_icon.png" />
+			<menuitem label="selector" value="selector" icon="shared/jquery_icon.png" />
+			<menuitem label="context" value="context" icon="shared/jquery_icon.png" />
+			<menuitem label="get()" value="get()" icon="shared/jquery_icon.png" />
+			<menuitem label="get(index)" value="get(index)" icon="shared/jquery_icon.png" />
+			<menuitem label="index(subject)" value="index(subject)" icon="shared/jquery_icon.png" />	
+		<!-- Core jQuery 数据缓存 -->
+			<menuitem label="data(name)" value="data(name)" icon="shared/jquery_icon.png" />
+			<menuitem label="data(name,value)" value="data(name,value)" icon="shared/jquery_icon.png" />
+			<menuitem label="removeData(name)" value="removeData(name)" icon="shared/jquery_icon.png" />
+			<menuitem label="queue(name)" value="queue(name)" icon="shared/jquery_icon.png" />
+			<menuitem label="queue(name, callback)" value="queue(name, callback)" icon="shared/jquery_icon.png" />
+			<menuitem label="queue(name, queue)" value="queue(name, queue)" icon="shared/jquery_icon.png" />
+			<menuitem label="dequeue(name)" value="dequeue(name)" icon="shared/jquery_icon.png" />
+
+		<!-- DOM 属性 -->	
+			<menuitem label="attr(name)" value="attr(name)" icon="shared/jquery_icon.png" />		
+			<menuitem label="attr(key, value)" value="attr( , )" icon="shared/jquery_icon.png" />
+			<menuitem label="attr(properties)" value="attr({  :  ,  :  })" icon="shared/jquery_icon.png" />
+			<menuitem label="attr(key, fn)" value="attr(  , function() {   })" icon="shared/jquery_icon.png" />
+			<menuitem label="removeAttr(name)" value="removeAttr(name)" icon="shared/jquery_icon.png" />
+		<!-- CSS 类 -->
+			<menuitem label="addClass(class)" value="addClass(class)" icon="shared/jquery_icon.png" />
+			<menuitem label="removeClass([class])" value="removeClass([class])" icon="shared/jquery_icon.png" />
+			<menuitem label="toggleClass(class)" value="toggleClass(class)" icon="shared/jquery_icon.png" />
+			<menuitem label="toggleClass(class, switch)" value="toggleClass(class, switch)" icon="shared/jquery_icon.png" />
+		<!-- HTML代码 和 Value 代码-->
+			<menuitem label="html()" value="html()" icon="shared/jquery_icon.png" />
+			<menuitem label="html(val)" value="html(val)" icon="shared/jquery_icon.png" />
+			<menuitem label="text()" value="text()" icon="shared/jquery_icon.png" />
+			<menuitem label="text(val)" value="text(val)" icon="shared/jquery_icon.png" />
+			<menuitem label="val()" value="val()" icon="shared/jquery_icon.png" />
+			<menuitem label="val(val)" value="val(val)" icon="shared/jquery_icon.png" />
+
+		<!-- 过滤 -->
+			<menuitem label="eq(index)" value="eq(index)" icon="shared/jquery_icon.png" />
+			<menuitem label="hasClass(class)" value="hasClass(class)" icon="shared/jquery_icon.png" />
+			<menuitem label="filter(expr)" value="filter(expr)" icon="shared/jquery_icon.png" />
+			<menuitem label="filter(fn)" value="filter(fn)" icon="shared/jquery_icon.png" />
+			<menuitem label="is(expr)" value="is(expr)" icon="shared/jquery_icon.png" />
+			<menuitem label="map(callback)" value="map(callback)" icon="shared/jquery_icon.png" />
+			<menuitem label="not(expr)" value="not(expr)" icon="shared/jquery_icon.png" />
+			<menuitem label="slice(start, [end])" value="slice(start,end)" icon="shared/jquery_icon.png" />
+		<!--查找-->
+			<menuitem label="add(expr)" value="add(expr)" icon="shared/jquery_icon.png" />
+			<menuitem label="children([expr])" value="children()" icon="shared/jquery_icon.png" />
+			<menuitem label="closest([expr])" value="closest()" icon="shared/jquery_icon.png" />
+			<menuitem label="contents()" value="contents()" icon="shared/jquery_icon.png" />
+			<menuitem label="find(expr)" value="find()" icon="shared/jquery_icon.png" />
+
+			<menuitem label="next([expr])" value="next()" icon="shared/jquery_icon.png" />
+			<menuitem label="nextAll([expr])" value="nextAll()" icon="shared/jquery_icon.png" />
+			<menuitem label="offsetParent()" value="offsetParent()" icon="shared/jquery_icon.png" />
+			
+			<menuitem label="parent([expr])" value="parent()" icon="shared/jquery_icon.png" />
+			<menuitem label="parents([expr])" value="parents()" icon="shared/jquery_icon.png" />
+			<menuitem label="prev([expr])" value="prev()" icon="shared/jquery_icon.png" />
+			<menuitem label="prevAll([expr])" value="prevAll()" icon="shared/jquery_icon.png" />
+			<menuitem label="siblings([expr])" value="siblings()" icon="shared/jquery_icon.png" />
+		<!-- 串联 -->
+			<menuitem label="andSelf()" value="andSelf()" icon="shared/jquery_icon.png" />
+			<menuitem label="end()" value="end()" icon="shared/jquery_icon.png" />
+
+			
+		<!-- 文档处理 -->
+		<!-- 内部插入-->
+			<menuitem label="append(content)" value="append(content)" icon="shared/jquery_icon.png" />
+			<menuitem label="appendTo(content)" value="appendTo(content)" icon="shared/jquery_icon.png" />
+			<menuitem label="prepend(content)" value="prepend(content)" icon="shared/jquery_icon.png" />
+			<menuitem label="prependTo(content)" value="prependTo(content)" icon="shared/jquery_icon.png" />
+		<!-- 外部插入 -->
+			<menuitem label="after(content)" value="after(content)" icon="shared/jquery_icon.png" />
+			<menuitem label="before(content)" value="before(content)" icon="shared/jquery_icon.png" />
+			<menuitem label="insertAfter(content)" value="insertAfter(content)" icon="shared/jquery_icon.png" />
+			<menuitem label="insertBefore(content)" value="insertBefore(content)" icon="shared/jquery_icon.png" />
+		<!-- 包裹 -->
+			<menuitem label="wrap(html)" value="wrap(html)" icon="shared/jquery_icon.png" />
+			<menuitem label="wrap(elem)" value="wrap(elem)" icon="shared/jquery_icon.png" />
+			<menuitem label="wrapAll(html)" value="wrapAll(html)" icon="shared/jquery_icon.png" />
+			<menuitem label="wrapAll(elem)" value="wrapAll(elem)" icon="shared/jquery_icon.png" />
+			<menuitem label="wrapInner(html)" value="wrapInner(html)" icon="shared/jquery_icon.png" />
+			<menuitem label="wrapInner(elem)" value="wrapInner(elem)" icon="shared/jquery_icon.png" />
+		<!-- 替换 -->
+			<menuitem label="replaceWith(content)" value="replaceWith(content)" icon="shared/jquery_icon.png" />
+			<menuitem label="replaceAll(selector)" value="replaceAll(selector)" icon="shared/jquery_icon.png" />
+		<!-- 删除 -->
+			<menuitem label="empty()" value="empty()" icon="shared/jquery_icon.png" />
+			<menuitem label="remove([expr])" value="remove()" icon="shared/jquery_icon.png" />
+		<!-- 复制 -->
+			<menuitem label="clone()" value="clone()" icon="shared/jquery_icon.png" />
+			<menuitem label="clone(true)" value="clone(true)" icon="shared/jquery_icon.png" />
+			
+
+		<!-- CSS -->
+		<!-- CSS -->
+			<menuitem label="css(name)" value="css(name)" icon="shared/jquery_icon.png" />
+			<menuitem label="css(properties)" value="css({name1 : value1 , name2 : value2 })" icon="shared/jquery_icon.png" />
+			<menuitem label="css(name, value)" value="css(name, value)" icon="shared/jquery_icon.png" />
+		<!-- 位置 -->
+			<menuitem label="offset()" value="offset()" icon="shared/jquery_icon.png" />
+			<menuitem label="position()" value="position()" icon="shared/jquery_icon.png" />
+			<menuitem label="scrollTop()" value="scrollTop()" icon="shared/jquery_icon.png" />
+			<menuitem label="scrollTop(val)" value="scrollTop(val)" icon="shared/jquery_icon.png" />
+			<menuitem label="scrollLeft()" value="scrollLeft()" icon="shared/jquery_icon.png" />
+			<menuitem label="scrollLeft(val)" value="scrollLeft(val)" icon="shared/jquery_icon.png" />
+		<!-- 尺寸 -->
+			<menuitem label="height()" value="height()" icon="shared/jquery_icon.png" />
+			<menuitem label="height(val)" value="height(val)" icon="shared/jquery_icon.png" />
+			<menuitem label="width()" value="width()" icon="shared/jquery_icon.png" />
+			<menuitem label="width(val)" value="width(val)" icon="shared/jquery_icon.png" />
+			<menuitem label="innerHeight()" value="innerHeight()" icon="shared/jquery_icon.png" />
+			<menuitem label="innerWidth()" value="innerWidth()" icon="shared/jquery_icon.png" />
+			<menuitem label="outerHeight()" value="outerHeight()" icon="shared/jquery_icon.png" />
+			<menuitem label="outerHeight(true)" value="outerHeight(true)" icon="shared/jquery_icon.png" />
+			<menuitem label="outerWidth()" value="outerWidth()" icon="shared/jquery_icon.png" />
+			<menuitem label="outerWidth(true)" value="outerWidth(true)" icon="shared/jquery_icon.png" />
+		
+		
+		<!-- 事件  -->
+		<!-- 页面载入  -->
+			<menuitem label="ready(fn)" value="ready(fn)" icon="shared/jquery_icon.png" />
+		<!-- 事件处理  -->
+			<menuitem label="bind(type, [data], fn)" value="bind(type, [data], fn)" icon="shared/jquery_icon.png" />
+			<menuitem label="one(type, [data], fn)" value="one(type, [data], fn)" icon="shared/jquery_icon.png" />
+			<menuitem label="trigger(type, [data])" value="trigger(type, [data])" icon="shared/jquery_icon.png" />
+			<menuitem label="triggerHandler(type, [data])" value="triggerHandler(type, [data])" icon="shared/jquery_icon.png" />
+			<menuitem label="unbind([type], [data])" value="unbind([type], [data])" icon="shared/jquery_icon.png" />
+		<!-- 事件委派  -->
+			<menuitem label="live(type, fn)" value="live(type, fn)" icon="shared/jquery_icon.png" />
+			<menuitem label="die([type], [fn])" value="die([type], [fn])" icon="shared/jquery_icon.png" />
+		<!-- 事件切换  -->
+			<menuitem label="hover(over, out)" value="hover(over, out)" icon="shared/jquery_icon.png" />
+			<menuitem label="toggle(fn, fn2, [...])" value="toggle(fn, fn2, [...])" icon="shared/jquery_icon.png" />
+		
+		<!-- 事件  -->
+			<menuitem label="blur()" value="blur()" icon="shared/jquery_icon.png" />
+			<menuitem label="blur(fn)" value="blur(fn)" icon="shared/jquery_icon.png" />
+			<menuitem label="change()" value="change()" icon="shared/jquery_icon.png" />
+			<menuitem label="change(fn)" value="change(fn)" icon="shared/jquery_icon.png" />
+			<menuitem label="click()" value="click()" icon="shared/jquery_icon.png" />
+			<menuitem label="click(fn)" value="click(fn)" icon="shared/jquery_icon.png" />
+
+			<menuitem label="dblclick()" value="dblclick()" icon="shared/jquery_icon.png" />
+			<menuitem label="dblclick(fn)" value="dblclick(fn)" icon="shared/jquery_icon.png" />
+			<menuitem label="error()" value="error()" icon="shared/jquery_icon.png" />
+			<menuitem label="error(fn)" value="error(fn)" icon="shared/jquery_icon.png" />
+			<menuitem label="focus()" value="focus()" icon="shared/jquery_icon.png" />
+			<menuitem label="focus(fn)" value="focus(fn)" icon="shared/jquery_icon.png" />
+
+			<menuitem label="keydown()" value="keydown()" icon="shared/jquery_icon.png" />
+			<menuitem label="keydown(fn)" value="keydown(fn)" icon="shared/jquery_icon.png" />
+			<menuitem label="keypress()" value="keypress()" icon="shared/jquery_icon.png" />
+			<menuitem label="keypress(fn)" value="keypress(fn)" icon="shared/jquery_icon.png" />
+			<menuitem label="keyup()" value="keyup()" icon="shared/jquery_icon.png" />
+			<menuitem label="keyup(fn)" value="keyup(fn)" icon="shared/jquery_icon.png" />
+			<menuitem label="load(fn)" value="load(fn)" icon="shared/jquery_icon.png" />
+
+			<menuitem label="mousedown()" value="mousedown()" icon="shared/jquery_icon.png" />
+			<menuitem label="mousedown(fn)" value="mousedown(fn)" icon="shared/jquery_icon.png" />
+			<menuitem label="mousemove()" value="mousemove()" icon="shared/jquery_icon.png" />
+			<menuitem label="mousemove(fn)" value="mousemove(fn)" icon="shared/jquery_icon.png" />
+			<menuitem label="mouseout()" value="mouseout()" icon="shared/jquery_icon.png" />
+			<menuitem label="mouseout(fn)" value="mouseout(fn)" icon="shared/jquery_icon.png" />
+
+			<menuitem label="mouseover()" value="mouseover()" icon="shared/jquery_icon.png" />
+			<menuitem label="mouseover(fn)" value="mouseover(fn)" icon="shared/jquery_icon.png" />
+			<menuitem label="mouseup()" value="mouseup()" icon="shared/jquery_icon.png" />
+			<menuitem label="mouseup(fn)" value="mouseup(fn)" icon="shared/jquery_icon.png" />
+
+			<menuitem label="resize(fn)" value="resize(fn)" icon="shared/jquery_icon.png" />
+			<menuitem label="scroll(fn)" value="scroll(fn)" icon="shared/jquery_icon.png" />
+			<menuitem label="select()" value="select()" icon="shared/jquery_icon.png" />
+			<menuitem label="select(fn)" value="select(fn)" icon="shared/jquery_icon.png" />
+
+			<menuitem label="submit()" value="submit()" icon="shared/jquery_icon.png" />
+			<menuitem label="submit(fn)" value="submit(fn)" icon="shared/jquery_icon.png" />
+			<menuitem label="unload(fn)" value="unload(fn)" icon="shared/jquery_icon.png" />
+
+		<!-- 效果  -->
+		<!-- 基本  -->
+			<menuitem label="show()" value="show()" icon="shared/jquery_icon.png" />
+			<menuitem label="show(speed, [callback])" value="show(speed, [callback])" icon="shared/jquery_icon.png" />
+			<menuitem label="hide()" value="hide()" icon="shared/jquery_icon.png" />
+			<menuitem label="hide(speed, [callback])" value="hide(speed, [callback])" icon="shared/jquery_icon.png" />
+			<menuitem label="toggle()" value="toggle()" icon="shared/jquery_icon.png" />
+			<menuitem label="toggle(switch)" value="toggle(switch)" icon="shared/jquery_icon.png" />
+			<menuitem label="toggle(speed, [callback])" value="toggle(speed, [callback])" icon="shared/jquery_icon.png" />
+		<!-- 滑动  -->
+			<menuitem label="slideDown()" value="slideDown()" icon="shared/jquery_icon.png" />
+			<menuitem label="slideDown(speed, [callback])" value="slideDown(speed, [callback])" icon="shared/jquery_icon.png" />
+			
+			<menuitem label="slideUp()" value="slideUp()" icon="shared/jquery_icon.png" />
+			<menuitem label="slideUp(speed, [callback])" value="slideUp(speed, [callback])" icon="shared/jquery_icon.png" />
+			
+			<menuitem label="slideToggle()" value="slideToggle()" icon="shared/jquery_icon.png" />
+			<menuitem label="slideToggle(speed, [callback])" value="slideToggle(speed, [callback])" icon="shared/jquery_icon.png" />
+		<!-- 淡入淡出  -->
+			<menuitem label="fadeIn()" value="fadeIn()" icon="shared/jquery_icon.png" />
+			<menuitem label="fadeIn(speed, [callback])" value="fadeIn(speed, [callback])" icon="shared/jquery_icon.png" />
+			<menuitem label="fadeOut()" value="fadeOut()" icon="shared/jquery_icon.png" />
+			<menuitem label="fadeOut(speed, [callback])" value="fadeOut(speed, [callback])" icon="shared/jquery_icon.png" />
+			<menuitem label="fadeTo(speed,opacity)" value="fadeTo(speed,opacity)" icon="shared/jquery_icon.png" />
+			<menuitem label="fadeTo(speed, opacity, [fn])" value="fadeTo(speed, opacity, [fn])" icon="shared/jquery_icon.png" />
+		<!-- 自定义  -->
+			<menuitem label="animate(params,[dur],[e],[fn])" value="animate({key:value},500,fn)" icon="shared/jquery_icon.png" />
+			<menuitem label="animate(params, options)" value="animate({key:value},{duration:500,complete:fn})" icon="shared/jquery_icon.png" />
+			<menuitem label="stop()" value="stop()" icon="shared/jquery_icon.png" />
+			<menuitem label="stop([clearQueue], [gotoEnd])" value="stop([clearQueue], [gotoEnd])" icon="shared/jquery_icon.png" />
+		
+
+		<!-- Ajax -->
+			<menuitem label="load(url, [data], [callback])" value="load(url, [data], [callback])" icon="shared/jquery_icon.png" />	
+			<menuitem label="ajaxComplete(callback)" value="ajaxComplete(callback)" icon="shared/jquery_icon.png" />
+			<menuitem label="ajaxError(callback)" value="ajaxError(callback)" icon="shared/jquery_icon.png" />
+			<menuitem label="ajaxSend(callback)" value="ajaxSend(callback)" icon="shared/jquery_icon.png" />
+			<menuitem label="ajaxStart(callback)" value="ajaxStart(callback)" icon="shared/jquery_icon.png" />
+			<menuitem label="ajaxStop(callback)" value="ajaxStop(callback)" icon="shared/jquery_icon.png" />
+			<menuitem label="ajaxSuccess(callback)" value="ajaxSuccess(callback)" icon="shared/jquery_icon.png" />
+			<menuitem label="serialize()" value="serialize()" icon="shared/jquery_icon.png" />
+			<menuitem label="serializeArray()" value="serializeArray()" icon="shared/jquery_icon.png" />
+		
+		</menu> 
+	
+	</menugroup>
+</codehints>

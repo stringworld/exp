@@ -1,0 +1,8 @@
+replace(cast(Content as varchar(8000)),'http://news.163.com/','http://edu.cnzz.cc/')
+
+update bl_product set intro=replace(intro,'www.bonli.cn/bonli/','www.bonli.cn/') where intro like '%www.bonli.cn/bonli/%'
+
+其中PE_Article 为表名
+Content为字段名
+http://news.163.com/为要替换的内容
+http://edu.cnzz.cc/为替换后的内容

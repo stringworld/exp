@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    </head>
+    <body>
+    	<a href="javascript:setHome();">加入首页</a>
+        <a href="javascript:addFav();">加入收藏</a>
+    </body>
+    <script>
+		//设置首页
+		function setHome(){
+			var aUrls=document.URL.split("/");
+			var vDomainName="http://"+aUrls[2]+"/";
+			if(document.all){
+				document.body.style.behavior="url(#default#homepage)";
+				document.body.setHomePage(vDomainName);
+			}else if(window.netscape){
+				try{
+					netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+					var prefs=Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch);
+					prefs.setCharPref("browser.startup.homepage",url);
+				}catch(e){
+					alert( "该操作被浏览器拒绝，如果想启用该功能，请在地址栏内输入 about:config,然后将项 signed.applets.codebase_principal_support 值该为true " );
+				}
+			}
+		}
+		//加入收藏
+		function addFav(){
+			var aUrls=document.URL.split("/");
+			var vDomainName="http://"+aUrls[2]+"/";
+			var title=document.title;
+			try{
+				window.external.AddFavorite(vDomainName,title);
+			}catch(e){
+				try{
+					window.sidebar.addPanel(title,vDomainName,"");
+				}catch(e){
+					alert("加入收藏失败，请使用Ctrl+D进行添加");
+				}
+			}
+		}
+    </script>
+</html>

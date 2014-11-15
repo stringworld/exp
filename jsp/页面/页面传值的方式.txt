@@ -1,0 +1,18 @@
+页面指向的选择：不通过按钮来实现跳转
+
+	<!--form可以选择get或者post，大数据使用post-->
+	<!-- 
+		<form method="get" action="put.jsp">
+			<input type="hidden" name="id" value=<%=rs.getString("p_id")%> ><input type="submit" value="加入购物车">
+		</form>
+	-->
+
+	<!-- <a href="put.jsp?id=<%=rs.getString("p_id")%>">加入购物车</a> -->
+
+	<!-- 都是发送连接而已，a标签是通过get请求发送的 -->
+
+	<!--  a href="javascript:;" onclick="location='put.jsp?id=<%=rs.getString("p_id")%>'" style="text-decoration: underline;">加入购物车</a-->
+
+	<!-- 模仿 -->
+	<p onclick="location='put.jsp?id=<%=rs.getString("p_id")%>'" style="text-decoration:underline;cursor:pointer;color:blue;">加入购物车</p>
+

@@ -1,0 +1,123 @@
+1.  create database Student
+2.  
+create table 学生
+(学号 char(12) not null,
+姓名 varchar(20) not null,
+出生日期 datetime not null,
+是否党员 bit,
+班委 char(8),
+primary key (学号));
+
+
+create table 课程
+(课程号 char(3),
+课程名称 varchar(20),
+先修课号 char(3),
+primary key(课程号));
+
+
+create table 成绩
+(学号 char(12),
+课程号 char(3),
+成绩 int check(成绩>0 and 成绩<100),
+primary key(学号,课程号),
+foreign key (学号)references 学生(学号), 
+foreign key (课程号)references 课程(课程号));
+
+3.
+create index 课程索引 on 成绩(课程号)
+4.
+insert into 学生
+(学号,姓名,出生日期,是否党员,班委)
+values
+('200210515001','黎明','1995','0','团支书');
+
+insert into 课程
+(课程号,课程名称,先修课号)
+values
+('01','数据结构','001');
+
+insert into 成绩
+(学号,课程号,成绩)
+values
+('20021051004','02','98');
+
+5.
+alter table 学生
+add 德育分 int
+
+
+alter table 学生
+add 专业分 int
+
+
+alter table 学生
+add 总积分 int
+
+
+update 学生
+set 总积分=德育分+专业分;
+
+6.
+select 课程号,课程名称
+from 课程;
+
+7.
+select *
+from 学生;
+
+8.
+select 学号,'德育分+专业分=',总积分
+from 学生;
+
+9.
+select *
+from 成绩表
+where 学号='200210515001';
+
+10.
+select *
+from 成绩表
+where 成绩<=60;
+
+11.
+select *
+from 课程
+where 课程名称!='数据库';
+
+12.
+select 学号
+from 学生
+where datediff(year,出生日期,'2009-4-25')>20;
+
+13.
+select 学号
+from 成绩
+where 成绩=null;
+
+16.
+select 课程号
+from 成绩表
+order by 课程号;
+
+select *
+from 成绩表
+order by 成绩;
+
+18.
+select 学号
+from 成绩
+where 课程号 in('201','301');
+
+19.
+select *
+from 成绩表
+where 成绩<60;
+
+22.
+select 学号
+from 学生
+where 专业分 between 100 and 120;
+
+
+

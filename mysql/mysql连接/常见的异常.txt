@@ -1,0 +1,3 @@
+com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException:
+
+表示数据库中的数据重复，表中有主键的前提下，添加重复的数据会出现此错误

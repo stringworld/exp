@@ -1,0 +1,1 @@
+CREATE RULE R_ังทึ AS @xf>0 AND @xf<=10

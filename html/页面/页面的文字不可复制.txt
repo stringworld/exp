@@ -1,0 +1,12 @@
+1.禁止网页内容复制．粘贴： 在body中加入以下代码
+
+onmousemove=\HideMenu()\ oncontextmenu="return false" ondragstart="return false" onselectstart ="return false" onselect="document.selection.empty()" oncopy="document.selection.empty()" onbeforecopy="return false" onmouseup="document.selection.empty()">
+
+2．禁止网页另存为：在<body>后面加入以下代码： 
+
+<noscript>
+ <iframe src="*.htm"></iframe> 
+</noscript>
+
+
+3.禁止右键 <body oncontextmenu="return false">

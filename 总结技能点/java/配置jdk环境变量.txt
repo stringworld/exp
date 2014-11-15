@@ -1,0 +1,35 @@
+1.安装JDK
+
+安装好JDK后，再配置JDK的环境变量：
+在“我的电脑”上点右键—>“属性”—>“高级”—> “环境变量(N)”。
+
+新建系统变量JAVA_HOME			D:\Program Files\Java\jdk1.6.0_10
+
+在系统变量Path的值的最后加入以下内容	;%JAVA_HOME%\bin
+
+新建系统变量CLASSPATH			.;%JAVA_HOME%\lib	（点号表示当前目录，不能省略）
+
+到这里，JDK安装完毕。
+
+
+2.安装Tomcat
+
+安装好Tomcat后，再配置Tomcat的环境变量：
+在“我的电脑”上点右键—>“属性”—>“高级”—> “环境变量(N)”。
+
+新建系统变量CATALINA_HOME：D:/jakarta-tomcat-5.0.30
+
+在系统变量CLASSPATH的值的后面加入：%CATALINA_HOME%/common/lib;
+
+在系统变量Path的值中"%JAVA_HOME%/bin;"的后面加入以下内容：%CATALINA_HOME%/bin;
+
+到这里，Tomcat安装完毕。
+
+
+配置好以上环境变量之后，各系统变量的值如下：
+JAVA_HOME:C:/Program Files/Java/jdk1.5.0_06
+CATALINA_HOME:D:/jakarta-tomcat-5.0.30
+CLASSPATH:.;%JAVA_HOME%/lib;%CATALINA_HOME%/common/lib;
+Path:%JAVA_HOME%/bin;%CATALINA_HOME%/bin;%SystemRoot%/system32;%SystemRoot%;%
+
+SystemRoot%/System32/Wbem

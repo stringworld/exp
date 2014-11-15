@@ -1,0 +1,75 @@
+class A
+{
+	public void func1()
+	{
+		System.out.println("B func1 is calling");
+	}
+	public void func2()
+	{
+		func1();
+	}
+}
+class B extends A
+{
+	public void func1()
+	{
+		System.out.println("B func1 is calling");
+	}
+	`public void func3()
+	{
+		System.out.println("B func3 is calling");
+	}
+}
+
+class C
+{
+	public static void main(String []ages)
+	{
+		B b = new B();
+		callA(b);
+		A a = b;
+		callA(new B());
+	}
+	public static void callA(A a)
+	{
+		if(a instanceof B)
+		{
+			B b = (B)a;//Ç¿ÖÆ×ª»»
+			b.func1();
+			b.func2();
+			b.func3();
+		}
+		a.func1();
+		a.func2();
+
+	}
+}
+
+class Student extends Object
+{
+	String name;
+	int age;
+	public boolean equals(Object obj)
+	{
+		Student st = null;
+		if(obj instanceof Student)
+		{
+			st = (Student)obj;
+			if(st.name==name && st.age==age)
+				return true;
+			else
+				return falsh;
+		}
+		else
+			return falsh£»
+	}
+public static void main(String [] args)
+	{
+		Student st1 = new Student("zhangsan",20);
+		Student st2 = new Student("lisi",20);
+		if(st1.equals(st2))
+			System.out.println("equals");
+		else
+			System.out.println("not equals");
+	}
+}

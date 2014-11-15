@@ -1,0 +1,24 @@
+页面刷新： 
+有三种方法：
+ 
+1，在html中设置： 
+
+<title> xxxxx </title> 之後加入下面这一行即可！   
+定时刷新： <META   HTTP-EQUIV= "Refresh "   content= "10;   URL=http://自己的URL ">   
+10代表刷新间隔 
+
+2.jsp 
+
+<%   response.setHeader( "refresh ", "1 ");   %> 
+  每一秒刷新一次 
+
+3.使用javascript: 
+
+<script   language= "javascript "> 
+setTimeout( "self.location.reload(); ",1000); 
+<script> 
+一秒一次 
+
+jsp页面中有一个按钮，点击它实现页面刷新效果，通过javascript实现
+
+<input type="button" onclick="javascript:window.location.reload()" value="刷新"/>

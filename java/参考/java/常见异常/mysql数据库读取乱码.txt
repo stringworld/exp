@@ -1,0 +1,2 @@
+Á¬½Ó×Ö·û´®
+jdbc:mysql://localhost:3306/houserent?useUnicode=true&amp;characterEncoding=utf-8

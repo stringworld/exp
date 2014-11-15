@@ -1,0 +1,19 @@
+﻿// 自定义Vtype:'time'
+var timeTest = /^([1-9]|1[0-9]):([0-5][0-9])(\s[a|p]m)$/i;
+Ext.apply(Ext.form.VTypes, {
+    //  vtype 校验函数
+    time: function(val, field) {
+        return timeTest.test(val);
+    },
+    // vtype文本属性：当验证函数返回false显示的出错文本
+    timeText: 'Not a valid time.  Must be in the format "12:34 PM".',
+    // vtype Mask 属性: 按键过滤器
+    timeMask: /[\d\s:amp]/i
+});
+
+
+Ext.create('Ext.form.field.Text', {
+    fieldLabel: 'Departure Time',
+    name: 'departureTime',
+    vtype: 'time' // applies custom time validation rules to this field
+});

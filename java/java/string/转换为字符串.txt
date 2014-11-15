@@ -1,0 +1,43 @@
+String 类别中已经提供了将基本数据型态转换成 String 的 static 方法 
+也就是 String.valueOf() 这个参数多载的方法 
+	例子：
+	1. 由 基本数据型态转换成 String 
+String 类别中已经提供了将基本数据型态转换成 String 的 static 方法 
+也就是 String.valueOf() 这个参数多载的方法 
+有下列几种 
+String.valueOf(boolean b) : 将 boolean 变量 b 转换成字符串 
+String.valueOf(char c) : 将 char 变量 c 转换成字符串 
+String.valueOf(char[] data) : 将 char 数组 data 转换成字符串 
+String.valueOf(char[] data, int offset, int count) : 
+将 char 数组 data 中 由 data[offset] 开始取 count 个元素 转换成字符串 
+String.valueOf(double d) : 将 double 变量 d 转换成字符串 
+String.valueOf(float f) : 将 float 变量 f 转换成字符串 
+String.valueOf(int i) : 将 int 变量 i 转换成字符串 
+String.valueOf(long l) : 将 long 变量 l 转换成字符串 
+String.valueOf(Object obj) : 将 obj 对象转换成 字符串, 等于 obj.toString() 
+用法如: 
+int i = 10; 
+String str = String.valueOf(i); 
+这时候 str 就会是 "10" 
+2. 由 String 转换成 数字的基本数据型态 
+要将 String 转换成基本数据型态转 
+大多需要使用基本数据型态的包装类别 
+比如说 String 转换成 byte 
+可以使用 Byte.parseByte(String s) 
+这一类的方法如果无法将 s 分析 则会丢出 NumberFormatException 
+byte : 
+Byte.parseByte(String s) : 将 s 转换成 byte 
+Byte.parseByte(String s, int radix) : 以 radix 为基底 将 s 转换为 byte 
+比如说 Byte.parseByte("11", 16) 会得到 17 
+double : 
+Double.parseDouble(String s) : 将 s 转换成 double 
+float : 
+Double.parseFloat(String s) : 将 s 转换成 float 
+int : 
+Integer.parseInt(String s) : 将 s 转换成 int 
+long : 
+Long.parseLong(String s) : 将 s 转换成 long
+
+
+
+网址：http://www.cnblogs.com/zhangjs8385/archive/2011/11/04/2236527.html

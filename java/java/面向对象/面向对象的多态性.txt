@@ -1,0 +1,30 @@
+什么是多态：
+	某一类事物的多种存在形态，多态就是类的多种表现方式 
+
+多态体现在两个方面：
+1、重载（overloading）：同一个类中拥有相同的方法名，参数和返回值不相同。
+2、重写（overriding）：子类继承父类，覆盖父类方法，方法名和参数都要相同。
+
+class Person {
+    private int id;
+    private String name;
+    // setter getter省略
+    public Person() {// 构造方法的重载
+        this.id = 1;
+        this.name = "张山";
+    }
+    public Person(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+    public void work() {// 普通方法重载
+        System.out.println("Person在工作");
+    }
+    public void work(int speed) {
+        System.out.println("Person以"+speed+"速度工作");
+    } 
+}
+class Young extends Person {
+    public void work() {// 重写父类中的work方法
+        System.out.println("Young在工作");
+    }

@@ -1,0 +1,1 @@
+EXEC SP_UNBINDEFAULT '学生表.政治面貌'

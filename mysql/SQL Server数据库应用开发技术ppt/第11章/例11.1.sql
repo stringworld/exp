@@ -1,0 +1,1 @@
+sp_grantlogin  BUILTIN\Users

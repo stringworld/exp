@@ -1,0 +1,2 @@
+菜单 [Window]->[Preferences]->[MyEclipse Enterprise Workbench]->[Java Enterprise Project]->[Library Sets] [J2EE1.4]和[J2EE1.3]下的javax.servelet.jar
+点开树，选择[javadoc location]这个节点，双击[编辑]，在对话框中把地址去掉为空或者选择你本地javadoc地址即可解决jsp自动提示卡慢的问题。

@@ -1,0 +1,630 @@
+﻿一、IE与FireFox的js和css
+
+png透明 AlphaImageLoader
+filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=bEnabled,sizingMethod=sSize,src=sURL)
+
+enabled：可选项。布尔值(Boolean)。设置或检索滤镜是否激活。true：默认值。滤镜激活。false：滤镜被禁止。
+sizingMethod：可选项。字符串(String)。设置或检索滤镜作用的对象的图片在对象容器边界内的显示方式。crop：剪切图片以适应对象尺寸。image：默认值。增大或减小对象的尺寸边界以适应图片的尺寸。scale：缩放图片以适应对象的尺寸边界。
+src：必选项。字符串(String)。使用绝对或相对 url 地址指定背景图像。假如忽略此参数，滤镜将不会作用。
+
+firefox不能对innerText支持
+firefox支持innerHTML但却不支持innerText，它支持textContent来实现innerText，不过默认把多余的空格也保留了。如果不用textContent，如果字符串里面不包含HTML代码也可以用innerHTML代替。
+
+禁止选取网页内容
+在IE中一般用js：obj.onselectstart=function(){return false;}
+而firefox用CSS:-moz-user-select:none
+
+滤镜的支持(例：透明滤镜)
+IE:filter：alpha(opacity=10);
+firefox：-moz-opacity:.10;
+
+捕获事件
+IE：obj.setCapture() 、obj.releaseCapture()
+Firefox：document.addEventListener(”mousemove”,mousemovefunction,true);
+document.removeEventListener(”mousemove”,mousemovefunction,true);
+
+获取鼠标位置
+IE:event.clientX、event.clientY
+firefox：需要事件函数传递事件对象
+obj.onmousemove=function(ev){
+X= ev.pageX;Y=ev.pageY;
+}
+
+DIV等元素的边界问题
+比如：设置一个div的CSS:：{width:100px;height:100px;border:#000000 1px solid;}
+IE中：div的宽度（包括边框宽度）：100px，div的高度（包括边框宽度）：100px；
+而firefox：div的宽度（包括边框宽度）：102px，div的高度（包括边框宽度）：102px；
+
+判断浏览器类型
+var isIE=document.all ? true : false;
+我写了一个变量，如果支持document.all语法那么isIE=true，否则isIE=false
+
+在不同浏览器下的CSS处理
+一般可以用!important来优先使用css语句（仅firefox支持）
+比如：{border-width:0px!important;border-width:1px;}
+在firefox下这个元素是没有边框的，在IE下边框宽度是1px
+
+document.formName.item(”itemName”) 问题
+问题说明：IE下，可以
+使用 document.formName.item(”itemName”) 或 document.formName.elements
+[”elementName”]；Firefox下，只能使用document.formName.elements[”elementName”]。
+解决方法：统一使用document.formName.elements[”elementName”]。
+
+集合类对象问题
+问题说明：IE下，可以使用()或[]获取集合类对象；Firefox下，只能使用[]获取集合类对象。
+解决方法：统一使用 [] 获取集合类对象。
+
+自定义属性问题
+问题说明：IE下，可以使用获取常规属性的方法来获取自定义属性，也可以使用 getAttribute() 获取自定义属性；Firefox下，只能使用 getAttribute() 获取自定义属性。
+解决方法：统一通过 getAttribute() 获取自定义属性。
+
+eval(”idName”)问题
+问题说明：IE下，可以使用 eval(”idName”) 或
+getElementById(”idName”) 来取得 id 为 idName 的HTML对象；Firefox下，只能使用
+getElementById(”idName”) 来取得 id 为 idName 的HTML对象。
+解决方法：统一用 getElementById(”idName”) 来取得 id 为 idName 的HTML对象。
+
+变量名与某HTML对象ID相同的问题
+问题说明：IE下，HTML对象的ID可以作为 document 的下属对象变量名直接使用，Firefox下则不能；Firefox下，可以使用与HTML对象ID相同的变量名，IE下则不能。
+解决方法：使用 document.getElementById(”idName”) 代替 document.idName。最好不要取HTML对象ID相同的变量名，以减少错误；在声明变量时，一律加上var关键字，以避免歧义。
+
+const问题
+问题说明：Firefox下，可以使用const关键字或var关键字来定义常量；IE下，只能使用var关键字来定义常量。
+解决方法：统一使用var关键字来定义常量。
+
+input.type属性问题
+问题说明：IE下 input.type 属性为只读；但是Firefox下 input.type 属性为读写。
+解决办法：不修改 input.type 属性。如果必须要修改，可以先隐藏原来的input，然后在同样的位置再插入一个新的input元素。
+
+window.event问题
+问题说明：window.event 只能在IE下运行，而不能在Firefox下运行，这是因为Firefox的event只能在事件发生的现场使用。
+解决方法：在事件发生的函数上加上event参数，在函数体内(假设形参为evt)使用 var myEvent = evt?evt:(window.event?window.event:null)
+示例：<input type=”button” onclick=”doSomething(event)”/>
+<script language=”javascript”>
+function doSomething(evt) {
+var myEvent = evt ? evt: (window.event ? window.event : null)
+…
+}
+
+event.x与event.y问题
+问题说明：IE下，even对象有x、y属性，但是没有pageX、pageY属性；Firefox下，even对象有pageX、pageY属性，但是没有x、y属性。
+解决方法：var myX = event.x ? event.x : event.pageX;var myY = event.y ? event.y:event.pageY;
+如果考虑第8条问题，就改用myEvent代替event即可。
+
+event.srcElement问题
+问题说明：IE下，even对象有srcElement属性，但是没有target属性；Firefox下，even对象有target属性，但是没有srcElement属性。
+解决方法：使用srcObj = event.srcElement ? event.srcElement : event.target;
+如果考虑第8条问题，就改用myEvent代替event即可。
+
+window.location.href问题
+问题说明：IE或者Firefox2.0.x下，可以使用window.location或window.location.href；Firefox1.5.x下，只能使用window.location。
+解决方法：使用 window.location 来代替 window.location.href。当然也可以考虑使用 location.replace()方法。
+
+模态和非模态窗口问题
+问题说明：IE下，可以通过showModalDialog和showModelessDialog打开模态和非模态窗口；Firefox下则不能。
+解决方法：直接使用 window.open(pageURL,name,parameters) 方式打开新窗口。
+如
+果需要将子窗口中的参数传递回父窗口，可以在子窗口中使用window.opener来访问父窗口。如果需要父窗口控制子窗口的话，使用var
+subWindow = window.open(pageURL,name,parameters);来获得新开的窗口对象。
+
+frame和iframe问题
+以下面的frame为例：
+<frame src=”xxx.html” id=”frameId” name=”frameName” />
+(1)访问frame对象
+IE：使用window.frameId或者window.frameName来访问这个frame对象；
+Firefox：使用window.frameName来访问这个frame对象；
+解决方法：统一使用 window.document.getElementById(”frameId”) 来访问这个frame对象；
+
+(2)切换frame内容
+在IE和Firefox中都可以使用window.document.getElementById(”frameId”).src = “xxx.html”或window.frameName.location = “xxx.html”来切换frame的内容；
+如果需要将frame中的参数传回父窗口，可以在frame中使用parent关键字来访问父窗口。
+
+body载入问题
+问题说明：Firefox的body对象在body标签没有被浏览器完全读入之前就存在；而IE的body对象则必须在body标签被浏览器完全读入之后才存在。
+[注] 这个问题尚未实际验证，待验证后再来修改。
+[注] 经验证，IE6、Opera9以及FireFox2中不存在上述问题，单纯的JS脚本可以访问在脚本之前已经载入的所有对象和元素，即使这个元素还没有载入完成。
+
+事件委托方法
+问题说明：IE下，使用 document.body.onload = inject;其中function inject()在这之前已被实现；在Firefox下，使用 document.body.onload = inject();
+解决方法：统一使用 document.body.onload=new Function(”inject()”);或者 document.body.onload = function(){/* 这里是代码 */}
+[注意] Function和function的区别
+
+访问的父元素的区别
+问题说明：在IE下，使用 obj.parentElement 或 obj.parentNode 访问obj的父结点；在firefox下，使用 obj.parentNode 访问obj的父结点。
+解决方法：因为firefox与IE都支持DOM，因此统一使用obj.parentNode 来访问obj的父结点。
+
+cursor:hand VS cursor:pointer
+问题说明：firefox不支持hand，但ie支持pointer ，两者都是手形指示。
+解决方法：统一使用pointer。
+
+innerText的问题
+问题说明：innerText在IE中能正常工作，但是innerText在FireFox中却不行。
+解决方法：在非IE浏览器中使用textContent代替innerText。
+示例：
+if(navigator.appName.indexOf(”Explorer”) >-1){
+document.getElementById(”element”).innerText = “my text”;
+}else{
+document.getElementById(”element”).textContent = “my text”;
+}
+[注] innerHTML 同时被ie、firefox等浏览器支持，其他的，如outerHTML等只被ie支持，最好不用。
+
+对象宽高赋值问题
+问题说明：FireFox中类似 obj.style.height = imgObj.height 的语句无效。
+解决方法：统一使用 obj.style.height = imgObj.height + “px”;
+
+Table操作问题
+问题说明：ie、firefox以及其它浏览器对于 table 标签的操作都各不相同，在ie中不允许对table和tr的innerHTML赋值，使用js增加一个tr时，使用appendChild方法也不管用。
+解决方法：
+//向table追加一个空行：
+var row = otable.insertRow(-1);
+var cell = document.createElement(”td”);
+cell.innerHTML = “”;
+cell.className = “XXXX”;
+row.appendChild(cell);
+[注] 由于俺很少使用JS直接操作表格，这个问题没有遇见过。建议使用JS框架集来操作table，如JQuery。
+
+ul和ol列表缩进问题
+消除ul、ol等列表的缩进时，样式应写成：list-style:none;margin:0px;padding:0px;
+其中margin属性对IE有效，padding属性对FireFox有效。← 此句表述有误，详细见↓
+[注] 这个问题尚未实际验证，待验证后再来修改。
+[注]
+经验证，在IE中，设置margin:0px可以去除列表的上下左右缩进、空白以及列表编号或圆点，设置padding对样式没有影响；在Firefox
+中，设置margin:0px仅仅可以去除上下的空白，设置padding:0px后仅仅可以去掉左右缩进，还必须设置list-style:none才
+能去除列表编号或圆点。也就是说，在IE中仅仅设置margin:0px即可达到最终效果，而在Firefox中必须同时设置margin:0px、
+padding:0px以及list-style:none三项才能达到最终效果。
+
+CSS透明问题
+IE：filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=60)。
+FF：opacity:0.6。
+[注] 最好两个都写，并将opacity属性放在下面。
+
+CSS圆角问题
+IE：ie7以下版本不支持圆角。
+FF：-moz-border-
+radius:4px，或者-moz-border-radius-topleft:4px;-moz-border-
+radius-topright:4px;-moz-border-radius-bottomleft:4px;-moz-border-
+radius- bottomright:4px;。
+[注] 圆角问题是CSS中的经典问题，建议使用JQuery框架集来设置圆角，让这些复杂的问题留给别人去想吧。
+
+二、IE6/IE7和Firefox对Div处理的差异
+
+基本HTML代码
+
+<!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN”
+“http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd”>
+<html xmlns=”http://www.w3.org/1999/xhtml” >
+<head>
+<title>Div Float Sample</title>
+<style type=”text/css”>
+div { margin:3px; }
+.d1 { width:250px; min-height:20px; border:1px solid #00cc00; }
+.d2 { width:130px; min-height:40px; border:1px solid #0000cc; }
+.d3 { width:100px; min-height:40px; border:1px solid #cc0000; }
+</style>
+</head>
+<body>
+<div class=”d1″>
+<div class=”d2″> </div>
+<div class=”d3″> </div>
+</div>
+</body>
+</html>
+以上代码显示的结果如下，很正常，结果相同。
+
+当然所有这些情况也许是有合理解释的，说不定增加某一个style的设置。
+
+IE6/IE7和Firefox对Div处理的差异(图一)
+
+下面会在这个基础上进行修改，修改的内容都在style中，其他代码就不再重复写了。
+
+请注意，这里的Style中用到了min-height，这个和height是不同的，min-height指定了对象的一个最小高度，当对象的子
+内容高度超过这个最小高度是，这个对象会自动撑大。这是一个非常牛的style，可惜的是，在这个style和float这个同样牛的style一起使用
+的时候，就会出现各种问题。
+
+内部一个Div修改成为float:left
+
+.d1 { width:250px; min-height:20px; border:1px solid #00cc00; }
+.d2 { width:130px; min-height:40px; border:1px solid #0000cc; float: left; }
+.d3 { width:100px; min-height:40px; border:1px solid #cc0000; }
+显示结果如下。
+
+显示结果如下，显示结果如下！
+
+IE6/IE7和Firefox对Div处理的差异(图二)
+
+显示结果如下。:left的情况相同？
+
+这个结果中，Firefox有点离谱了，两个框叠在一起也就罢了，为什么那个红框会变大捏？而且变的大小也很诡异，不知道是按照什么公式计算出来的。IE在这里的显示应当是附和标准的。
+
+内部两个Div都修改成为float:left
+
+.d1 { width:250px; min-height:20px; border:1px solid #00cc00; }
+.d2 { width:130px; min-height:40px; border:1px solid #0000cc; float: left; }
+.d3 { width:100px; min-height:40px; border:1px solid #cc0000; float: left; }
+这和前面第一种加float:left的情况相同。
+
+显示结果如下。
+
+IE6/IE7和Firefox对Div处理的差异(图三)
+
+在这种情况下，Firefox的结果尚能解释，可能是float把外层的Div也作为内层float影响的范围，这样内层的就不会将外层的Div撑大了。IE在这里出现了Margin失效的情况，可以解释为内层第二个float造成了影响。
+
+干脆把外层的Div也修改成为float:left
+
+.d1 { width:250px; min-height:20px; border:1px solid #00cc00; float: left; }
+.d2 { width:130px; min-height:40px; border:1px solid #0000cc; float: left; }
+.d3 { width:100px; min-height:40px; border:1px solid #cc0000; float: left; }
+以上代码在下面这些Doctype下试验过，结果相同。
+
+显示结果如下，
+
+IE6/IE7和Firefox对Div处理的差异(图四)
+
+这种情况下，Firefox正常了，而IE延续了前面的不正常情况。
+
+外层是float:left，内层最后一个不再float:left
+
+.d1 { width:250px; min-height:20px; border:1px solid #00cc00; float: left; }
+.d2 { width:130px; min-height:40px; border:1px solid #0000cc; float: left; }
+.d3 { width:100px; min-height:40px; border:1px solid #cc0000; }
+left的情况相同。所以最好是padding和margin都不用?
+
+显示结果如下，
+
+IE在这里的显示应当是附和标准的。
+
+IE6/IE7和Firefox对Div处理的差异(图五)
+
+这和前面第一种加float:left的情况相同。
+
+结论
+
+再重申一次，本文讨论的是一个比较高级的话题。如果在style中用height而不是min-height来设定高度，是不会出现以上这些问题的。不过，不用min-height就失去了div自动撑大这一个很有必要的特性。
+
+在min-height和float:left的情况下，没有一种完美的写法让Firefox和IE结果相同。不过仍然可以发现绕开的方法。
+
+进一步试验可以发现，margin遭到的影响在padding上比较好，所以最好是padding和margin都不用，或者只用padding。
+
+两者相同的代码如下，
+
+div { padding:3px; }
+.d1 { width:250px; min-height:20px; border:1px solid #00cc00; float: left; }
+.d2 { width:130px; min-height:40px; border:1px solid #0000cc; float: left; }
+.d3 { width:100px; min-height:40px; border:1px solid #cc0000; float: left; }
+left的情况相同。当对象的子内容高度超过这个最小高度是。
+
+显示结果如下，
+
+IE6/IE7和Firefox对Div处理的差异(图六)
+
+呵呵，总算是一样了，虽然是凑合着一样了。幸好一样了，否则只好用table了。
+
+当然所有这些情况也许是有合理解释的，说不定增加某一个style的设置，这些问题都迎刃而解了，不过目前我还没有找到这个设置。
+
+关于Doctype
+
+可惜的是，在这个style和float这个同样牛的style一起使用的时候。
+
+以上代码在下面这些Doctype下试验过，结果相同。
+
+<!DOCTYPE html PUBLIC “-//W3C//DTD HTML 4.01//EN”
+“http://www.w3.org/TR/html4/strict.dtd“>
+<!DOCTYPE html PUBLIC “-//W3C//DTD HTML 4.01 Transitional//EN”
+“http://www.w3.org/TR/html4/loose.dtd“>
+<!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Strict//EN”
+“http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd”>
+<!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN”
+“http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd”>
+
+三、CSS完美兼容IE6/IE7/FF的通用方法
+
+关于CSS对各个浏览器兼容已经是老生常谈的问题了, 网络上的教程遍地都是.以下内容没有太多新颖, 纯属个人总结, 希望能对初学者有一定的帮助.
+一、CSS HACK
+
+以下两种方法几乎能解决现今所有HACK.
+
+1, !important
+
+随着IE7对!important的支持, !important 方法现在只针对IE6的HACK.(注意写法.记得该声明位置需要提前.)
+
+2, IE6/IE77对FireFox
+
+*+html 与 *html 是IE特有的标签, firefox 暂不支持.而*+html 又为 IE7特有标签.
+
+注意:
+*+html 对IE7的HACK 必须保证HTML顶部有如下声明：
+
+二、万能 float 闭合
+
+关于 clear float 的原理可参见 [How To Clear Floats Without Structural Markup]
+将以下代码加入Global CSS 中,给需要闭合的div加上 class=”clearfix” 即可,屡试不爽.
+
+三、其他兼容技巧
+
+1, FF下给 div 设置 padding 后会导致 width 和 height 增加, 但IE不会.(可用!important解决)
+2, 居中问题.
+1).垂直居中.将 line-height 设置为 当前 div 相同的高度, 再通过 vertical-align: middle.( 注意内容不要换行.)
+2).水平居中. margin: 0 auto;(当然不是万能)
+3, 若需给 a 标签内内容加上 样式, 需要设置 display: block;(常见于导航标签)
+4, FF 和 IE 对 BOX 理解的差异导致相差 2px 的还有设为 float的div在ie下 margin加倍等问题.
+5, ul 标签在 FF 下面默认有 list-style 和 padding . 最好事先声明, 以避免不必要的麻烦. (常见于导航标签和内容列表)
+6, 作为外部 wrapper 的 div 不要定死高度, 最好还加上 overflow: hidden.以达到高度自适应.
+7, 关于手形光标. cursor: pointer. 而hand 只适用于 IE.
+
+1 针对firefox ie6 ie7的css样式
+现在大部分都是用!important来hack，对于ie6和firefox测试可以正常显示，
+但是ie7对!important可以正确解释，会导致页面没按要求显示！找到一个针
+对IE7不错的hack方式就是使用“*+html”，现在用IE7浏览一下，应该没有问题了。
+现在写一个CSS可以这样：
+
+#1 { color: #333; } /* Moz */
+* html #1 { color: #666; } /* IE6 */
+*+html #1 { color: #999; } /* IE7 */
+那么在firefox下字体颜色显示为#333，IE6下字体颜色显示为#666，IE7下字体颜色显示为#999。
+
+2 css布局中的居中问题
+主要的样式定义如下：
+
+body {TEXT-ALIGN: center;}
+#center { MARGIN-RIGHT: auto; MARGIN-LEFT: auto; }
+说明：
+首先在父级元素定义TEXT-ALIGN: center;这个的意思就是在父级元素内的内容居中；对于IE这样设定就已经可以了。
+但在mozilla中不能居中。解决办法就是在子元素定义时候设定时再加上“MARGIN-RIGHT: auto;MARGIN-LEFT: auto; ”
+需要说明的是，如果你想用这个方法使整个页面要居中，建议不要套在一个DIV里，你可以依次拆出多个div，
+只要在每个拆出的div里定义MARGIN-RIGHT: auto;MARGIN-LEFT: auto; 就可以了。
+
+3 盒模型不同解释
+
+#box{ width:600px; //for ie6.0- w\idth:500px; //for ff+ie6.0}
+#box{ width:600px!important //for ff width:600px; //for ff+ie6.0 width /**/:500px; //for ie6.0-}
+
+4 浮动ie产生的双倍距离
+
+#box{ float:left; width:100px; margin:0 0 0 100px; //这种情况之下IE会产生200px的距离 display:inline; //使浮动忽略}
+这里细说一下block,inline两个元素,Block元素的特点是:总是在新行上开始,高度,宽度,行高,边距都可以控制(块元素);Inline元素的特点是:和其他元素在同一行上,…不可控制(内嵌元素);
+
+#box{ display:block; //可以为内嵌元素模拟为块元素 display:inline; //实现同一行排列的的效果 diplay:table;
+
+IE不认得min-这个定义，但实际上它把正常的width和height当作有min的情况来使。这样问题就大了，如果只用宽度和高度，
+正常的浏览器里这两个值就不会变，如果只用min-width和min-height的话，IE下面根本等于没有设置宽度和高度。
+比如要设置背景图片，这个宽度是比较重要的。要解决这个问题，可以这样：
+#box{ width: 80px; height: 35px;}html>body #box{ width: auto; height: auto; min-width: 80px; min-height: 35px;}
+
+6 页面的最小宽度
+
+min-width是个非常方便的CSS命令，它可以指定元素最小也不能小于某个宽度，这样就能保证排版一直正确。但IE不认得这个，
+而它实际上把width当做最小宽度来使。为了让这一命令在IE上也能用，可以把一个
+放到 标签下，然后为div指定一个类：
+然后CSS这样设计：
+#container{ min-width: 600px; width:expression(document.body.clientWidth < 600? "600px": "auto" );}
+第一个min-width是正常的；但第2行的width使用了Javascript，这只有IE才认得，这也会让你的HTML文档不太正规。它实际上通过Javascript的判断来实现最小宽度。
+
+7 清除浮动
+
+.hackbox{ display:table; //将对象作为块元素级的表格显示}或者.hackbox{ clear:both;}
+或者加入:after（伪对象）,设置在对象后发生的内容，通常和content配合使用，IE不支持此伪对象，非Ie 浏览器支持，
+所 以并不影响到IE/WIN浏览器。这种的最麻烦的......#box:after{ content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+
+8 DIV浮动IE文本产生3象素的bug
+
+左边对象浮动，右边采用外补丁的左边距来定位，右边对象内的文本会离左边有3px的间距.
+
+#box{ float:left; width:800px;}#left{ float:left; width:50%;}#right{ width:50%;}*html #left{ margin-right:-3px; //这句是关键}
+HTML代码
+
+9 属性选择器(这个不能算是兼容,是隐藏css的一个bug)
+
+p[id]{}div[id]{}
+这个对于IE6.0和IE6.0以下的版本都隐藏,FF和OPera作用
+属性选择器和子选择器还是有区别的,子选择器的范围从形式来说缩小了,属性选择器的范围比较大,如p[id]中,所有p标签中有id的都是同样式的.
+
+10 IE捉迷藏的问题
+
+当div应用复杂的时候每个栏中又有一些链接，DIV等这个时候容易发生捉迷藏的问题。
+有些内容显示不出来，当鼠标选择这个区域是发现内容确实在页面。
+解决办法：对#layout使用line-height属性 或者给#layout使用固定高和宽。页面结构尽量简单。
+
+11 高度不适应
+
+高度不适应是当内层对象的高度发生变化时外层高度不能自动进行调节，特别是当内层对象使用
+margin 或paddign 时。
+例：
+
+p对象中的内容
+
+CSS：#box {background-color:#eee; }
+#box p {margin-top: 20px;margin-bottom: 20px; text-align:center; }
+解决方法：在P对象上下各加2个空的div对象CSS代码：.1{height:0px;overflow:hidden;}或者为DIV加上border属性。
+六、CSS兼容要点分析IE vs FF
+
+CSS 兼容要点：
+
+DOCTYPE 影响 CSS 处理
+
+FF: div 设置 margin-left, margin-right 为 auto 时已经居中, IE 不行
+
+FF: body 设置 text-align 时, div 需要设置 margin: auto(主要是 margin-left,margin-right) 方可居中
+
+FF: 设置 padding 后, div 会增加 height 和 width, 但 IE 不会, 故需要用 !important 多设一个 height 和 width
+
+FF: 支持 !important, IE 则忽略, 可用 !important 为 FF 特别设置样式
+
+div 的垂直居中问题: vertical-align:middle; 将行距增加到和整个DIV一样高 line-height:200px; 然后插入文字，就垂直居中了。缺点是要控制内容不要换行
+
+cursor: pointer 可以同时在 IE FF 中显示游标手指状， hand 仅 IE 可以
+
+FF: 链接加边框和背景色，需设置 display: block, 同时设置 float: left 保证不换行。参照 menubar, 给 a 和 menubar 设置高度是为了避免底边显示错位, 若不设 height, 可以在 menubar 中插入一个空格XHTML+CSS兼容性解决方案小集
+
+使用XHTML＋CSS构架好处不少，但也确实存在一些问题，不论是因为使用不熟练还是思路不清晰，我就先把一些我遇到的问题写在下面，省的大家四处找^^
+
+1、在mozilla firefox和IE中的BOX模型解释不一致导致相差2px解决方法：
+
+div{margin:30px!important;margin:28px;}
+
+注意这两个margin的顺序一定不能写反，据阿捷的说法!important这个属性IE不能识别，但别的浏览器可以识别。所以在IE下其实解释成这样：
+
+div{maring:30px;margin:28px}
+
+重复定义的话按照最后一个来执行，所以不可以只写margin:XXpx!important;
+
+2、IE5 和IE6的BOX解释不一致IE5 下div{width:300px;margin:0 10px 0 10px;}div的宽度会被解释为300px-10px(右填充)-10px(左填充)最终div的宽度为280px，而在IE6和其他浏览器上宽度则是以300px+10px(右填充)+10px(左填充)=320px来计算的。这时我们可以做如下修改
+
+div{width:300px!important;width /**/:340px;margin:0 10px 0 10px}
+
+，关于这个/**/是什么我也不太明白，只知道IE5和firefox都支持但IE6不支持，如果有人理解的话，请告诉我一声，谢了！：）
+
+3、ul标签在Mozilla中默认是有padding值的,而在IE中只有margin有值所以先定义
+
+ul{margin:0;padding:0;}
+
+就能解决大部分问题
+
+4、关于脚本，在xhtml1.1中不支持language属性，只需要把代码改为
+
+< type="text/java">
+就可以了
+七、10个你未必知道的CSS技巧
+
+1、CSS字体属性简写规则
+
+一般用CSS设定字体属性是这样做的：
+
+font-weight:bold;
+
+font-style:italic;
+
+font-varient:small-caps;
+
+font-size:1em;
+
+line-height:1.5em;
+
+font-family:verdana,sans-serif;
+
+但也可以把它们全部写到一行上去：
+
+font: bold italic small-caps 1em/1.5em verdana,sans-serif;
+
+真不错！只有一点要提醒的：这种简写方法只有在同时指定font-size和font-family属性时才起作用。而且，如果你没有设定font-weight, font-style, 以及 font-varient ，他们会使用缺省值，这点要记上。
+
+2、同时使用两个类
+
+一般只能给一个元素设定一个类（Class），但这并不意味着不能用两个。事实上，你可以这样：
+
+…
+
+同时给P元素两个类，中间用空格格开，这样所有text和side两个类的属性都会加到P元素上来。如果它们两个类中的属性有冲突的话，后设置的起作用，即在CSS文件中放在后面的类的属性起作用。
+
+补充：对于一个ID，不能这样写
+
+…
+
+也不能这样写
+
+3、CSS border的缺省值
+
+通常可以设定边界的颜色，宽度和风格，如：
+
+border: 3px solid #000
+
+这位把边界显示成3像素宽，黑色，实线。但实际上这里只需要指定风格即可。
+
+如果只指定了风格，其他属性就会使用缺省值。一般地，Border的宽度缺省是medium，一般等于3到4个像素；缺省的颜色是其中文字的颜色。如果这个值正好合适的话，就不用设那么多了。
+
+4、CSS用于文档打印
+
+许多网站上都有一个针对打印的版本，但实际上这并不需要，因为可以用CSS来设定打印风格。
+
+也就是说，可以为页面指定两个CSS文件，一个用于屏幕显示，一个用于打印：
+
+第1行就是显示，第2行是打印，注意其中的media属性。
+
+但应该在打印 CSS中写什么东西呢？你可以按设计普通CSS的方法来设定它。设计的同时就可以把这个CSS设成显示CSS来检查它的效果。也许你会使用 display: none 这个命令来关掉一些装饰图片，再关掉一些导航按钮。要想了解更多，可以看“打印差异”这一篇。
+
+5、图片替换技巧
+
+一般都建议用标准的HTML来显示文字，而不要使用图片，这样不但快，也更具可读性。但如果你想用一些特殊字体时，就只能用图片了。
+
+比如你想整个卖东西的图标，你就用了这个图片：
+Buy widgets
+
+这当然可以，但对搜索引擎来说，和正常文字相比，它们对alt里面的替换文字几乎没有兴趣这是因为许多设计者在这里放许多关键词来骗搜索引擎。所以方法应该是这样的：
+Buy widgets
+
+但这样就没有特殊字体了。要想达到同样效果，可以这样设计CSS：
+
+h1 { background: url(/blog/widget-image.gif) no-repeat; height: image height text-indent: -2000px }
+注意把image height换成真的图片的高度。这里，图片会当作背景显示出来，而真正的文字由于设定了-2000像素这个缩进，它们会出现在屏幕左边2000点的地方，就看不见了。但这对于关闭图片的人来说，可能全部看不到了，这点要注意。
+
+6、CSS box模型的另一种调整技巧
+
+这个Box模型的调整主要是针对IE6之前的IE浏览器的，它们把边界宽度和空白都算在元素宽度上。比如：
+
+#box { width: 100px; border: 5px; padding: 20px }
+
+这样调用它：
+…
+
+这时盒子的全宽应该是150点，这在除IE6之前的IE浏览器之外的所有浏览器上都是正确的。但在IE5这样的浏览器上，它的全宽仍是100点。可以用以前人发明的Box调整方法来处理这种差异。
+
+但用CSS也可以达到同样的目的，让它们显示效果一致。
+
+#box { width: 150px } #box div { border: 5px; padding: 20px }
+
+这样调用：
+…
+
+这样，不管什么浏览器，宽度都是150点了。
+
+7、块元素居中对齐
+
+如果想做个固定宽度的网页并且想让网页水平居中的话，通常是这样：
+
+#content { width: 700px; margin: 0 auto }
+
+你会使用
+来围上所有元素。这很简单，但不够好，IE6之前版本会显示不出这种效果。改CSS如下：
+
+body { text-align: center } #content { text-align: left; width: 700px; margin: 0 auto }
+
+这会把网页内容都居中，所以在Content中又加入了
+
+text-align: left 。
+
+8、用CSS来处理垂直对齐
+
+垂直对齐用表格可以很方便地实现，设定表格单元 vertical-align: middle 就可以了。但对CSS来说这没用。如果你想设定一个导航条是2em高，而想让导航文字垂直居中的话，设定这个属性是没用的。
+
+CSS方法是什么呢？对了，把这些文字的行高设为 2em：line-height: 2em ，这就可以了。
+
+9、CSS在容器内定位
+
+CSS的一个好处是可以把一个元素任意定位，在一个容器内也可以。比如对这个容器：
+
+#container { position: relative }
+
+这样容器内所有的元素都会相对定位，可以这样用：
+…
+
+如果想定位到距左30点，距上5点，可以这样：
+
+#navigation { position: absolute; left: 30px; top: 5px }
+
+当然，你还可以这样：
+
+margin: 5px 0 0 30px
+
+注意4个数字的顺序是：上、右、下、左。当然，有时候定位的方法而不是边距的方法更好些。
+
+10、直通到屏幕底部的背景色
+
+在垂直方向是进行控制是CSS所不能的。如果你想让导航栏和内容栏一样直通到页面底部，用表格是很方便的，但如果只用这样的CSS：
+
+#navigation { background: blue; width: 150px }
+
+较短的导航条是不会直通到底部的，半路内容结束时它就结束了。该怎么办呢？
+
+不幸的是，只能采用欺骗的手段了，给这较短的一栏加上个背景图，宽度和栏宽一样，并让它的颜色和设定的背景色一样。
+
+body { background: url(/blog/blue-image.gif) 0 0 repeat-y }
+此时不能用em做单位，因为那样的话，一旦读者改变了字体大小，这个花招就会露馅，只能使用px。

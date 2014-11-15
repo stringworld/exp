@@ -1,0 +1,5 @@
+一大堆连parentNode, defaultView, offsetParent都不知所物的人学jQuery两个星期就开始搞插件了。
+一链到底的代码与冗长不知节省CPU性能的CSS表达式满眼到是
+
+对DOM细节的把握才体现一个前端的水平。比如获取一个元素的父节点，IE可以parentElement,
+而大多数标准浏览器只能parentNode。各个浏览器还存在大量BUG，而不仅仅是差异性

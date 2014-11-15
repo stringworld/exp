@@ -1,0 +1,24 @@
+/// <summary>
+        /// ½ØÈ¡×Ö·û´®
+        /// </summary>
+        /// <param name="str">×Ö·û´®</param>
+        /// <param name="len">³¤¶È</param>
+        /// <param name="dot">¶àÓàÏÔÊ¾×Ö·û</param>
+        /// <returns></returns>
+        public string getStr(string str, int len, string dot)
+        {
+            string temp = str;
+            if (Regex.Replace(temp, "[\u4e00-\u9fa5]", "zz", RegexOptions.IgnoreCase).Length <= len)
+            {
+                return temp;
+            }
+            for (int i = temp.Length; i >= 0; i--)
+            {
+                temp = temp.Substring(0, i);
+                if (Regex.Replace(temp, "[\u4e00-\u9fa5]", "zz", RegexOptions.IgnoreCase).Length <= len)
+                {
+                    return temp + dot;
+                }
+            }
+            return "";
+        }

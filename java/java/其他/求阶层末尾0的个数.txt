@@ -1,0 +1,59 @@
+import java.math.BigInteger;
+import java.util.Scanner;
+public class Test5 {
+	public static void fun(int n){
+		int count=0;//统计0的个数
+        BigInteger base = BigInteger.ONE;  //存放阶层的结果,ONE表示常量为1
+        //调用库函数计算阶层
+        for(long i=1;i<=n;i++){  
+            base = base.multiply(BigInteger.valueOf(i));  
+        }  
+        //把结果base转换成字符串
+        String str=""+base;
+        char []ch=str.toCharArray();
+        int len=str.length();
+        //计算0的个数
+        for(int j=len-1;j>=0;j--){
+        	if(ch[j]=='0')count++;
+        	else
+        		break;
+        }
+        System.out.println(n+"!后面有"+count+"个0");
+	}
+	public static void main(String[] args) {
+		int n;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("请输入1000~10000之间的数：");
+		n=sc.nextInt();
+		if(n<=1000||n>=10000){
+			System.out.println("请重新输入");
+		}
+		else
+		fun(n);
+	}	
+}
+
+
+
+
+不用计算出结果直接判断其有多少个0
+
+
+import java.util.Scanner;
+public class Test7
+{
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int x = input.nextInt();
+        int count = 0 ;
+        int p = 5 ;/**用所输入的数不断的对5进行整除，每被5整除一次就加一个0*/
+        while (x>0)
+        {
+            count = count + x / p;
+            x = x / p;
+        }
+        System.out.println(count);
+    }
+}
+
+

@@ -1,0 +1,2 @@
+ALTER  TABLE dbo.课程表
+DROP  CONSTRAINT   CK_课程表_1,CK_课程表_2

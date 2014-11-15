@@ -1,0 +1,57 @@
+1.创建表
+
+create table customer
+( cno char(5) primary key,
+cname char(20),
+age int(3),
+aompany char(30),
+city char(20),
+tel char(15))
+
+2.插入数据
+
+insert into customer
+values ('c003','王玲','colace','南京','021-65904720')
+insert into customer
+values ('c004','周小胖','colace','天京','021-669853')
+
+3.更新表中的数据
+
+update customer 
+set tel="101"+substring(tel,4,9)
+where city='北京'
+
+4.查询
+
+新建表
+学生信息表
+create table student
+(sno char(8) not null primary key,
+sname char(8) not null,
+sex char(2) null,
+native char(20) null,
+birthday datetime null,
+dno char(6) null,
+spno char(8) null,
+classno char(4) null,
+entime char(4) null,
+home varchar(40) null,
+tel varchar(40) null)
+
+课程信息表
+
+create table course
+(cno char(10) not null primary key,
+spno char(8) null,
+cname char(20) not null,
+ctno tinyint null,
+experiment tinyint  null,
+lecture tinyint  null,
+semester tinyint null,
+credit tinyint null)
+
+学生选课成绩表
+create table student_course
+(cno char(10) not null primary key,
+cname char(20) not null,
+score tinyint null)

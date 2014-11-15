@@ -1,0 +1,19 @@
+添加学生时出错!
+Can not issue data manipulation statements with executeQuery().
+
+原因未知
+
+
+原因是sql的引用方法出错，st.executeQuery("");
+
+st.executeQuery  实执行查询select语句的方法，用此方法出现错误，这个方法有个返回值，使用jdbc连接时可以使用这个方法
+
+st.executeUpdate  是执行insert或者update、delete语句的方法，同时返回执行完成后有多少行数据受到影响
+
+
+
+总结：
+	解决此类的方法：排除法
+
+	1.把sql语句放到MySQL中执行，看有没有错误，若有，则是sql语句出错
+	2.若没有，则检查方法是否出错，引用是否正确

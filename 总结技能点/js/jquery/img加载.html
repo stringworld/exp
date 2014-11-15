@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/htmt;charset=utf-8">
+		<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+	</head>
+	<body>
+		<div style="text-align:center;">
+			<input id="url" type="text" value="http://www.netbian.com/d/file/20130911/8d9ad3fc358b6d127db59620861e083e.jpg" size="50" />
+			<input id="btn" type="button" value="加载"/>
+		</div>
+		<div id="imgw" style="text-align:center;"></div>
+	</body>
+	<script>
+		$(function(){
+			$("#btn").click(function(){
+				var url=$("#url").val();
+				var imgw=$("#imgw");
+				imgw.html("加载中");
+				loadimg(url,function(){
+					imgw.html("<img src='"+url+"'/>");
+				},function(){
+					imgw.html("加载失败");
+				});
+			});
+		});
+		(function($){
+		    var Browser={};
+		    Browser.userAgent=window.navigator.userAgent.toLowerCase();
+		    Browser.ie=/msie/.test(Browser.userAgent);
+		    Browser.Moz=/gecko/.test(Browser.userAgent);
+		    //url：图片路径
+		    //doneFn：加载成功执行函数
+		    //failFn:加载失败执行函数
+		    $.loadimg=function(url,doneFn,failFn){
+		    	if(!url)url=" ";
+		    	if(!doneFn)doneFn=function(){};
+		    	if(!failFn)failFn=function(){};
+		        var img=new Image();
+		        if(Browser.ie){
+		            img.onreadystatechange=function(){
+		                if(img.readyState=="complete"||img.readyState=="loaded"){
+		                    doneFn.call(img);
+		                }
+		            }
+		        }else if(Browser.Moz){
+		            img.onload=function(){
+		                if(img.complete==true){
+		                    doneFn.call(img);
+		                }
+		            }
+		        }
+		        img.onerror=function(){
+		            failFn.call(img);
+		        };
+		        img.src=url;
+		    }
+		})(window);
+	</script>
+</html>

@@ -1,0 +1,1 @@
+General>Appearance>Colors and Fonts选项里Basic>Text Font字号调大一号中文就不小了

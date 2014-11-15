@@ -1,0 +1,7 @@
+问题：
+
+1.修改项目名，右键选择properties->web->web-Context-root修改名称
+或者直接按F2修改。
+2，修改包名，右键选择Refactor->rename修改名称即可，按F2亦可
+或者alt+shift+r;
+3.修改类名同上。

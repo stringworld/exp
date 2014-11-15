@@ -1,0 +1,4 @@
+mysql下载地址http://dev.mysql.com/downloads/mysql/5.1.html
+
+绿色版Mysql的安装配置 
+http://blog.csdn.net/rocket5725/article/details/4278347

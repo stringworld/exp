@@ -1,0 +1,77 @@
+1、去除不需要加载的模块
+
+一个系统20%的功能往往能够满足80%的需求，MyEclipse也不例外，我们在大多数时候只需要20%的系统功能，所以可以将一些不使用的模块禁止 加载启动。通过Windows - Preferences打开配置窗口，依次选择左侧的General - Startup and Shutdown，这个时候在右侧就显示出了Eclipse启动时加载的模块，可以根据自己的实际情况去除一些模块。
+windows–>perferences–>general–>startup and shutdown
+
+关掉没用的启动项：
+
+怎样才能知道哪些启动项有用呢？我现在把我知道的启动项用处说一下，还有很多不懂的，希望大家懂的回复在下面啊：
+WTP ：一个跟myeclipse差不多的东西，主要差别是 WTP 是免费的，如果使用myeclipse，这个可以取消
+Mylyn：组队任务管理工具，类似于 CVS ，以任务为单位管理项目进度，没用到的可以取消
+Derby：一种保存成 jar 形式的数据库，我没用到，取消
+一大排以 MyEclipse EASIE 打头的启动项：myeclipse 支持的服务器，只选自己用的，其他取消，比如我只选了tomcat
+
+2、取消MyEclipse在启动时自动验证项目配置文件
+
+默认情况下MyEclipse在启动的时候会自动验证每个项目的配置文件，这是一个非常耗时的过程，可以在Preferences窗口依次选择 MyEclipse - Validation，然后在右侧的Validator列表中只保留 Manual 项就可以了。如果需要验证的时候只需要选中文件，然后右键选择 MyEclipse - Run Validation就可以了。
+
+windows–>perferences–>myeclipse–>validation
+把 除了manual 下面的全部点掉，build下只留 classpath dependency Validator
+
+手工验证方法：
+
+在要验证的文件上，单击鼠标右键–>myeclipse–>run validation
+
+3、去掉拼写检查（如果你觉的有用可以不去）
+
+拼写检查会给我们带来不少的麻烦，我们的方法命名都会是单词的缩写，他也会提示有错，所以最好去掉，没有多大的用处：
+windows–>perferences–>general–>validation->editors->Text Editors->spelling
+
+myeclipse 打开 jsp 的默认编辑器不好，会同时打开预览
+windows–>perferences–>general–>editors->file associations,
+
+把默认改成 MyEclipse JSP Editor
+
+ 
+
+4、关闭自动更新
+
+Windows > Preferences > MyEclipse > Community Essentials,
+把选项 "Search for new features on startup"
+
+如果是myeclipse7.0：
+
+（1）有个maven，可以关掉自动更新：
+
+window-preferences-MyEclipse Enterprise Work-Maven4MyEclipse-Maven, 取消选中Download repository index updates on startup！
+
+（2）关闭更新调度：window --> preferences --> General --> Startup and Shutdown --> Automatic Updates Scheduler（去掉前面的勾）
+
+5、加大JVM的非堆内存
+
+打开 myeclipse.ini
+-startup
+../Common\plugins\org.eclipse.equinox.launcher_1.0.101.R34x_v20081125.jar
+--launcher.library
+../Common\plugins\org.eclipse.equinox.launcher.win32.win32.x86_1.0.101.R34x_v20080731
+-clean
+-configuration
+configuration
+-vm
+C:\Users\lenovo\AppData\Local\Genuitec\Common\binary\com.sun.java.jdk.win32.x86_1.6.0.013\jre\bin\client\jvm.dll
+-vmargs
+-Xmx384m
+-XX:MaxPermSize=384m
+-XX:ReservedCodeCacheSize=96m
+
+以上是我的myeclipse.ini，需要修改是-Xmx，-XX:MaxPermSize，-XX:ReservedCodeCacheSize，
+将这三项的值调大，但并不是越大越好，曾经在相同的条件下做过测试（内存2GB），-Xmx，-XX:MaxPermSize的值为384m时比512m时要快（视具体的计算机而定），
+-Xmx，-XX:MaxPermSize的值设为同样大小且两者之和不能超出你的计算机本身的内存大小
+
+6.
+window-preferences-MyEclipse Enterprise Workbench-Maven4MyEclipse-Maven，将Maven JDK改为电脑上安装的JDK，即不使用myeclipse提高的JDK
+登记add按钮，选择你的电脑上的JDK即可（注意：不是JRE，我的值为：Java6.014）
+
+7.
+window-preferences-MyEclipse Enterprise Workbench-Matisse4Myeclipse/Swing,将Design-time information(dt.jar) location 改用电脑安装的JDK的dt.jar
+（即不使用myeclipse提供的dt.jar，我的值为：C:\Java6.014\lib\dt.jar）

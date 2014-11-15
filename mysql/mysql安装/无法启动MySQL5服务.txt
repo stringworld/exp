@@ -1,0 +1,11 @@
+C:\Windows\system32>D:
+
+C:\Windows\system32>cd mysql5\bin
+
+D:\mysql5\bin>mysqld --install mysql5 --defaults-file=d:/mysql5/my.ini
+Service successfully installed.
+
+
+D:\mysql5\bin>net start mysql5
+mysql5 服务正在启动 .
+mysql5 服务已经启动成功。

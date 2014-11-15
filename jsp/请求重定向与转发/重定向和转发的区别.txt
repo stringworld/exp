@@ -1,0 +1,13 @@
+1.RequestDispatcher.forward方法只能将请求转发给 同一个web应用中的组件；
+
+2.HttpServletResponse.sendRedirect 方法还可以重定向到同一个站点上的其他应用程序中的资源，甚至是使用绝对 URL 重定向到其他的根目录；
+
+3.HttpServletResponse.sendRedirect方法重定向的访问结束后，浏览器地址栏中显示的 URL会发生变化 ，有初始的URL地址变成重定向的目标URL；
+
+4.调用RequestDispatcher.forward 方法的请求转发过程结束后，浏览器地址保持初始的 URL 地址不变。
+
+
+
+重定向：302
+
+转发：307

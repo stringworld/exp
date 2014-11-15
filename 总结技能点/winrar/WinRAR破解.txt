@@ -1,0 +1,17 @@
+新建记事本文件（txt文件）,然后将文件另存为以 rarreg.key 为文件名的文件（当然由于设置的不同，
+可能出现你保存后的文件为 rarreg.key.txt 没关系，将其重命名，
+删掉.txt 会提示“改扩展名可能导致文件不可用”时点“确定”）然后在里面输入：
+====从==下==面==开==始==粘==贴====
+RAR registration data
+Federal Agency for Education
+1000000 PC usage license
+UID=b621cca9a84bc5deffbf
+6412612250ffbf533df6db2dfe8ccc3aae5362c06d54762105357d
+5e3b1489e751c76bf6e0640001014be50a52303fed29664b074145
+7e567d04159ad8defc3fb6edf32831fd1966f72c21c0c53c02fbbb
+2f91cfca671d9c482b11b8ac3281cb21378e85606494da349941fa
+e9ee328f12dc73e90b6356b921fbfb8522d6562a6a4b97e8ef6c9f
+fb866be1e3826b5aa126a4d2bfe9336ad63003fc0e71c307fc2c60
+64416495d4c55a0cc82d402110498da970812063934815d81470829275
+====粘==贴==到==以==上==为==止====
+然后将这个文件拷到Winrar安装目录下（一般是d:\Program Files\WinRAR）就可以啦！！

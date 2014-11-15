@@ -1,0 +1,17 @@
+
+http://mecru.blog.163.com/blog/static/33168812011101810644819/
+
+
+包名：包名是全小写的名词，中间可以由点分隔开，例如：java.awt.event; 
+
+类名：首字母大写，通常由多个单词合成一个类名，要求每个单词的首字母也要大写，例如class HelloWorldApp; 
+
+接口名：命名规则与类名相同，例如interface Collection; 
+
+方法名：往往由多个单词合成，第一个单词通常为动词，首字母小写，中间的每个单词的首字母都要大写，例如：balanceAccount， 
+isButtonPressed; 
+
+变量名：全小写，一般为名词，例如：length; 
+
+常量名：基本数据类型的常量名为全大写，如果是由多个单词构成，可以用下划线隔开，例如：int YEAR, int 
+WEEK_OF_MONTH；如果是对象类型的常量，则是大小写混合，由大写字母把单词隔开。

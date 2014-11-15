@@ -1,0 +1,18 @@
+分割字符串	split(ar(i),"=")
+首次字符位置	instr(ar(i),"kahao") > 0
+字符串长度	len()
+截取		left(str,5)
+替换		replace(str,":","")
+
+document.write(FormatNumber(20000))输出：
+20,000.00例子 2
+document.write(FormatNumber(20000.578,2))输出：
+20,000.58例子 3
+
+
+document.write(FormatNumber(20000.578,2,-1,,0))输出：
+20000.58
+0.00
+
+
+0.5	FormatNumber(Pay,1,-1)	0.5

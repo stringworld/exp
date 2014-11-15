@@ -1,0 +1,21 @@
+抽象类：
+	 Java中可以定义一些不含方法体的方法，它的方法体的实现交给该类的子类根据自己
+的情况去实现，这样的方法就是抽象方法，包含抽象方法的类就叫抽象类
+
+抽象类必须用 关键字 abstract来修饰，抽象方法也必须用abstract来修饰
+抽象类不能被实例化，也就是不能用new关键字去产生对象
+抽象方法只需要声明，而不需要实现
+含有抽象方法的类必须被声明为抽象类，抽象类的子类必须覆盖所有的抽象方法后才能被实例化，否则这个子类还是个抽象类
+
+abstract class A
+{
+	abstract int aa(int x,int y);
+	/*public static void main (String [] agrs)
+	{
+		
+	}*/
+}
+class B extents A
+{
+	int aa(int x,int y){ return 1;}//子类必须覆盖父类的抽象方法
+}

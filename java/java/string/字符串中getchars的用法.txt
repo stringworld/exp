@@ -1,0 +1,23 @@
+
+请问getChars()的功能是什么？
+String s1;
+char charArray[];
+s1=new String("hello there");
+charArray=new char[5];
+s1.getChars(0,5,charArray,0);
+getChars()有四个参数：0，5，charArray,0.
+这四个参数表示的意思是什么？
+
+
+public void getChars(int srcBegin,
+                     int srcEnd,
+                     char[] dst,
+                     int dstBegin)将字符从此字符串复制到目标字符数组。 
+要复制的第一个字符在索引 srcBegin 处；要复制的最后一个字符在索引 srcEnd-1 处（因此要复制的字符总数是 srcEnd-srcBegin）。要复制到 dst 子数组的字符从索引 dstBegin 处开始，并结束于索引： 
+     dstbegin + (srcEnd-srcBegin) - 1
+ 
+参数：
+0   srcBegin - 字符串中要复制的第一个字符的索引。
+5   srcEnd - 字符串中要复制的最后一个字符之后的索引。
+charArray   dst - 目标数组。
+0    dstBegin - 目标数组中的起始偏移量

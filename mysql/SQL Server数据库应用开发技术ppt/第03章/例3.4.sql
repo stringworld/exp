@@ -1,0 +1,6 @@
+Select getdate(),year(getdate()),month('2008-10-25'),day('2008-10-25')
+select dateadd(year,-2,'2008-10-25'),dateadd(month,2,'2008-10-25')
+select dateadd(day,3, getdate()),datepart(day, getdate()),datename(year, getdate())
+select datediff(day,'2008-10-25',getdate())
+select datediff(month,'2008-10-25','2009-5-4')
+select datediff(year,'2005-2-10','2008-10-25')

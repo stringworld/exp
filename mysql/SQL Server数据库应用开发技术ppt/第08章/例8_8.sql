@@ -1,0 +1,3 @@
+USE   教务管理数据库
+GO
+DBCC SHOWCONTIG(学生表,XS_XH_INDEX)

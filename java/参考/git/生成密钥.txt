@@ -1,0 +1,7 @@
+检查计算机上是否已经有SSH key
+	$ cd ~/.ssh
+	如果没有密钥则不会有此文件夹，有则备份删除
+创建个新的SSH key
+	$ ssh-keygen -t rsa -C "your_email@youremail.com"
+	回车，输入文件目录，回车，输入密码，回车，确认密码，回车
+	生成的文件目录	c:\Users\Administrator\.ssh

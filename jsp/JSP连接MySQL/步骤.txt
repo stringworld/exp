@@ -1,0 +1,8 @@
+1.新建web项目，定义包  dao(便于引用)编写JSP连接MySQL的驱动程序JDBCTest.java
+
+2.在定义一个包 test， 再次包中定义测试类 TestDao.java(包含对dao包的引用，并实例方法hello();)
+
+3.新建一个JSP文件，引用dao.JDBCTest ，并引用hello() 方法
+
+注释：
+	在运行测试类的时，需要引用MySQL的驱动类，

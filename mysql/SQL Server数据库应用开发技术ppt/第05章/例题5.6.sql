@@ -1,0 +1,2 @@
+ALTER TABLE  学生表
+DROP COLUMN 电子邮箱

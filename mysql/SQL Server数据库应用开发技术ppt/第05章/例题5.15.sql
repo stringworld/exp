@@ -1,0 +1,1 @@
+DELETE FROM  学生表 WHERE 性别='男'

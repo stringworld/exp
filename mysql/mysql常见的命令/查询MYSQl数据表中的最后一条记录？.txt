@@ -1,0 +1,5 @@
+问题：
+	查询MYSQl数据表中的最后一条记录？
+select * from tablename order by id DESC limit 1 ;
+
+最后的数字表示显示的数据，从最后开始的

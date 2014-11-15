@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <link href="../../ext-3.4.1/resources/css/ext-all.css" rel="stylesheet"/>
+        <script src="../../ext-3.4.1/adapter/ext/ext-base.js"></script>
+        <script src="../../ext-3.4.1/ext-all.js"></script>
+        <script src="../../ext-3.4.1/src/locale/ext-lang-zh_CN.js"></script>
+    </head>
+    <body>
+        <div>up</div>
+    	<input type="text" id="txt" value="one" />
+        <div class="abc">div1</div>
+        <div><div class="div">div2</div></div>
+        <input type="text" id="txt" />
+    </body>
+    <script>
+		Ext.onReady(function(){
+            /*
+             *详见Ext.dom.Element
+             */
+
+            // var txt=Ext.get("txt");//获取id为txt的第一个元素,Ext.dom.Element
+            // console.log(txt.dom.value);
+
+            // console.log(Ext.select("#txt").elements);
+            // console.log(Ext.query("#txt"));//是上面的简写形式,这两个内容相同
+
+            /*
+            伪类
+            E:first-child E是父类的第一个孩子
+            E:last-child E是父类的最后一个孩子
+            E:nth-child(_n_) E是父类的第n个孩子(以1为单位规格)
+            E:nth-child(odd) E是父类的一个奇数孩子
+            E:nth-child(even) E是父类的一个偶数孩子
+            E:only-child E是其父类的唯一孩子
+            E:checked E是一个带有检查真属性的元素(例如：一个radio或checkbox)
+            E:first 结果集中的第一个E
+            E:last 结果集中的最后一个E
+            E:nth(_n_) 结果集中的第n个E(1为基准)
+            E:odd 快捷方式:第n个孩子(奇数位)
+            E:even 快捷方式:第n个孩子(偶数位)
+            E:contains(foo) E的innerHTML中包含子字符串"foo"
+            E:nodeValue(foo) E中包含一个文本节点，且节点值等于“foo”
+            E:not(S) 一个与简单选择符S不匹配的E元素
+            E:has(S) 一个拥有可以与简单选择符S匹配的子集的E元素
+            E:next(S) 下一个兄弟元素是与简单选择符S匹配的E元素
+            E:prev(S) 前一个兄弟元素是与简单选择符S匹配的E元素
+            E:any(S1|S2|S2) 和任意的简单选择符S1, S2 或 S3匹配的E元素
+            */
+            // console.log(Ext.select("div:nth-child(1)"));
+
+            /*
+            CSS值选择
+            E{display=none} css的值"display"等价于"none"
+            E{display^=none} css的值"display" 是以"none"开头的
+            E{display$=none} css的值"display" 是以"none"结尾的
+            E{display*=none} css的值"display" 包含子字符串"none"
+            E{display%=2} css的值"display"是可以被2整除的
+            E{display!=none} css的值"display"不等价于"none"
+             */
+
+            /*
+            属性选择
+            E[foo] 拥有一个属性"foo"
+            E[foo=bar] 有一个属性"foo"等价于"bar"
+            E[foo^=bar] 有一个属性"foo"是由"bar"开头的
+            E[foo$=bar] 有一个属性"foo"是以"bar"结尾的
+            E[foo*=bar] 有一个属性"foo"包含子字符串"bar"
+            E[foo%=2] 有一个属性"foo"能被2整除
+            E[foo!=bar] 有一个属性"foo"不等价于"bar"
+             */
+
+            /*
+            元素选择
+            * 任意元素
+            E 带一个E标签的元素
+            E F E派生的元素中所有带F标签的
+            E > F or E/F E直接子元素中所有带F标签的
+            E + F 匹配所有紧接在input元素后的div元素
+            E ~ F 匹配所有在input元素后的div元素
+             */
+
+            // console.log(Ext.select("input~div"));
+            // console.log(Ext.select("input+div"));
+            var divs=Ext.select("input+div");
+            var div=divs.item(0);//Ext.dom.Element
+            div.addClass("c2");//removeClass,toggleClass
+            div.update("text");//修改内容
+            div.insertHtml("beforeBegin","<div>before</div>");//beforeBegin,afterBegin,beforeEnd,afterEnd
+            div.set({title:"div"});//设置属性
+            div.setStyle({color:"#c3c",backgroundColor:"#fcf",fontSize:"20px"});//设置样式
+            // div.fadeOut({remove:true});
+		});
+    </script>
+</html>

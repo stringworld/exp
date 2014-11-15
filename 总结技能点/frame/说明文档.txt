@@ -1,0 +1,18 @@
+\Gc.php	全局变量，站点名称
+\index.php	是否打开调试功能
+\welcome.php	跳转页
+\tools\tools\autoCode\autocode.config.xml	生成代码配置
+\core\config\config\Config_Db.php	数据库配置
+\home\ruby\src\domain	实体类存放目录
+
+后台：
+\home\admin\action\Action_Ruby.php	进入页面action
+\home\admin\action\Action_Upload.php	页面上传数据action
+\home\admin\src\view\menu\menu.config.xml	菜单目录
+\home\admin\src\services\service.config.xml	ajax请求方法配置文件
+\home\admin\src\services\ext	ajax实现代码存放目录
+\home\admin\view\default\core	界面文件页面
+\home\admin\view\default\js\ext	界面控制js
+
+$jiaru=new Jiaru();
+$jiaru=$this->model->Jiaru;

@@ -1,0 +1,14 @@
+2.在就在mysql的安装目录下面的bin目录下面，找的mysqld.exe
+
+3.安装mysql服务有两种方法
+
+3.1：直接运行mysqld.exe就可以安装服务了
+
+3.2：如果上面这种方法不行的话，打开dos命令，，记住cmd要以管理员的身份打开，
+找到mysql.exe，运行命令mysqld.exe --install  Mysql5.5其中Mysql5.5是服务的名称,
+上面的这个命令是装好的服务会在你开机的时候自动启动，如果你想将服务改为手动的就，
+就运行下面这个命令：mysqld.exe --install-manual这样就需要使用下面的命令启动服务：net start 
+MySQL删除服务的命令是：mysqld.exe --remove
+
+
+mysql安装目录不要有空格

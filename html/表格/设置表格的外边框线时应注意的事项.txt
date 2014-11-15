@@ -1,0 +1,40 @@
+问题：
+	在表格中实现外边框的线条，要先设置左右的表元的宽度为1px，高度按需求设定，而在中间的表元中在嵌套一个表格，宽度比外层的表格宽度小二，然后在新嵌入的表格中的首行和尾行设置表格的高度为1px，宽度按需求计算，
+
+注意：
+	在实现设置时特别要注意宽度和高度的设定，因为当宽度、高度与外层的宽度和高度不匹配时，边框的颜色就会显示不出来
+
+例如：
+
+<body><!--此处为外层的表格-->
+<table width="600" height="300" cellpadding="0" cellspacing="0">
+	<tr>
+
+    	<!--此处为外层表格的外层左侧的边框要显示的颜色-->
+
+    	<td width="1" bgcolor="blue"></td>
+        <td width="598" height="300">
+
+		<!--此处为嵌套的表格-->
+        	<table width="598" height="300" cellpadding="0" cellspacing="0">
+            	<tr>
+
+			<!--此处为嵌套的表格的上方的一行要显示的颜色-->
+                	<td width="1" height="1" bgcolor="green"></td>
+                </tr>
+                <tr>
+                	<td width="598" height="298">网页的主题部分</td>
+                </tr>
+                <tr>
+
+			<!--此处为嵌套的表格的下方的一行要显示的颜色-->
+                	<td width="1" height="1" bgcolor="orange"></td>
+                </tr>
+            </table>
+        </td>
+
+	<!--此处为外层的表格右侧的边框要现显示的颜色-->
+        <td width="1" bgcolor="yellow"></td>
+    </tr>
+</table>
+</body>

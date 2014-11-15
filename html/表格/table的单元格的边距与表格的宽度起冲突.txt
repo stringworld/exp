@@ -1,0 +1,41 @@
+table:
+	当colspan的值设为2时；会与表格的宽度起冲突；表格的左右的边框会被挤掉，因此，在设置需要特别注意。
+	当设置colspan与rowspan时，注意列与行的合并的个数，
+例子：
+
+
+
+<body>
+<table width="800" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+  <!--此处为左边的边框要显示的颜色-->
+    <td width="1" height="500" bgcolor="#0000FF" ></td>
+    <td width="798" height="500" align="center" valign="middle"><table width="798" border="0" cellspacing="0" cellpadding="0">
+      <tr><!--此处为表格上方要显示的边框的颜色-->
+        <td height="1" bgcolor="#0000ff"></td>
+      </tr>
+      <tr>
+        <td>
+        <!--此处为表格的主题部分-->
+        <table width="798" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="248">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="2" width="798" bgcolor="#0000ff"></td>
+  </tr>
+  <tr>
+    <td height="248">&nbsp;</td>
+  </tr>
+</table>
+</td>
+      </tr>
+      <tr><!--此处为表格的下方要显示的颜色-->
+        <td height="1" bgcolor="#0000ff"></td>
+      </tr>
+    </table></td>
+    <td width="1" height="500" bgcolor="#0000ff"></td><!--此处为右边的边框要显示的颜色-->
+  </tr>
+</table>
+
+</body>

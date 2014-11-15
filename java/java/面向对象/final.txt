@@ -1,0 +1,12 @@
+功能：
+	用来声明类、属性、方法
+
+final标记的类不能被继承
+
+final标记的变量，即成为常量，只能赋值一次（要么在定义时赋值，要么在构造方法中赋值）
+对final定义的常量的赋值时要在所有的构造方法中赋值
+final String x=“abc”；
+
+public static final 共同标记常量时，这个常量就成了全局的常量
+
+public static final String x="abc";这种形式就只能这样的赋值

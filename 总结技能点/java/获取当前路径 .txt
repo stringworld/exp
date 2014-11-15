@@ -1,0 +1,16 @@
+1、利用System.getProperty()函数获取当前路径： 
+System.out.println(System.getProperty("user.dir"));//user.dir指定了当前的路径 
+
+2、使用File提供的函数获取当前路径： 
+File directory = new File("");//设定为当前文件夹 
+    System.out.println(directory.getCanonicalPath());//获取标准的路径 
+    System.out.println(directory.getAbsolutePath());//获取绝对路径 
+
+
+//运行时的类文件所在目录
+System.out.println(BaseDAO.class.getResource(""));
+
+dbpath=new File(ConnectionManager.class.getResource("/").toURI()).toString();
+
+//servlet
+File file=new File(getServletContext().getRealPath("\\")+"type");

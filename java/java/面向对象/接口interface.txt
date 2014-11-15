@@ -1,0 +1,27 @@
+接口中只能定义常量
+
+接口
+	如果一个抽象类中的所有方法都是抽象的，我们就可以将这个类用另外一种方式来定义，
+也就是接口定义。接口是抽象方法和常量值的定义的集合，从本质上讲，接口是一种特殊的抽象类，
+这种抽象类中只能包含常量和方法的定义，而没有变量和方法的实现
+
+接口中的成员都是public访问类型的，接口里的变量默认是用public static final标识的
+我们可以定义一个新的接口用extends关键字去继承一个已有的接口
+定义一个类用implements关键字去实现一个接口所有方法，还可以去定义一个抽象类用implements关键字去实现一个接口中定义的部分方法
+一个类可以继承一个父类的同时，实现一个或多个接口，extends关键字必须位于implemtents 关键字之前
+interface Runer
+{
+	int ID=1;
+	void run();
+}
+interface Animeal extends Runer
+{
+	void breathe();
+}
+class Fish implements Animeal
+{
+	public void run()
+	{
+		System.out.println();
+	}
+}

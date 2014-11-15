@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<!--[if lte IE 6]>
+        <script type="text/javascript" src="DD_belatedPNG.js"></script>
+        <![endif]-->
+		<script src="jquery-1.7.2.min.js"></script>
+		<style>
+			#backtop{position:fixed;z-index:9999;width:55px;height:50px;right:15px;bottom:10px;cursor:pointer;background:#000;display:none;}
+			#backtop a{position:absolute;left:16px;top:18px;width:24px;height:13px;background:url(backtop.png) no-repeat;}
+		</style>
+	</head>
+	<body>
+		<div style="width:1000px;height:1000px;margin:0px auto;background-color:#cccccc;"></div>
+		<div id="backtop" title="回到顶部"><a class="png"></a></div>
+	</body>
+	<script>
+		$(function(){
+			/*************处理png图片在IE6下的透明问题*************/
+			if(window.DD_belatedPNG){
+				DD_belatedPNG.fix(".png");
+			}
+
+			var backtop={left:10,right:10,bottom:parseInt($("#backtop").css("bottom").replace("px","")),showheight:100,opacity:0.8,spacetime:200,cwidth:1000};
+			$("#backtop").click(function(){
+				$("body,html").animate({scrollTop:0},backtop.spacetime);
+			});
+			$(window).bind("resize scroll",function(){
+				var obj=$("#backtop"),objoptions=backtop;
+				if($(window).scrollTop()<objoptions.showheight){
+					obj.stop().animate({opacity:0},objoptions.spacetime,function(){
+						$(this).hide();
+					});
+				}else{
+					obj.stop().show().animate({opacity:objoptions.opacity},objoptions.spacetime);
+					///*
+					//紧贴内容右边
+					var wwidth=$(window).width(),left;
+					if(wwidth>objoptions.cwidth+(obj.width()+objoptions.left+objoptions.right)*2){
+						left=wwidth/2+objoptions.cwidth/2+objoptions.left;
+					}else{
+						left=wwidth-obj.width()-objoptions.right;
+					}
+					if($.browser.msie&&parseInt($.browser.version)<7){//IE6绝对定位
+						var top=$(window).scrollTop()+$(window).height()-obj.height()-objoptions.bottom;
+						obj.css({top:top,position:"absolute",right:"auto",bottom:"auto"});
+						left+=$(window).scrollLeft();
+					}
+					obj.css({left:left});
+					//*/
+					/*
+					//紧贴右边
+					var left=$(window).width()-obj.width()-objoptions.right;
+					if($.browser.msie&&parseInt($.browser.version)<7){//IE6绝对定位
+						var top=$(window).scrollTop()+$(window).height()-obj.height()-objoptions.bottom;
+						obj.css({top:top,position:"absolute",right:"auto",bottom:"auto"});
+						left+=$(window).scrollLeft();
+					}
+					obj.css({left:left});
+					*/
+					/*
+					//紧贴内容左边
+					var wwidth=$(window).width(),left;
+					if((wwidth-objoptions.cwidth)/2>obj.width()+objoptions.left+objoptions.right){
+						left=(wwidth-objoptions.cwidth)/2-obj.width()-objoptions.right;
+					}else{
+						left=objoptions.left;
+					}
+					if($.browser.msie&&parseInt($.browser.version)<7){//IE6绝对定位
+						var top=$(window).scrollTop()+$(window).height()-obj.height()-objoptions.bottom;
+						obj.css({top:top,position:"absolute",right:"auto",bottom:"auto"});
+						left+=$(window).scrollLeft();
+					}
+					obj.css({left:left});
+					*/
+				}
+			});
+			$(window).resize();
+		});
+	</script>
+</html>

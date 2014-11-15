@@ -1,0 +1,32 @@
+﻿this.ownerCt.ownerCt.getForm().submit({
+    waitTitle:"请稍等",
+    waitMsg:"保存数据...",
+    url:"../form.php",
+    success:function(form,action){
+        console.log(action)
+    },
+    failure:function(form,action){
+        // console.log(action.response.responseText)
+    }
+});
+
+Ext.Msg.show({
+	title:"请稍候",msg:"加载项...",
+	closable:false,width:300,
+	progress:true,progressText: "初始化..."
+});
+var count=12;
+var delay=100;
+var f=function(v){
+	return function(){
+		var i=v/count;
+		Ext.Msg.updateProgress(i,String.format("完成度 {0}%",Math.round(100*i)));
+		if(v>=count){
+			Ext.Msg.hide();
+			// Ext.Msg.alert("提示","加载完毕");
+		}
+	};
+};
+for(var i=1;i<=count;i++){
+	setTimeout(f(i),i*delay);
+}

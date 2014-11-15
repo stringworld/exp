@@ -1,0 +1,36 @@
+﻿PersonForm=Ext.extend(Ext.form.FormPanel,{
+    constructor:function(config){
+        config=Ext.apply({
+            layout:"form"
+        },config);
+        PersonForm.superclass.constructor.call(this,config);
+    }
+});
+
+
+Ext.namespace("my");
+my.Person=function(param){
+    Ext.apply(this,param);
+};
+Ext.apply(my.Person.prototype,{
+    name:"",
+    age:20,
+    print:function(){
+        console.log(String.format("人的信息。姓名：{0}，年龄：{1}",this.name,this.age));
+    }
+});
+my.Student=Ext.extend(my.Person,{
+    constructor:function(config){
+        config=Ext.apply({
+            job:"学生",
+            print:function(){
+                console.log(String.format("学生的信息。姓名：{0}，年龄：{1}，工作：{2}",this.name,this.age,this.job));
+            }
+        },config);
+        my.Student.superclass.constructor.call(this,config);
+    }
+});
+var p=new my.Person({name:"人",age:30});
+p.print();
+var s=new my.Student({name:"学生",age:20,job:"学生-班长"})
+s.print();

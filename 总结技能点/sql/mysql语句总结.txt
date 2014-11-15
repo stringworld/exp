@@ -1,0 +1,153 @@
+查找随机数据
+select * from rb_activity order by rand()
+
+排序
+order by (price-price2)
+
+替换字符
+replace(cast(字段名 as varchar(8000)),'a','->b');
+replace(字段名,'a','->b');
+
+联表删除
+delete from produit where id not in(select p.id from produit p left join ku k on p.id_ku=k.id where ku='华东总库');
+
+联表更改字段信息
+update table1 a,table2 b set a.name=b.name where a.id=b.id
+
+拼接字段
+select concat(name,descr) from product;
+
+把查询数据插入新表
+SELECT vale1, value2 into Table2 from Table1。
+
+查询数据插入已存在表
+insert into db1_name (field1,field2) SELECT field1,field2,10 FROM db2_name
+insert into a (field1,field2) SELECT * FROM(SELECT b.f1,c.f2 FROM b JOIN c) AS tb
+
+insert into bl_product_ptypeshow(product_id,name,ico,showtype,unit,price,market_price,isShow,sort_order,commitTime,updateTime) 
+select product_id,name,image,1,unit,price,market_price,1,50,unix_timestamp(now()),now() 
+from bl_product limit 0,13;
+#查询数据插入新建表
+create table product(select * from bl_product limit 0,10);
+
+#修改时间
+update goods set endTime=date_add(endTime,interval 10 day);
+update goods set endTime=date_add(endTime,interval 20 day) where endTime<now();
+
+#创建存储过程
+use huiyuan;
+delimiter |
+drop procedure if exists addUser|
+create procedure addUser()
+begin
+declare i int default 0;
+while i<5 do
+set i=i+1;
+insert into users(username,password,nickname,sex,height,birth,image,sheng,shi,marriage,xueli,salary,zhiye,dubai)
+values(concat('1376458163',i),'123456','测试',1,180,'1991-6-15','userimage1.jpg',3,71,1,3,3,3,'哥没有什么可独白的');
+end while;
+end;|	
+delimiter ;
+call addUser();
+select * from users;
+
+#建库建表
+use mysql;
+drop database if exists huiyuan;
+create database huiyuan default character set utf8 collate utf8_general_ci;
+use huiyuan;
+drop table if exists address;
+#--------------------------------地区表--------------------------------
+create table address
+(
+	addressID int primary key auto_increment,
+	addressName varchar(30) not null,#区域名称
+	useStatus int default 0,#帐号使用状态,0正常，1关闭
+	testType int, #测试所属的类型
+	constraint fk_users_testType foreign key(testType) references questionType(questionTypeID)
+);
+alter table address auto_increment=1;
+
+
+#获取用户信息
+drop procedure if exists proc_getUser//
+create procedure proc_getUser(in uname varchar(20))
+begin
+	set @n=uname;
+	prepare pre from "select * from users where username=?";
+	execute pre using @n;
+end//
+call proc_getUser('abc');
+#获取物品
+drop procedure if exists proc_getGoods//
+create procedure proc_getGoods(pageNO int,pageSize int)
+begin
+	set @str= concat('select * from goods limit ',(pageNO-1)*pageSize,', ',pageSize);
+	prepare stmt from @str;
+	execute stmt;
+	deallocate prepare stmt;
+end//
+delimiter;
+
+
+use mysql;
+#创建添加用户的存储过程
+drop procedure if exists addUser;
+create procedure addUser(in username varchar(16),in pwd varchar(20))
+begin
+declare count int;
+set count=(select count(*) from user where user=username);
+if count>0 then
+	set @s=concat("drop user ",username,"@'%'");
+	prepare pre from @s;
+	execute pre;
+end if;
+flush privileges;#清理用户列表
+set @s=concat("create user ",username,"@'%' identified by '",pwd,"'");
+prepare pre from @s;
+execute pre;
+flush privileges;
+end;
+call addUser('abc','123');
+update user set password=password('123') where user='abc';#修改密码
+#创建测试库
+drop database if exists play;
+create database play default character set gbk collate gbk_chinese_ci;
+use play;
+create table users
+(
+	id int primary key auto_increment,
+	name varchar(10) not null,
+	time datetime
+);
+#触发器
+create trigger trigger_users before insert  on users for each row
+begin
+if new.time is null then
+	set new.time=now();
+	set new.name=concat(new.name,'0');
+end if;
+if new.name like '%' then set new.name=concat(new.name,'1');end if;
+end;
+create procedure query()
+begin
+select * from users;
+end;
+insert into users(name)values('first');
+#赋给用户相关的权限
+grant insert,delete,update,select on play.* to abc@'%';
+grant execute on procedure play to abc@'%';
+revoke delete on play.* from abc@'%';
+flush privileges;
+
+#删除外键
+alter table users drop foreign key fk_users_testType;
+alter table users drop column testType;
+alter table users add column testType int;
+alter table users add constraint fk_users_testType foreign key(testType) references questionType(questionTypeID);
+
+
+#相关语法
+show columns  from users;
+alter table users drop column if exists checkCount;
+alter table users add column checkCount int default 0;

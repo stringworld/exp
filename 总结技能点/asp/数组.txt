@@ -1,0 +1,10 @@
+数组长度	ubound(array)+1
+
+方法一：
+MyArray = Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct", "Nov","Dec")
+
+方法二：
+dim ar(2)	指定数组最高下标,下标可到2
+ar(0)="a"
+ar(1)="b"
+ar(2)="c"

@@ -1,0 +1,19 @@
+在内部类中直接定义内部类
+
+	如果函数的局部变量（函数的形参也是局部变量），内部类的成员变量，
+	外部类的成员变量重名，我们议案按下面的方式来明确指出我们真正要访问的变量
+
+public class Outer
+{
+	private int size;
+	public class Inner
+	{
+		private int size;
+		public void doStuff(int size)
+		{
+			size++;//引用的是doStuff函数的形参
+			this.size++;//引用的是Inner类中的成员变量
+			Outer.this.size++;//引用的是Outer类中的成员变量
+		}
+	}
+}

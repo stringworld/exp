@@ -1,0 +1,61 @@
+.pages{width:480px;margin:15px auto 15px auto;}
+.pages a{margin-right:6px;padding:0px 8px 0px 8px;border:1px solid #ddd;color:#666;text-decoration:none;}
+	.current_page{font-weight:bold;color:red;}
+	.normal:hover{color:#FF6600;background-color:#FFFCE9;}
+	.txt_pageNO{width:25px;height:20px;border:1px solid #DDDDDD;line-height:18px;text-align:center;}
+	.btn_go{width:28px;height:20px;color:#fff;border:0px;font-size:12px;background-image:url("../images/my_go.png");cursor:pointer;}
+
+<%if(pageCount>0){%>
+						<div class="pages">
+							<%
+							int showPageNO=5;//显示的页码数
+							//计算页码的范围
+							int beginNO=0;//起始页码
+							int endNO=0;//结束页码
+							if(pageCount>showPageNO){
+								if(pageNO>pageCount-showPageNO/2){
+									beginNO=pageCount-showPageNO;
+									endNO=pageCount;
+								}else if(pageNO>showPageNO/2){
+									beginNO=pageNO-showPageNO/2;
+									endNO=pageNO+2;
+								}else{
+									beginNO=1;
+									endNO=showPageNO;
+								}
+							}else{
+								beginNO=1;
+								endNO=pageCount;
+							}
+							if(pageNO==1)out.print("<a>上一页</a>");
+							else out.print("<a class='normal' href='javascript:changePage("+(pageNO-1)+");'>上一页</a>");
+							for(int i=beginNO;i<=endNO;i++)
+								if(i==pageNO)out.print("<a style='font-weight:bold;color:#FF6600;'>"+i+"</a>");
+								else out.print("<a class='normal' href='javascript:changePage("+i+");'>"+i+"</a>");
+							if(pageNO==pageCount)out.print("<a>下一页</a>");
+							else out.print("<a class='normal' href='javascript:changePage("+(pageNO+1)+");'>下一页</a>");
+							%>
+							<input type="hidden" id="pageCount" value="<%=pageCount %>"/>
+							共<%=pageCount %>页&nbsp;&nbsp;
+							转到第&nbsp;<input class="txt_pageNO" id="txt_pageNO" type="text" maxlength="3" onkeydown="if(event.keyCode==13)checkPageNO()"/>&nbsp;页
+							<input type="button" class="btn_go" onclick="checkPageNO()"/>
+						</div>
+						<script>
+							//检查页码输入
+							function checkPageNO(){
+								var pageNO=parseInt($("txt_pageNO").value);
+								if(isNaN(pageNO)){
+									$("txt_pageNO").select();
+									alert("请输入正整数！");
+									return;
+								}
+								var pageCount=parseInt($("pageCount").value);
+								if(pageNO<1||pageNO>pageCount){
+									$("txt_pageNO").select();
+									alert("超出范围，请重新输入！");
+									return;
+								}
+								changePage(pageNO);
+							}
+						</script>
+						<%}%>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+        <link href="jquery.jqzoom.css" rel="stylesheet"/>
+        <script src="jquery-1.7.2.min.js"></script>
+        <script src="jquery.jqzoom-core.js"></script>
+    </head>
+    <body>
+		<div style="width:500px;margin:0px auto;">
+			<div style="height:300px;">
+				<a class="jqzoom" rel="gal1" href="images/20120919084647.jpg" title="图片名称"><img src="images/m_20120919084647.jpg" width="300" height="300"/></a>
+			</div>
+			<div>
+				<a rel="{gallery:'gal1',smallimage:'images/m_20120919084647.jpg',largeimage:'images/20120919084647.jpg'}"><img src="images/s_20120919084647.jpg" width="40" height="40"/></a>
+				<a rel="{gallery:'gal1',smallimage:'images/m_KODP012.jpg',largeimage:'images/KODP012.jpg'}"><img src="images/s_KODP012.jpg" width="40" height="40"/></a>
+			</div>
+		</div>
+    </body>
+    <!--
+        zoomType，默认值：'standard'，另一个值是'reverse'，是否将原图用半透明图层遮盖。
+        zoomWidth，默认值：200，放大窗口的宽度。
+        zoomHeight，默认值：200，放大窗口的高度。
+        xOffset，默认值：10，放大窗口相对于原图的x轴偏移值，可以为负。
+        yOffset，默认值：0，放大窗口相对于原图的y轴偏移值，可以为负。
+        position，默认值：'right'，放大窗口的位置，值还可以是:'right' ,'left' ,'top' ,'bottom'。
+        lens，默认值：true，若为false，则不在原图上显示镜头。
+        imageOpacity，默认值：0.2，当zoomType的值为'reverse'时，这个参数用于指定遮罩的透明度。
+        title，默认值：true，在放大窗口中显示标题，值可以为a标记的title值，若无，则为原图的title值。
+        showEffect，默认值：'show'，显示放大窗口时的效果，值可以为: 'show' ,'fadein'。
+        hideEffect，默认值：'hide'，隐藏放大窗口时的效果: 'hide' ,'fadeout'。
+        fadeinSpeed，默认值：'fast'，放大窗口的渐显速度(选项: 'fast','slow','medium')。
+        fadeoutSpeed，默认值：'slow'，放大窗口的渐隐速度(选项: 'fast','slow','medium')。
+        showPreload，默认值：true，是否显示加载提示Loading zoom(选项: 'true','false')。
+        preloadText，默认值：'Loading zoom'，自定义加载提示文本。
+        preloadPosition，默认值：'center'，加载提示的位置，值也可以为'bycss'，以通过css指定位置。
+    -->
+	<script type="text/javascript">
+        var options={
+			position:"right",
+            zoomType: "standard",
+            zoomWidth:450,
+            zoomHeight:350,
+            xOffset:15,
+            yOffset:0,
+            preloadText:"图片加载中"
+        };
+        $(".jqzoom").jqzoom(options);
+    </script>
+</html>

@@ -1,0 +1,1 @@
+sp_denylogin  'BUILTIN\Users' 

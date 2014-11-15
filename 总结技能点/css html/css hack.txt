@@ -1,0 +1,11 @@
+firefox
+@-moz-document url-prefix(){#service .sstop .c{bottom:-1px;}}
+
+IE6
+_display:inline;
+
+IE6¡¢IE7
+*display:inline;
+
+IE7
+*+color:red;

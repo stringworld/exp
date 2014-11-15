@@ -1,0 +1,18 @@
+﻿location既是window对象的属性又是document对象的属性
+location包含8个属性，其中7个都是当前窗体的URL的一部分，剩下的也是最重要的一个是href属性，代表当前窗体的URL
+location的8个属性都是可读写的，但是只有href与hash的写才有意义。例如改变location.href会重新定位到一个URL，而修改location.hash会跳到当前页面中的anchor(<a id="name">或者<div id="id">等)名字的标记(如果有)，而且页面不会被重新加载
+
+document.write(window.location==document.location);
+
+JavaScript hash 属性 -- 返回URL中#符号后面的内容
+JavaScript host 属性 -- 返回域名
+JavaScript hostname 属性 -- 返回主域名
+JavaScript href 属性 -- 返回当前文档的完整URL或设置当前文档的URL
+JavaScript pathname 属性 -- 返回URL中域名后的部分
+JavaScript port 属性 -- 返回URL中的端口
+JavaScript protocol 属性 -- 返回URL中的协议
+JavaScript search 属性 -- 返回URL中的查询字符串
+JavaScript assign() 函数 -- 设置当前文档的URL
+JavaScript replace() 函数 -- 设置当前文档的URL，并在history对象的地址列表中删除这个URL
+JavaScript reload() 函数 -- 重新载入当前文档(从server服务器端)
+JavaScript toString() 函数 -- 返回location对象href属性当前的值

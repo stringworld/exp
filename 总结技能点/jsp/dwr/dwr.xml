@@ -1,0 +1,11 @@
+<dwr>
+	<allow>
+		<create creator="new" javascript="goodsTypeDwr">
+			<param name="class" value="biz.impl.GoodsTypeBiz"/>
+		</create>
+		<create creator="new" javascript="goodsDwr">
+			<param name="class" value="biz.impl.GoodsBiz"/>
+		</create>
+		<convert converter="bean" match="entity.*"/>
+	</allow>
+</dwr>

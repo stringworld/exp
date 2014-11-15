@@ -1,0 +1,5 @@
+这个问题应当是Windows dos下面用ipconfig /all 看到的其中有一条信息为“ ip路由已启用”，默认值为否。
+这条信息代表Windows的IP转发功能默认关闭，如果将其开启，则这个PC具备路由转发功能，如果这个PC有多块网卡连接不同的电脑，那这些电脑可以互相Ping通，互相访问。
+这个信息是随着Windows NT 3.51带来的，后来的版本已经放弃了，用组件中“路由和远程访问”来取代它了。但是仍旧可以使用，而且是在windows内核tcpip.sys直接生效，因此速度很快，性能很好，就是功能单一。
+配置其打开的方式是在注册表中，HKLM\system\CurrentControlSet\Service\TCPIP\Parameters中有个键值IpEnableRouter，默认为0，修改为1，重启即可。
+这个真是很古老的知识，想不到我今天还能用到，呵呵。

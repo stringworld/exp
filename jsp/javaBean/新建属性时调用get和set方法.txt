@@ -1,0 +1,5 @@
+在定义好私有属性时，可以使用快捷键 Ctrl+Alt+shift+A 自动添加setXxx()和getXxx()方法
+
+在界面中点击 Source--> source->Generate Setter and Getter...
+
+在类名上右键,选择source->Generate Setter and Getter...这一项，选择select All选中所有的字段，确定后，即生成了所有字段的get和set方法，十分方便，节省了很多时间。

@@ -1,0 +1,25 @@
+博客网址：http://blog.csdn.net/gaowei222519/article/details/8249210
+
+什么是反射：
+
+一个类是有多个部分组成的,如构造函数.字段.属性.方法等;
+
+反射就是加载类,并解剖出类的各个组成部分.
+
+编程是什么情况下才需要加载类,并解剖出类的各个组成部分呢?
+
+一般框架是基于配置文件的,首先,配置文件需要获得当前类,然后再解剖类中的方法.
+
+反射是java中很重要的一门技术,如果这部分学不明白,那么以后框架就很难学明白了.
+
+加载类通过Class.forName(类的完整限定名);按F2可获得此类的完整限定名.
+
+    //反射:加载类,获得Class  
+            方式一:  
+            Class cla1= Class.forName("gw.reflect.Person");  
+            方式二:  
+            Class cla2 = new Person().getClass();  
+            方式三:  
+            Class cla3 = Person.class;  
+              
+            System.out.println(cla1);  

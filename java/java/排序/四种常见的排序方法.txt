@@ -1,0 +1,87 @@
+JAVA中在运用数组进行排序功能时，一般有四种方法：快速排序法、冒泡法、选择排序法、插入排序法。
+
+快速排序法主要是运用了Arrays中的一个方法Arrays.sort（）实现。
+
+冒泡法是运用遍历数组进行比较，通过不断的比较将最小值或者最大值一个一个的遍历出来。
+
+选择排序法是将数组的第一个数据作为最大或者最小的值，然后通过比较循环，输出有序的数组。
+
+插入排序是选择一个数组中的数据，通过不断的插入比较最后进行排序。下面我就将他们的实现方法一一详解供大家参考。
+
+<1>利用Arrays带有的排序方法快速排序
+
+
+ 1 import java.util.Arrays;
+ 2 public class Test2{
+ 3         public static void main(String[] args){
+ 4                 int[] a={5,4,2,4,9,1};
+ 5                 Arrays.sort(a);  //进行排序
+ 6                 for(int i: a){
+ 7                         System.out.print(i);
+ 8                 }
+ 9         }
+10 }
+
+<2>冒泡排序算法
+
+
+ 1  public static int[] bubbleSort(int[] args){//冒泡排序算法
+ 2                 for(int i=0;i<args.length-1;i++){
+ 3                         for(int j=i+1;j<args.length;j++){
+ 4                                 if (args[i]>args[j]){
+ 5                                         int temp=args[i];
+ 6                                         args[i]=args[j];
+ 7                                         args[j]=temp;
+ 8                                 }
+ 9                         }
+10                 }
+11                 return args;
+12         }
+
+<3>选择排序算法
+
+
+ 1 public static int[] selectSort(int[] args){//选择排序算法
+ 2                 for (int i=0;i<args.length-1 ;i++ ){
+ 3                         int min=i;
+ 4                         for (int j=i+1;j<args.length ;j++ ){
+ 5                                 if (args[min]>args[j]){
+ 6                                         min=j;
+ 7                                 }
+ 8                         }
+ 9                         if (min!=i){
+10                         int temp=args[i];
+11                         args[i]=args[min];
+12                         args[min]=temp;        
+13                         }
+14                 }
+15                 return args;
+16         }
+
+<4>插入排序算法
+
+
+ 1  public static int[] insertSort(int[] args){//插入排序算法
+ 2                 for(int i=1;i<args.length;i++){
+ 3                         for(int j=i;j>0;j--){
+ 4                                 if (args[j]<args[j-1]){
+ 5                                         int temp=args[j-1];
+ 6                                         args[j-1]=args[j];
+ 7                                         args[j]=temp;        
+ 8                                 }else break;
+ 9                         }
+10                 }
+11                 return args;
+12         }
+
+
+以上就是java中的四种排序方法。不同的方法效率不一样，下面是不同的算法的比较和数据交换时的大O表示。
+
+冒泡排序：比较O(N2)　数据交换O(N2)
+
+选择排序：比较O(N2)　数据交换O(N)
+
+插入排序：比较O(N2)　复制数据O(N)
+
+在实际应用中，我们要尽量选择效率高的算法。
+

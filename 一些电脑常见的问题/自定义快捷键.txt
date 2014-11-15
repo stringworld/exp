@@ -1,0 +1,10 @@
+调出程序的三种方法：
+
+1.用鼠标选择
+
+2.通过命令行 win+r ，输入程序的命令行代码，如计算器 calc
+
+3.在开始菜单中选中要定义的软件，右键查看属性，按住ctrl键在选择字母键，这样就可以自定义快捷键了
+
+
+资料来源：http://zhidao.baidu.com/link?url=jZTJpO5JDRuHCCrfq1Wl32yec-uyf-s2v_M--O5UxZCUuvIv-ua9f9P52lj45pMjVTn1K-jd5YsHQmv5Zy_LT_

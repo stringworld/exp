@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/htmt;charset=utf-8">
+		<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+	</head>
+	<body>
+	</body>
+    <script>
+		$(function(){
+			var str="name=test&age=20&sex=1";
+			var obj=$.parseQuerystring(str);
+			console.log(obj);
+			str=$.formatObject(obj);
+			console.log(str);
+		});
+		(function($){
+			$.parseQuerystring=function(str){
+				var keys=str.split("&"),obj={};
+				for(var i=0;i<keys.length;i++){
+					var key=keys[i].split("=");
+					obj[key[0]]=key[1];
+				}
+				return obj;
+			}
+			$.formatObject=function(obj){
+				var ar=[];
+				for(var i in obj){
+					ar[ar.length]=i+"="+obj[i];
+				}
+				return ar.join("&");
+			}
+		})(jQuery);
+	</script>
+</html>

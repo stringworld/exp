@@ -1,0 +1,2 @@
+Response.ContentType="text/html"
+Response.charset="gb2312"

@@ -1,0 +1,3 @@
+USE   教务管理数据库
+GO 
+DROP INDEX  学生表.XS_XM_INDEX1

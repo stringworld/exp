@@ -1,0 +1,2 @@
+放到Photoshop安装目录
+Plug-Ins\File Formats文件夹下即可

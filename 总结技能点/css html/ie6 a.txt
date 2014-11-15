@@ -1,0 +1,11 @@
+a:hover只有在a 有href属性的时候才会有效果
+
+有网友说：如果a:hover 中没有样式的改变，hover就不会被触发。但如果在a:hover{}增加一些特定的属性，例如 
+a:hover{border:none;}
+或者
+a:hover{padding:0;}
+又或者
+a:hover{background: none;}
+此时hover就可以触发了。这样的属性还包括direction/text-align/text-indent/float
+
+同时另一个网友说：不论你在a:hover{}写入任何属性，color啊，font-size啊，overflow啊（甚至是不存在的属性，如xx:yyy），都可以使之恢复正常。

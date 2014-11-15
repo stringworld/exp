@@ -1,0 +1,9 @@
+解决方法1：不要在数据库名字上点右键选择还原，而要是在根目录“数据库”三个字上点右键选择还原，然后再选择数据库，问题便可以解决，如果不行参照方法2
+
+ 
+
+解决方法2：写sql语句处理：
+
+RESTORE DATABASE [databaseName] 
+FROM  DISK = N'X:\数据库备份\database.bak' with replace,     
+NOUNLOAD,  STATS = 10 GO

@@ -1,0 +1,13 @@
+首先需要配置jdk环境变量
+	安装好JDK后，再配置JDK的环境变量：
+		在“我的电脑”上点右键—>“属性”—>“高级”—> “环境变量(N)”。
+		新建系统变量JAVA_HOME			D:\Program Files\Java\jdk1.6.0_10
+		在系统变量Path的值的最后加入以下内容	;%JAVA_HOME%\bin
+		新建系统变量CLASSPATH			.;%JAVA_HOME%\lib	（点号表示当前目录，不能省略）
+	到这里，JDK安装完毕。
+
+添加服务
+	运行bin\添加tomcat服务.bat
+启动服务
+	运行bin\tomcat6.exe
+	或运行bin\tomcat6w.exe，点击start

@@ -1,0 +1,5 @@
+cmd中怎么进mysql
+1.cmd,net start myql --->启动服务;
+
+链接(以用户名为root为例):
+2.mysql -u root -p;执行这命令后,会提示输入密码,输入密码后回车,应该就OK了。但本机装的MySQL没有设置密码，进入时不需要输入密码

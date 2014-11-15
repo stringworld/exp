@@ -1,0 +1,26 @@
+﻿new Ext.data.Store({
+	url:"../HTTP_JSON.php",autoLoad:true,//自动加载
+	reader:new Ext.data.JsonReader({
+		fields:["name","sex","age"],
+		idProperty:"name",//设置主键，去除重复的
+        totalProperty:"totalCount",
+        successProperty:"success",
+        root:"data"
+	}),
+	// url:"../HTTP_XML.xml",
+	// reader:new Ext.data.XmlReader(
+	// 	{record:"user"},
+	// 	["name","sex",{name:"age",type:"int"},{name:"working",type:"boolean"}]
+	// ),
+	listeners:{
+		load:function(store){
+			for(var i=0;i<store.getCount();i++){
+				console.log(Ext.encode(store.getAt(i).data));
+			}
+		}
+	}
+}).load();
+
+this.getStore().insert(0,_record);
+
+store.add(record);

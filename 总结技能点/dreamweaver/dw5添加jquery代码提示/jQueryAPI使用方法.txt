@@ -1,0 +1,10 @@
+
+1.把shared、Extensions、codehints三个文件夹复制到
+WinXP:C:\Documents and Settings\Administrator\Application Data\Adobe\Dreamweaver CS5\zh_CN\Configuration
+win7:C:\Users\Administrator\AppData\Roaming\Adobe\Dreamweaver CS5\zh_CN\Configuration
+下即可
+注意：Administrator可能需要替换为实际登陆账号所建的目录
+2.启动Dreamweaver CS5
+3.Enjoy it
+
+http://www.div-css.net

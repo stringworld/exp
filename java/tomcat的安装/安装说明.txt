@@ -1,0 +1,8 @@
+1.Java的jdk要安装好，环境变量要设置好
+2.把tomcat压缩包解压到D:\Program Files\文件夹下
+3.进入D:\Program Files\tomcat-6.0.20\bin目录
+添加服务
+	运行bin\添加tomcat服务.bat
+启动服务
+	运行bin\tomcat6.exe
+	或运行bin\tomcat6w.exe，点击start

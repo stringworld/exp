@@ -1,0 +1,7 @@
+问题：
+	在设置数据源的时候，DNS添加数据源的时候里卖弄没有数据，或则在连接数据库的时候，出现[Microsoft][ODBC 驱动程序管理器] 在指定的 DSN 中，驱动程序和应用程序之间的体系结构不匹配错误
+
+解决方法：
+	在命令窗口中运行C:\Windows\SysWOW64\odbcad32.exe
+
+http://zhidao.baidu.com/question/419983399

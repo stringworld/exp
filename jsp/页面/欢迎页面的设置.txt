@@ -1,0 +1,9 @@
+在WEB-INF中设置web.xml文件，设置
+
+<welcome-file-list>
+    <welcome-file>index00.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+
+
+代表的意思：在浏览器中只输入项目名称，不输入具体的文件，则会调用首页的JSP文件，如果找不到，则会按顺序查找

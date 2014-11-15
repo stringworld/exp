@@ -1,0 +1,14 @@
+1.session.setMaxInactiveInterval
+
+2.使用session-config
+
+      在web.xml中配置
+
+  <session-config>
+        <session-timeout>10</session-timeout>
+  </session-config>
+
+区别
+a.setMaxInactiveInterval的优先级高，如果setMaxInactiveInterval没有设置，则默认是session-config中设置的时间。
+b.setMaxInactiveInterval设置的是当前会话的失效时间，不是整个web服务的。
+c.setMaxInactiveInterval的参数是秒，session-config当中配置的session-timeout是分钟。

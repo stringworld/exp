@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <link rel="stylesheet" href="jquery.jscrollpane.diy.css"/>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="jquery.mousewheel.min.js"></script>
+		<script type="text/javascript" src="jquery.jscrollpane.min.js"></script>
+        <style>
+			*{margin:0;padding:0;}
+			.show{width:600px;margin:50px auto 0px;}
+			.box{width:100%;height:200px;}
+			.box .con{line-height:20px;width:800px;}
+        </style>
+    </head>
+    <body>
+    	<div class="show">
+        	<div class="box" id="box1">
+                <p class="con">
+Quisque et massa leo, sit amet adipiscing nisi. Mauris vel condimentum dolor. Duis quis ullamcorper eros.
+Proin metus dui, facilisis id bibendum sed, aliquet non ipsum. Aenean pulvinar risus eu nisidictum eleifend.
+Maecenas mattis dolor eget lectus pretium eget molestie libero auctor. Praesent sitamet tellus sed nibh convallis semper.
+Curabitur nisl odio, feugiat non dapibus sed, tincidunt utest. Nullam erat velit, suscipit aliquet commodo sit amet, mollis in mauris.
+Curabitur pharetradictum interdum. In posuere pretium ultricies. Curabitur volutpat eros vehicula quam ultricesvarius.
+Proin volutpat enim a massa tempor ornare. Sed ullamcorper fermentum nisl, ac hendrerit semfeugiat ac.
+Donec porttitor ullamcorper quam. Morbi pretium adipiscing quam, quis bibendum diamcongue eget.
+Sed at lectus at est malesuada iaculis. Sed fermentum quam dui. Donec eget ipsum dolor,id mollis nisi. Donec fermentum vehicula porta
+<br/>
+Quisque et massa leo, sit amet adipiscing nisi. Mauris vel condimentum dolor. Duis quis ullamcorper eros.
+Proin metus dui, facilisis id bibendum sed, aliquet non ipsum. Aenean pulvinar risus eu nisidictum eleifend.
+Maecenas mattis dolor eget lectus pretium eget molestie libero auctor. Praesent sitamet tellus sed nibh convallis semper.
+Curabitur nisl odio, feugiat non dapibus sed, tincidunt utest. Nullam erat velit, suscipit aliquet commodo sit amet, mollis in mauris.
+Curabitur pharetradictum interdum. In posuere pretium ultricies. Curabitur volutpat eros vehicula quam ultricesvarius.
+Proin volutpat enim a massa tempor ornare. Sed ullamcorper fermentum nisl, ac hendrerit semfeugiat ac.
+Donec porttitor ullamcorper quam. Morbi pretium adipiscing quam, quis bibendum diamcongue eget.
+Sed at lectus at est malesuada iaculis. Sed fermentum quam dui. Donec eget ipsum dolor,id mollis nisi. Donec fermentum vehicula porta
+                </p>
+            </div>
+        </div>
+    </body>
+    <script>
+        $(function(){
+			$("#box1").jScrollPane({
+				mouseWheelSpeed:20
+			});
+        });
+    </script>
+</html>

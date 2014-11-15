@@ -1,0 +1,25 @@
+如何获取按钮提交的值
+
+
+问题：
+	隐藏域的应用，如何把表格中的一行数据提交出去，提交过后，如何获取
+
+例子：
+index.jsp：
+<%@ page contentType="text/html;charset=GB2312"%>
+<%
+　　String strID="12";
+%>
+<form method=post action="second.jsp">
+　　<input type="hidden" name="ID" value=<%=strID%> >
+　　<input type="submit" value="提交">
+</form>
+
+second.jsp：
+<%
+　　String strID = request.getParameter("ID");
+　　out.println(strID) ;
+%>
+
+
+如果传递的类型不匹配，则需要强制转换

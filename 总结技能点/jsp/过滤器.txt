@@ -1,0 +1,67 @@
+该方法利用过滤器
+
+first:写编码过滤器类
+
+import java.io.IOException;
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+
+public class EncodingFilter implements Filter{
+	private String encoding;
+	private FilterConfig filterConfig;
+	public void destroy() {
+		encoding=null;
+		filterConfig=null;
+	}
+	public void doFilter(ServletRequest request, ServletResponse response,
+			FilterChain chain) throws IOException, ServletException {
+		if(encoding!=null)
+			request.setCharacterEncoding("gbk");
+		chain.doFilter(request,response);
+	}
+	public void init(FilterConfig filterConfig) throws ServletException {
+		this.filterConfig=filterConfig;
+		encoding=filterConfig.getInitParameter("encoding");
+	}
+}
+
+second:修改web.xml
+
+<web-app>
+...
+<filter>
+		<filter-name>filter</filter-name>
+		<filter-class>EncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>gbk</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+</web-app>
+
+third:写个页面测试下(index.jsp)
+
+<%@page pageEncoding="gbk"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<html>
+	<body>
+		<form method="post" action="index.jsp">
+			姓名:<input type="text" name="name"/>&nbsp;<input type="submit" value="提交"/>
+		</form>
+		传过来的值是:
+		<b>
+		<c:choose>
+			<c:when test="${param.name==null}">null</c:when>
+			<c:otherwise>${param.name}</c:otherwise>
+		</c:choose>
+		</b>
+	</body>
+</html>

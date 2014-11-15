@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/htmt;charset=utf-8">
+		<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+	</head>
+	<body>
+		<div id="show" style="width:200px;margin:0px auto;padding:5px;border:1px solid #ccc;text-align:center;">
+			<!--
+			<a target="_blank" href="tencent://message/?Menu=yes&uin=1325996994&Service=300&sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45">
+				<img src="http://wpa.qq.com/pa?p=2:1325996994:4" border="0" alt="点击这里给我发消息" title="点击这里给我发消息"/>
+			</a>
+			-->
+		</div>
+		<!--
+		http://vip.tq.cn/vip/index.do
+		在线洽谈设置：嵌入代码管理，选择第一个QQ
+		-->
+		<script type="text/javascript" src="http://float2006.tq.cn/floatcard?adminid=9519802&sort=0"></script>
+	</body>
+	<script>
+		$(function(){
+			var ar=[];
+			for(var i=0;i<54;i++){
+				var src="http://wpa.qq.com/pa?p=2:374936891:"+i;
+				var temp=[
+					"<a target='_blank' href='http://wpa.qq.com/msgrd?v=3&uin=374936891&site=qq&menu=yes&i="+i+"'><img src='"+src+"' border='0' alt='点击这里给我发消息' title='点击这里给我发消息'/><br/></a>"
+				];
+				loadimg(src,null,(function(i){
+					return function(){
+						$("#show a:eq("+i+")").hide();
+					}
+				})(i));
+				ar[ar.length]=temp.join("");
+			}
+			$("#show").html(ar.join(""));
+		});
+		(function($){
+		    var Browser={};
+		    Browser.userAgent=window.navigator.userAgent.toLowerCase();
+		    Browser.ie=/msie/.test(Browser.userAgent);
+		    Browser.Moz=/gecko/.test(Browser.userAgent);
+		    //url：图片路径
+		    //doneFn：加载成功执行函数
+		    //failFn:加载失败执行函数
+		    $.loadimg=function(url,doneFn,failFn){
+		    	if(!url)url=" ";
+		    	if(!doneFn)doneFn=function(){};
+		    	if(!failFn)failFn=function(){};
+		        var img=new Image();
+		        if(Browser.ie){
+		            img.onreadystatechange=function(){
+		                if(img.readyState=="complete"||img.readyState=="loaded"){
+		                    doneFn.call(img);
+		                }
+		            }
+		        }else if(Browser.Moz){
+		            img.onload=function(){
+		                if(img.complete==true){
+		                    doneFn.call(img);
+		                }
+		            }
+		        }
+		        img.onerror=function(){
+		            failFn.call(img);
+		        };
+		        img.src=url;
+		    }
+		})(window);
+	</script>
+</html>

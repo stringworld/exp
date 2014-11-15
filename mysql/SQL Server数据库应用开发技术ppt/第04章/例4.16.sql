@@ -1,0 +1,4 @@
+--例4.16
+ALTER DATABASE 教务管理数据库
+SET AUTO_SHRINK ON
+

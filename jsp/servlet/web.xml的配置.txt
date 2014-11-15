@@ -1,0 +1,17 @@
+<servlet>        
+	<servlet-name>hello</servlet-name>        
+	<servlet-class>com.ntc.Hello</servlet-class>
+</servlet>
+
+
+hello：servlet的别名
+com.ntc.Hello：servlet的完全限定名，即：包名.类名
+
+
+<servlet-mapping>        
+	<servlet-name>hello</servlet-name>        
+	<url-pattern>/helloworld</url-pattern>
+</servlet-mapping>
+
+hello:servlet别名，与上面的别名必须相同
+/helloworld这里设定访问此servlet的方式，必须以“/”开头

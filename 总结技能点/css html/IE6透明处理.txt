@@ -1,0 +1,9 @@
+整体透明：
+opacity:0.4;filter:alpha(opacity=40);
+
+边框透明：
+border:2px solid transparent;_border-color:tomato;_filter:chroma(color=tomato);
+
+DD_belatedPNG处理png透明失败原因：
+	1、png图片重新由photoshop生成png格式
+	2、png图片要显示(display:block;)，需要隐藏的时候可以visibility:hidden;

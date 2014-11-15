@@ -1,0 +1,44 @@
+<html>
+	<head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>JavaScript代码在线压缩工具</title>
+        <link rel="stylesheet" type="text/css" href="screen.css">
+        <link rel="stylesheet" href="forms.css" type="text/css" media="screen, projection">
+        <link rel="stylesheet" href="packer.css" type="text/css" media="screen, projection">
+        <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="ie-layout.css"><![endif]-->
+        <script type="text/javascript" src="my.js"></script>
+        <script src="Packer.js" type="text/javascript"></script>
+        <script src="Words.js" type="text/javascript"></script>
+        <script src="bindings.js" type="text/javascript"></script>
+    </head>
+    <body id="packer" style="text-align:center;">
+        <div class="document" style="text-align:left;">
+            <div class="header" style="text-align:center;">
+                <div><h1><a href="http://jspacker.pin5i.com/" target="_blank" style="color:#0066CC;">JavaScript代码在线压缩工具</a></h1></div>
+                <hr style="border:1px solid #ccc;"/>
+            </div>
+            <div class="content">
+                <form id="form">
+                    <p>
+                        <label class="paste">压缩前的JS代码:</label>
+                        <textarea spellcheck="false" id="input" name="input" rows="9" cols="80"></textarea>
+                    </p>
+                    <p id="controls">
+                        <label for="base62">Base62编码加密<input id="base62" name="base62" value="1" type="checkbox"></label>
+                        <label for="shrink">缩短变量名称<input id="shrink" name="shrink" value="1" type="checkbox"></label>
+                    </p>
+                    <p class="form-buttons" id="input-buttons">
+                        <input name="upload" id="upload-script" type="file">
+                    </p>
+                    <button type="button" id="pack-script">压缩</button>
+                    <button type="button" id="clear-all">清空</button>
+                    <p style="margin-top:10px;">
+                        <label class="copy">压缩后的JS代码:</label>
+                        <textarea spellcheck="false" id="output" name="output" rows="9" cols="80" readonly="readonly" onClick="select();"></textarea>
+                    </p>
+                    <p id="message" style="margin:5px 0px;">ready</p>
+                </form>
+            </div>
+		</div>
+	</body>
+</html>

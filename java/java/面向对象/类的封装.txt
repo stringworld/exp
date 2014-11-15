@@ -1,0 +1,123 @@
+概念：
+	封装是把过程和数据包围起来，对数据的访问只能通过已定义的接口。
+
+面向对象计算始于这个基本概念，即现实世界可以被描绘成一系列完全自治、
+
+封装的对象，这些对象通过一个受保护的接口访问其他对象。封装是一种信息
+
+隐藏技术，在java中通过关键字private实现封装。什么是封装？封装把对象
+
+的所有组成部分组合在一起，封装定义程序如何引用对象的数据，封装实际上
+
+使用方法将类的数据隐藏起来，控制用户对类的修改和访问数据的程度。
+
+
+	封装是JAVA面向对象的特点的表现，封装是一种信息隐蔽技术它有两
+个含义，即把对象的全部属性和全部服务结合在一起，形成一个不可分割的
+独立单位，以及尽可能隐藏对象的内部结构，也就是说，如果我们使用了
+封装技术的话，别人就只能用我们做出来的东西而看不见我们做的这个东西的
+内部结构了。
+
+例子：
+先来个例子看看；
+public class Man
+{
+//对属性的封装，一个人的姓名，年龄，妻子都是这个对象（人）的私有属性
+private String name;
+private int age;
+private Woman wife;
+//对该人对外界提供方法的封装，可以设定妻子，姓名，年龄也可以获得男人的姓名和年龄
+public void setWife(Woman wife)
+{
+this.wife = wife;
+}
+public String getName()
+{
+return name;
+}
+public void setName(String name)
+{
+this.name = name;
+}
+public int getAge()
+{
+return age;
+}
+public void setAge(int age)
+{
+this.age = age;
+}
+}
+public class Woman
+{
+//属性封装
+private String name;
+private int age;
+private Man husband;
+//方法封装
+public String getName()
+{
+return name;
+}
+public void setName(String name)
+{
+this.name = name;
+}
+public int getAge()
+{
+return age;
+}
+public void setAge(int age)
+{
+this.age = age;
+}
+public Man getHusband()
+{
+return husband;
+}
+public void setHusband(Man husband)
+{
+this.husband = husband;
+}
+}
+/**
+* 仔细看就会发现，Man类没有提供getWife的方法，这是以为男人不想让自己的妻子被外界访问，
+*
+* 直接下来呢，就是封装可以吧一个对象的属性私有，而提供一些可以被外界访问的属性的方法，
+*
+* 比如说，name属性，Man和Woman类都有相应的get和set方法，外界都可以通过这些方法访问和修改
+*
+* 同时对一些改对象不想让外界访问的属性，就不提供其方法，比如说Man的wife属性，就没有get方法
+*
+* 外界是不能带到Man类的wife属性的
+*
+*/
+上面那例子可能没有突出封装的好处，下面来个超简单的表达下：
+public class Show
+{
+public static void show(String str)
+{
+System.out.println(str);
+}
+}
+上面就是对 System.out.println();的封装。
+调用的时候 ：
+public class Use
+{
+public static void main(String[] args)
+{
+Show.show("封装")；
+}
+}
+这样用的时候就不用使：System.out.println("封装")；
+
+
+
+
+封装的作用
+① 对象的数据封装特性彻底消除了传统结构方法中数据与操作分离所带来的
+种种问题，提高了程序的可复用性和可维护性，
+降低了程序员保持数据与操作内容的负担。
+②对象的数据封装特性还可以把对象的私有数据和公共数据分离开，保护了
+私有数据，减少了可能的模块间干扰，达到降低程序复杂性、提高可控性的
+目的。

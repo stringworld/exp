@@ -1,0 +1,17 @@
+java:
+	面向对象
+		集成，多台，抽象类
+SQL：
+	曾：insert删：改查
+
+CSS：
+	1.整体布局与细节的处理
+	ul
+		li在其中设置文字，向左右各自浮动时，li自动切换到下一行
+	form
+		控制边框和图标时
+	request
+		getHeadName()
+		getcookie()
+		getQueryString（）
+		getSession()

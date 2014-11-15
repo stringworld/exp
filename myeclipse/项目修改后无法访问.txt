@@ -1,0 +1,8 @@
+可能跟myeclipse设置有关，选中项目，右键
+
+
+问题：
+	修改项目名称后，运行出错，一个java项目怎么改项目名字,用F2改了后，但是web项目用网页运行时还要输入原来的项目名字才能运行项目，不然报404错误
+
+修改步骤：
+	在项目上右击鼠标-->Properties-->MyEclipse-->Web-->Content Root-->Web content-root-->改成你想要的项目名 即可

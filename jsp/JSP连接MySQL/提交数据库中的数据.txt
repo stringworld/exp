@@ -1,0 +1,25 @@
+问题：
+	从数据库中查询数据显示在JSP页面中，把表格中的一行数据显示在另一个JSP页面中，可以通过以下几种方法提交数据
+
+1.把要提交的按钮放在表单form中
+
+<form method="get" action="put.jsp">
+	<input type="hidden" name="id" value=<%=rs.getString("p_id")%>>
+	<input type="submit" value="加入购物车" name="bu_cart">
+</form>
+
+（注：提交大的数据可以使用post，小数据使用get）
+
+2.用标签a来提交数据
+
+<a href="put.jsp?id=<%=rs.getString("p_id")%>">加入购物车</a> 
+
+<a href="javascript:;" onclick="location='put.jsp?id=<%=rs.getString("p_id")%>'">加入购物车</a> 
+
+注：这2种都是发送链接的，要注意这种方式，指定提交的具体哪一条信息
+
+3.模拟效果（通过鼠标的单击事件）
+<p onclick="location='put.jsp?id=<%=rs.getString("p_id")%>'" style="text-decoration:underline;cursor:pointer;color:blue;">加入购物车</p>
+
+text-decoration：underline;清除文本的下划线
+cursor:pointer;指定鼠标的样式

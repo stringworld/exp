@@ -1,0 +1,10 @@
+1.下载MySQL的驱动包
+http://dev.mysql.com/downloads/file.php?id=13598
+2.设置驱动包：
+直接在eclipse的项目上点击右键，选Build Path。选Configure Build Path里的libraries选项卡.add external jars.把mysql的驱动包加入就可以了
+(D:\MySQL5\mysql-connector-java-5.0.8\debug文件目录下的
+	mysql-connector-java-5.0.8-bin-g.jar
+)
+3.在MySQL中创建数据库
+4.代码：Mysql项目
+

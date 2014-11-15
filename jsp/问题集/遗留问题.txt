@@ -1,0 +1,32 @@
+jdbc 
+	Statement
+		excuteUpdate()
+		execute()
+		executeQuery()
+	ResultSet
+		getXXX()
+		updateXXX()
+通过jdbc 连接数据库的更新时，更新操作会受到数据库的约束限制，
+
+	PreparedStatement
+		2个特点（预编译）（？代替）
+PreparedStatement参数赋值
+CallableStatement
+	registerOutParameter（int x,int sqlType)
+		查询结果的获取
+			ResultSet
+			
+元素数据的操作
+
+	DatabaseMetaData（提取原始信息）
+		getURL（）
+		getDriverVersion（）
+		
+		获取信息的方法
+			返回值Boolean
+			获取数据库或驱动器本身的的某些特征
+
+
+连接数据库的代码
+
+返回值类型看apr

@@ -1,0 +1,20 @@
+use bank
+go
+if exists(select * from sysobjects where name='price')
+drop rule price
+go
+create rule price as
+@x>0 and @x<10000
+go
+if exists(select * from sysobjects where name='test')
+drop table test
+go
+create table test
+(
+	id int primary key identity(1,1),
+	price int not null
+)
+go
+exec sp_bindrule price,'test.price'
+
+insert into test(price)values(-4)

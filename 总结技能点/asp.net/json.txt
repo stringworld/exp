@@ -1,0 +1,3 @@
+using Newtonsoft.Json;
+
+RoomModel roomModel = JsonConvert.DeserializeObject<RoomModel>(Server.UrlDecode(roomCookie.Value));

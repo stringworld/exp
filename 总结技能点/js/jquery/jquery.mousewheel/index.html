@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="jquery.mousewheel.min.js"></script>
+    </head>
+	<body>
+		<div id="box1" style="padding:50px;background-color:#CC9;">
+        	box1
+        	<div id="box2" style="padding:50px;background-color:#FC9;">box2</div>
+        </div>
+        <div id="show" style="height:1000px;"></div>
+	</body>
+    <script type="text/javascript">
+		$(function(){
+			$("#box2").mousewheel(function(e,data,x,y){
+				var direction=data>0?"上":"下";
+				$("#show").append("box2->data:"+data+";x:"+x+";y:"+y+";"+direction+"<br/>");
+				e.stopPropagation();//阻止事件冒泡
+				e.preventDefault();//取消默认行为
+			});
+			$("#box1").mousewheel(function(e,data,x,y){
+				var direction=data>0?"上":"下";
+				$("#show").append("box1->data:"+data+";"+direction+"<br/>");
+			});
+		});
+	</script>
+</html>

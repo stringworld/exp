@@ -1,0 +1,6 @@
+1.清除字符串中的首尾的空格
+	String trim();
+
+2.清除字符串中所有的空格
+	String str="Hell   o   ";
+	str.replaceAll(" ","");

@@ -1,0 +1,7 @@
+Firebug 调试
+Adblock 拦截广告
+网页翻译 0.7	http://mozilla.com.cn/addon/321-webpage-translator/
+Google Translator 翻译页面
+Web Developer 查看页面信息
+NetVideoHunter 下载视频
+yslow 网页性能测试

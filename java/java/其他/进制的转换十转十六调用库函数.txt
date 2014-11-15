@@ -1,0 +1,8 @@
+	String n;
+    	Scanner sc=new Scanner(System.in);
+    	n=sc.next();
+    	long bi=Long.parseLong(n);
+    	String s=Long.toHexString(bi);
+    	System.out.println(n);
+
+问题：使用库函数时，无法把十六进制中的字母有小写转换成大写字母

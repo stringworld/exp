@@ -1,0 +1,43 @@
+Servlet生命周期分为三个阶段：
+
+　　1，初始化阶段  调用init()方法
+
+　　2，响应客户请求阶段　　调用service()方法
+
+　　3，终止阶段　　调用destroy()方法
+
+Servlet初始化阶段：
+
+　　在下列时刻Servlet容器装载Servlet：
+
+　　　　1，Servlet容器启动时自动装载某些Servlet，实现它只需要在web.XML文件中的<Servlet></Servlet>之间添加如下代码：
+<loadon-startup>1</loadon-startup>
+
+　　　　2，在Servlet容器启动后，客户首次向Servlet发送请求
+
+　　　　3，Servlet类文件被更新后，重新装载Servlet
+
+　　Servlet被装载后，Servlet容器创建一个Servlet实例并且调用Servlet的init()方法进行初始化。在Servlet的整个生命周期内，init()方法只被调用一次。
+
+
+
+1.服务器加载servlet
+
+2.服务器创建servlet类的实例
+
+3.调用servlet实例init()方法
+
+4.收到请求
+
+5.调用service()方法
+
+6.service()方法处理请求并将输出结果返回客户端
+
+7.servlet等待下一个请求或有服务器卸载
+
+8.servlet在服务器调用destroy()方法卸载
+
+
+
+注释：其中的第7步骤可以返回到第4步在这期间可以发出多次请求
+

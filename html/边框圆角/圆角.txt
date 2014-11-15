@@ -1,0 +1,17 @@
+#frm
+			{
+				border-color:red;
+				border-width:2px;
+				border-style:double;
+				float:left;
+				
+				/**
+				*  …Ë÷√‘≤Ω«—˘ Ω
+				*/
+				-ms-border-radius: 8px;
+				-moz-border-radius: 8px;
+				-webkit-border-radius: 8px;
+				-khtml-border-radius: 8px;
+				-o-border-radius: 8px; /*Opera*/
+				border-radius: 8px;
+			}

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<script type="text/javascript" src="http://api.map.baidu.com/api?key=46ce9d0614bf7aefe0ba562f8cf87194&v=1.0&services=false"></script> 
+		<style>
+			#container{width:600px;height:450px;margin:20px auto 0px;border:1px solid #aaaaaa;}
+		</style>
+	</head>
+	<body>
+		<div id="container"></div>
+		<div style="text-align:center;"><a href="http://developer.baidu.com/map/jshome.htm" target="_blank">官网API</a></div>
+		<!--
+		打开Google地图，个在上面找到目标地址，然后上下左右移动地图，
+		让这个地址正好处于地图的正中心位置，当您想寻找坐标位置已经处于地图的中心位置的时候，
+		拷贝并粘贴以下代码到IE浏览器地址栏：
+
+		javascript:void(prompt('',gApplication.getMap().getCenter()));
+
+		这时，弹出对话框显示坐标，这个坐标就是目标地址的经度和纬度
+		-->
+	</body>
+	<script>
+		var map = new BMap.Map("container");			//创建地图实例
+		var point = new BMap.Point(116.404, 39.915);	//创建点坐标
+		map.centerAndZoom(point, 15);					//初始化地图，设置中心点坐标和地图级别
+		map.enableScrollWheelZoom();					//启动鼠标滚轮操作
+		//添加控件
+		map.addControl(new BMap.NavigationControl({type: BMAP_NAVIGATION_CONTROL_SMALL}));	//地图平移缩放控件，默认位于地图左上方，它包含控制地图的平移和缩放的功能。
+		map.addControl(new BMap.OverviewMapControl());	//缩略地图控件，默认位于地图右下方，是一个可折叠的缩略地图。
+		map.addControl(new BMap.ScaleControl());		//比例尺控件，默认位于地图左下方，显示地图的比例关系。
+	</script>
+</html>

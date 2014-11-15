@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <title>计算QQ等级</title>
+        <style>
+        	div{overflow:hidden;}
+        	.main{width:280px;margin:20px auto 0px;font-size:14px;}
+        	.main .mu{width:100%;}
+        	.main .mu *{float:left;margin-right:5px;}
+        	.main .md{width:100%;margin:10px 0px 0px;}
+        	.main .md img{float:left;margin:0px 1px 0px 0px;}
+        </style>
+        <script src="jquery-1.7.1.js"></script>
+    </head>
+    <body>
+        <div class="main">
+            <div class="mu">
+            	<span>请输入QQ等级：</span>
+            	<input type="text" size="10" id="rank"/>
+            	<input type="button" value="计算" id="btn"/>
+            </div>
+            <div class="md" id="view"></div>
+        </div>
+    </body>
+</html>
+<script>
+	var Utils={};
+	(function($){
+		var rankNum=4;//等级进制
+		$.rankName=["星星","月亮","太阳","皇冠"];//等级名称
+		$.rankEach=[1];//每个等级单位
+		for(var i=0,maxRank=1;i<$.rankName.length-1;i++){
+			maxRank*=rankNum;
+			$.rankEach[i+1]=maxRank;
+		}
+		$.calc=function(n){
+			n=parseInt(n);
+			if(isNaN(n)||n<0)n=0;
+			var r=[];
+			for(var i=$.rankName.length-1;i>=0;i--){
+				if(n>=$.rankEach[i]){
+					r[i]=parseInt(n/$.rankEach[i]);
+					n%=$.rankEach[i];
+				}else{
+					r[i]=0;
+				}
+			}
+			return r;
+		}
+	})(Utils);
+	$(function(){
+		$("#rank").keydown(function(e){
+			if(e.keyCode==13){
+				$("#btn").click();
+			}
+		});
+		$("#btn").click(function(){
+			var rg=/^\d+$/g.test($("#rank").val());
+			var num=parseInt($("#rank").val());
+			if(!rg||isNaN(num)||num<1||num>100){
+				$("#view").html("请输入1-100的整数");
+				return;
+			}
+			var ar=Utils.calc(num);
+			var rankImg=["star.png","moon.png","sun.png","crown.png"];
+			$("#view").html("");
+			for(var i=ar.length-1;i>=0;i--){
+				for(var j=0;j<ar[i];j++){
+					$("#view").append("<img src='"+rankImg[i]+"' title='"+Utils.rankName[i]+"'/>");
+				}
+			}
+		});
+		$("#rank").focus();
+	});
+</script>

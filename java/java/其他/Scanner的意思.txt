@@ -1,0 +1,39 @@
+scanner scan =new scanner(system.in)什么意思
+
+Scanner是java的一个类,可以使用该类创建一个对象：
+
+Scanner reader=new Scanner(System.in); 
+
+然后reader对象调用下列方法(函数),读取用户在命令行输入的各种数据类型:
+ 
+next.Byte(),nextDouble(),nextFloat,nextInt(),nextLin(),nextLong(),nextShot()
+ 
+上述方法执行时都会造成堵塞,等待用户在命令行输入数据回车确认. 
+
+例如,用户在键盘输入12.34,hasNextFloat()的值是true,而hasNextInt()的值是
+false. NextLine()等待用户输入一个文本行并且回车,
+该方法得到一个String类型的数据。
+
+public class Main{
+	public static void main(String[] args) {
+		Scanner in=new Scanner(System.in);//创建对象
+		int i=in.nextInt();//从键盘接收一个数
+		if(i%2==0){
+			System.out.println("偶数"+i);
+		}else{
+			System.out.println("奇数"+i);
+		}
+	}
+}
+
+io
+多线程
+反射
+正则表达式
+
+servlet（连接识别）使用步骤,内置对象，生命周期，乱码处理（转发、从定向）
+过滤器（掌握 分偶偶忒）
+框架（工具的集合、servlet写的）定义好的课以给人用的封装的
+
+页面
+div ul li span  img

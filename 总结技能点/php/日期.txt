@@ -1,0 +1,11 @@
+格式化时间
+date('Y-m-d')=date('Y-m-d',time())
+date("Y-m-d H:i:s",$t); 
+昨天：date("Y-m-d",strtotime("-1 day"))
+去年2个月前：date("Y-m-d",strtotime("-2 months -1 year"))
+strtotime("-12 month");字符串转换为日期时间，返回整型
+
+strtotime("2013-5-1")	转换为时间
+
+定制时间
+mktime(0,0,0,date("m")-12,date("d"),date("Y"))	十二个月之前

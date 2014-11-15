@@ -1,0 +1,1 @@
+Wh.Rongyu.View.Running.edit_window.image.setValue("");

@@ -1,0 +1,9 @@
+网上找到了一个注册类可以生成Myeclipse注册码.
+http://blog.csdn.net/yuyuyuyuy/article/details/5878122
+
+运行代码后
+1.输入你的MyEclipse的版本
+2.回车后出现注册码
+
+从Myeclipse--》subscription information 即可进入update subscription界面。
+输入版本和注册码

@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312"  /> 
+		<title>
+			可折叠浮动广告设计
+		</title>
+		<style type="text/css">
+			body
+			{
+				margin:0;
+				padding:0;	
+			}
+			#adsense 
+			{/*border:#FF0000 1px solid;*/
+				position:absolute;
+				left:0;
+				top:0;
+				width:100%;
+				margin-top:10px;
+				display:none;/**/
+			}
+			#adsense .left, #adsense .right
+			{
+				position:relative;
+			}
+			#adsense .left
+			{
+				float:left;
+			}
+			#adsense .right
+			{
+				float:right;
+			}
+			#adsense #content
+			{
+				width:100px;
+				height:200px;
+				font-size:24px;		
+			}
+			#adsense #panel
+			{
+				width:15px; 
+				height:95px; 
+				position:absolute; 
+				top:0; 
+				font-size:12px;
+				padding-left:2px;
+				cursor:pointer;
+			}
+			#adsense  .left #panel
+			{
+				left:0; 
+				background-image:url(img/panel_left.png); 
+			}
+			#adsense  .right #panel
+			{
+				right:0; 
+				background-image:url(img/panel_right.png); 
+			}
+		</style>
+	</head>
+	<body>
+		<div id="adsense" >
+			<div class="left">
+				<div id="content" style=" border:#999999 solid 1px;" >
+					在这里添加你希望添加的内容（文字、图片、链接）
+				</div>
+				<div id="panel"  >
+					<br />
+					收起广告
+				</div>
+			</div>
+			<div class="right">		
+				<div id="content" style="border:#999999 solid 1px;" >
+					在这里添加你希望添加的内容（文字、图片、链接）
+				</div>
+				<div id="panel" >
+					<br />
+					收起广告
+				</div>	
+			</div>
+		</div>
+		<div style="border:#0000FF solid 1px; margin: 0 auto; width:900px; height:10000px;">
+			页面主体内容
+		</div>
+	</body>
+	<script type="text/javascript">
+		 window.onscroll=function(){
+				obj=document.getElementById("adsense");
+				if(document.all)
+					obj.style.top=document.documentElement.scrollTop+"px";
+				else
+					obj.style.top=document.body.scrollTop+"px";
+		}
+		obj=document.getElementById("adsense");
+		childnodes=obj.childNodes;
+		
+		for(i=0; i<childnodes.length ;i++)
+		{
+			if(childnodes[i].className=="right"||childnodes[i].className=="left")
+			{
+				childnodes[i].onmouseover=mouseoverhandle;
+				childnodes[i].onmouseout=mouseouthandle;
+						
+				childnodes_2=childnodes[i].childNodes;
+
+				for( j=0; j<childnodes_2.length ;j++ )
+				{
+					if(childnodes_2[j].id=="panel")
+					{
+						childnodes_2[j].onclick=mouseclickhandle;
+						childnodes_2[j].style.visibility="hidden";
+					}
+				}
+			}
+		}
+		
+		function mouseoverhandle()
+		{
+			childnodes=this.childNodes;
+			for( i=0; i<childnodes.length ;i++ )
+			{
+				if(childnodes[i].id=="panel")
+					childnodes[i].style.visibility="visible";
+			}
+		}
+		function mouseouthandle()
+		{
+			childnodes=this.childNodes;
+			for( i=0; i<childnodes.length ;i++ )
+			{
+				if(childnodes[i].id=="panel")
+					childnodes[i].style.visibility="hidden";
+			}
+		}
+		function mouseclickhandle()
+		{
+			pre_node=this.previousSibling;
+			if(this.parentNode.state=="hidden")
+			{
+				this.parentNode.state="visible";
+				this.innerHTML="<br />收起广告";
+			}
+			else
+			{
+				this.parentNode.state="hidden";
+				this.innerHTML="<br />显示广告";
+			}
+			while(pre_node)
+			{
+				if(pre_node.id=="content")
+				{
+					pre_node.style.visibility=this.parentNode.state;
+					break;
+				}
+				pre_node=pre_node.previousSibling;
+			}
+		}
+		obj.style.display="block";
+	//	obj.state="visible";	
+	</script>
+</html>

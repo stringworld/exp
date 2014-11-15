@@ -1,0 +1,3 @@
+//标识列,自增列
+id counter //默认从1开始，一次增加1
+id autoincrement(1,1) primary key

@@ -1,0 +1,335 @@
+<?
+require("setup.php");
+define('PAGETITLE','pagtitle');
+function insert_top($lid,$sid)
+{
+echo "insert function";
+}
+$smarty=new SmartyRebuild();
+$smarty->assign('name','Linux');
+$smarty->assign('title','在线有有要有和蔼是是非非要要');
+$smarty->assign('english_word','my name x4 is linux');
+$smarty->assign('money','344.2223');
+$smarty->assign('member',array('fax'=>'010-95888484','email'=>'linux@admin.com',
+     'phone'=>array('home'=>'8488484','mobil'=>'5325325325353')));
+$tempMember=array();
+$tempMember['member']='dsgads';
+$tempMember["phone"]["home"]="444333";
+$contacts=array();
+$contacts[]["fax"]="435454";
+$contacts[]["phone"]="223523523";
+$contacts[]["fax"]="42532532";
+$contacts[]["phone"]="7888888";
+$contacts2=array(array('fax'=>'32523','phone'=>'325132532'),array('fax'=>'2313532','phone'=>'325325132523'));
+$contacts3=array();
+$contacts3[0]="23523";
+$contacts4=array();
+$contacts4[0][0]="23523";
+$contacts4[0][1]="23523";
+$contacts3[1]="23523";
+$contacts4[1][0]="23523";
+$contacts4[1][1]="23523";
+$contacts3[2]="23523";
+$contacts4[2][0]="23523";
+$contacts4[2][1]="23523";
+$contacts3[3]="23523";
+$contacts4[3][0]="23523";
+$contacts4[3][1]="23523";
+$smarty->assign('contacts',$contacts);
+$smarty->assign('contacts2',$contacts2);
+$smarty->assign('contacts3',$contacts3);
+$smarty->assign('contacts4',$contacts4);
+$smarty->assign('tempmember',$tempMember);
+$smarty->display('index.tpl');
+?>
+
+
+
+smarty code:
+
+     
+
+{config_load file='config.conf'}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+  <TITLE>Smarty学习</TITLE>
+  <META NAME="Generator" CONTENT="EditPlus">
+  <META NAME="Author" CONTENT="">
+  <META NAME="Keywords" CONTENT="">
+  <META NAME="Description" CONTENT="">
+</HEAD>
+
+<BODY>
+{capture name=banner}{*注释掉中间显示内容*}
+{include file="banner.tpl"}
+{/capture}
+{include file="banner.tpl" title="Smarty学习"}
+{$smarty.get.page}<br/>
+{$smarty.post.page}<br/>
+{$smarty.cookies.name}<br/>
+{$smarty.server.SERVER_NAME}<br/>
+{$smarty.env.PATH}<br/>
+{$smarty.session.id}<br/>
+{$smarty.request.username}<br/>
+{$smarty.now|date_format:'%Y-%m-%d %H:%M:%S'}<br/>
+{$smarty.const.PAGETITLE}{*常量*}<br/>
+Hello {$name}{*变量*}<br/>
+{html_select_date display_days=yes}<br/>
+{$member.fax}<br/>
+{$member.phone.home}<br/>
+{$tempmember.member}<br/>
+{$tempmember.phone.home}{*多维数组*}<br/>
+{#error_message#}{*配置文件属性*}<br/>
+{$name|lower}{*smarty字符串函数*}<br/>
+{$name|upper}{*smarty字符串函数*}<br/>
+{'now'|date_format:'%Y-%m-%d'}{*smarty日期函数*}<br/>
+{$title|truncate:11:"..."}{*截断字符串超长加...*}<br/>
+|strip_tags|truncate:200:"..." 去除html标签
+{mailto|lower address="mailto:linux@admin.com%22%7D%7B*mailto邮件*}<br/>
+mailto:%7B$tempmember%7C@count}{*数据的总和*}<br/>
+{$english_word|capitalize}{*首字母大写*}<br/>
+{$english_word|capitalize:true}{*每个单词的首字母大写*}<br/>
+{$title|count_characters:true}{*字符串的长度加true字符空格,不加true不计算空格*}<br/>
+{$title|cat:'字符串后加入字符'}{*拼接字符串*}<br/>
+{$title|count_words}{*计算字符数量*}<br/>
+{$title2|default:"*"};{*如果变量不存在就输出默认值*}<br/>
+{$english_word|escape:html}{*将字符串中的HTML转换为HTML编码方式*}<br/>
+{$english_word|escape:htmlall}{*将字符串中的HTML转换为HTML编码方式*}<br/>
+{$english_word|escape:url}{*将字符串中的HTML转换为URL编码方式*}<br/>
+{$english_word|escape:quotes}{*将字符串中的HTML转换为HTML编码方式*}<br/>
+{$title|indent:100}{*缩进指定宽度*}<br/>
+{$title|regex_replace:"/要/":"爱"}{*正则表达式替换字符*}<br/>
+{$title|replace:"要":"爱"}{*Replace替换字符*}<br/>
+{$english_word|spacify:"||"}{*分隔字符串*}<br/>
+{$money|string_format:"%.2f"}{*格式化数字为Float数*}<br/>
+{$money|string_format:"%d"}{*格式化数字为INT数*}<br/>
+{$english_word|strip:" "}{*替换空格*}<br/>
+{$english_word|strip_tags:false}{*替换标签*}<br/>
+{$english_word|truncate:10:"..."}{*截取指定长度字符,默认截取80字符长度*}<br/>
+{$english_word|wordwrap:10}{*多长后字符串换行,默认换行长度为80*}<br/>
+{$english_word|upper|spacify|truncate:30:"..."}{*Smarty支持多个函数的组合,此组合为字符串先大写然后分隔然后截取指定长度*}<br/>
+{foreach name=outer item=contact from=$contacts}{*foreach循环数组*}
+  {foreach key=key item=item from=$contact}
+  {$key}:{$item}<br/>
+  {/foreach}
+{/foreach}
+{foreach name=outer item=contact2 from=$contacts2}
+  {foreach key=key item=item from=$contact2}
+  {$key}:{$item}<br/>
+  {/foreach}
+{/foreach}
+{include_php file="function.php"}{*包含指定的PHP文件*}
+{insert name="top" lid="toplid" sid="topsid"}{*调用insert_top PHP函数,函数参数为lid和sid的值*}
+{if 1 eq 1}{*条件判断语句*}
+  1=1
+{elseif 1 ne 1}
+  1!=1
+{elseif 1 gt 1}
+  1>1
+  {elseif 1 lt 1}
+  1<1
+  {elseif 1 gte 1}
+  1>=1
+  {elseif 1 lte 1}
+  1<=1
+  {elseif not 1 eq 1}
+  not 1=1
+  {elseif (1 mod 1) eq 1}
+  <font color="red">1%1=1</font>
+  {else}
+  你的人品真不好
+  {/if}
+{ldelim}function insert_top {rdelim} is insert_top {*输出中括号*}
+{literal}{*加入一段HTML,脚本代码等*}
+<script language="javascript" type="text/css">
+<!--
+function load()
+{
+  alert('页面加载....');
+}
+//-->
+</script>
+  {/literal}
+  {*包含一段PHP语句*}
+  {php}
+  echo "php代码运行";
+  {/php}
+  {section name=member loop=$contacts3 show=true}{*while循环 show是否SHOW section中的循环内容*}
+   {if $smarty.section.member.first}
+  first
+{/if}
+{if $smarty.section.member.last}
+  last
+{/if}
+current loop rownum:{$smarty.section.member.rownum}<br/>
+   current loop iteration:{$smarty.section.member.iteration}<br/>
+   index:{$smarty.section.member.index} index_prev:{$contacts3[member.index_prev]} index_next:{$contacts3[member.index_next]} index:{$contacts3[member.index]} member:{$contacts3[member]}
+   {section name=memberchild loop=$contacts4[member] max=2}
+    memberchild:{$contacts4[member][memberchild]}
+   {/section}
+   total:{$smarty.section.member.total}{*数据长度或总记录数*}
+  {/section}
+
+</BODY>
+</HTML>
+
+变量调节器
+变量调节器用于变量,自定义函数和字符串.
+可以使用'|'符号和调节器名称应用调节器.
+变量调节器由赋予的参数值决定其行为.
+参数由':'符号分开.
+如果你用变量调节器调节数组变量,结果是数组的每个值都被调节.如果你想要调节器调节整个数组,你必须在调节器名字前加上@符号.
+例如: {$articleTitle|@count}(这将会在输出 $articleTitle 数组里的数目)
+
+capitalize
+将变量里的所有单词首字大写. 参数值boolean型决定带数字的词是否首字大写。默认不大写
+
+count_characters
+计算变量值里的字符数.参数值boolean型决定是否计算空格数。默认不计算空格
+
+cat
+将cat里的参数值连接到给定的变量后面.默认为空。
+
+count_paragraphs
+计算变量里的段落数量
+
+count_sentences
+计算变量里句子的数量
+
+count_words
+计算变量里的词数
+
+date_format
+日期格式
+
+第一个参数控制日期格式.
+如果传给date_format的数据是空的,将使用第二个参数作为默认时间
+
+%a - 星期几的简写
+
+%A - 星期几的全写
+
+%b - 月份的简写
+
+%B - 月份的全写
+
+%c - 日期时间06/12/05 11:15:10
+
+%C - 世纪时间
+
+%d - 一个月的第几号(从 01 到 31)
+
+%D - 同 %m/%d/%y
+
+%e - 一个月的第几号，号为单数则前面加一空格 (从 1 到 31)
+
+%g - 世纪
+
+%G - 世纪 [0000,9999]
+
+%h - 同%b
+
+%H - 24小时形式的小时(从00到23)
+
+%I - 12小时形式的小时(从01到 12)
+
+%j - 一年中的第几天(从 001 到 366)
+
+%k - 24小时形式的小时，单数字前面加空格. (从 0 到 23)
+
+%l - 12小时形式的小时，单数字前面加空格.(range 1 to 12)
+
+%m - 月份 (range 01 to 12)
+
+%M - 分
+
+%n - 换行符
+
+%p - 显示早上还是下午`am' 或 `pm'
+
+%r - a.m. 或 p.m.形式的时间
+
+%R - 24小时形式的时间
+
+%S - 秒
+
+%t - tab符号
+
+%T - 同%H:%M:%S
+
+%u - 用 [1,7],表示星期几
+
+%U - 计算是该年的第几个星期，从该年的第一个星期天开始计算
+
+%V - 计算是该年的第几个星期, 从 01 到 53, 第一个星期必须至少有4天在这一年, 星期天作为这个星期的第一天
+
+%w - 用数字的形式表示是星期的第几天, 星期天 为 0
+
+%W - 用数字的形式是该年的第几个星期,从该年的第一个星期一开始计算
+
+%x - 显示日期：月/日/年
+
+%X - 显示时间：小时：分钟：秒
+
+%y - 不包括世纪的年份
+
+%Y - 包括世纪的年份
+
+%Z - 时区
+
+%% - 输出%
+
+其中有些有时不能正常输出。
+
+default
+默认
+为空变量设置一个默认值.
+当变量为空或者未分配的时候,将由给定的默认值替代输出.
+
+escape
+转码
+参数值为html,htmlall,url,quotes,hex,hexentity,javascript。默认是html转码
+
+indent
+缩进
+在每行缩进字符串,第一个参数指定缩进多少个字符，默认是4个字符.第二个参数,指定缩进用什么字符代替。
+
+lower
+小写
+This is used to lowercase a variable.
+将变量字符串小写
+
+nl2br
+换行符替换成<br />
+
+regex_replace
+正则替换
+寻找和替换正则表达式.必须有两个参数，参数1是替换正则表达式. 参数2使用什么文本字串来替换
+
+replace
+替换
+简单的搜索和替换字符串必须有两个参数，参数1是将被替换的字符串. 参数2是用来替换的文本
+
+spacify
+spacify是在字符串的每个字符之间插入空格或者其他的字符串. 参数表示将在两个字符之间插入的字符串，默认为一个空格。
+
+string_format 字符串格式化
+是一种格式化浮点数的方法.例如十进制数.使用sprintf语法格式化。参数是必须的，规定使用的格式化方式。%d表示显示整数，%.2f表示截取两个浮点数。
+
+strip 去除(多余空格)
+替换所有重复的空格,换行和tab为单个或者指定的字符串. 如果有参数则是指定的字符串。
+
+strip_tags 去除所有html标签
+
+truncate 截取
+参数1，规定截取的字符数.默认是80个.
+第二个参数指定在截取的那段字符串后加上什么字符.默认为...
+第三个参数决定是否精确截取，默认情况下为false,则smarty不会分割单词。
+
+upper 将变量改为大写
+
+wordwrap 行宽约束
+第一个参数指定段落的宽度(也就是多少个字符一行,超过这个字符数换行).默认80.
+第二个参数指定在约束点使用什么字符(默认是换行符\n).
+第三个参数决定是否精确截取字符，默认情况下是不精确截取，就是截取时不能分开单词。

@@ -1,0 +1,10 @@
+declare @begin int,@end int,@i int,@idbegin int
+select @begin=1,@end=10
+select @i=@begin,@idbegin=400
+while @i<=@end begin
+	--insert into produit(id,title)values(@idbegin,'name'+@idbegin)
+	--insert into produit(id,title)values(newid(),'name'+@idbegin)
+	insert into produit(title)values('name'+convert(nvarchar(200),@idbegin))
+	select @i=@i+1,@idbegin=@idbegin+1
+end
+go

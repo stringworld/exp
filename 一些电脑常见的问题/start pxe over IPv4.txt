@@ -1,0 +1,13 @@
+开机出现：
+start pxe over IPv4
+pxe-e18:sever response timent.
+start pxe over IPv6
+
+
+问题原因：
+	开机启动设置出错，导致开机时自动检测网卡
+
+解决方法：
+	1.每次开机时不要插网线
+
+	2.进入BOOS中，第二项中有一个含有notwork单词的选项，把他和他下面的一项的参数设置为lock，保存，重启BOOS，就解决了

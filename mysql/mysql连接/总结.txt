@@ -1,0 +1,15 @@
+连接数据库主要有四步：
+
+1.加载驱动程序 Class.forName(driver);
+
+2.打开数据库连接MySQL 建立一个connection(指定URL，用户名，密码)
+
+3.执行sql语句 创建statement对象，使用此对象惊醒声明
+
+4.输出结果 ResultSet，使用此对象执行sql语句
+
+
+注释：
+	在执行select查询时必须使用executeQuery()；
+
+	在执行insert、delete、update时可以使用executeUpdate和execute

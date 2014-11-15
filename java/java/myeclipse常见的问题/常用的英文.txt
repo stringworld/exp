@@ -1,0 +1,50 @@
+
+一月份---十二月份
+
+	January 
+
+	February
+
+	March
+
+	April
+
+	May
+
+	June
+
+	July
+
+	August
+
+	September
+
+	October
+
+	November
+
+	December
+
+星期一---星期天
+
+	星期一:Monday
+	星期二:Tuesday
+	星期三:Wednesday
+	星期四:Thursday
+	星期五:Friday
+	星期六：Saturday
+	星期天：Sunday
+
+数字 0~9
+	1 one 
+	2 two 
+	3 three 
+	4 four 	
+	5 five 
+	6 six 
+	7 seven 
+	8 eight 
+	9 nine 
+
+春到冬:
+	spring,summer,autumn,winter 

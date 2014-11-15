@@ -1,0 +1,21 @@
+class Outer
+{
+	private int size=0;
+	public class Inner
+	{
+		public void doStuff()
+		{
+			System.out.println(++size);
+		}
+	}
+}
+
+public class TestInner
+{
+	public static void main(String [] args)
+	{
+		Outer outer = new Outer();
+		Outer.Inner inner = outer.new Inner();//调用外部类，通过outer确定是调用哪一个外部类
+		inner.doStuff();
+	}
+}

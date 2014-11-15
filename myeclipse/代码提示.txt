@@ -1,0 +1,11 @@
+在普通的java文件里有提示，而到了Servlet中就没有了提示
+
+
+1、菜单window->Preferences->Java->Editor->Content Assist->Enable auto activation 选项要打上勾
+      2、windows-->preference-->workbench-->keys 下设置Content    Assist    的快捷键
+      3、window->Preferences->Java->Editor->Content Assist->Advanced   上面的选项卡Select the proposal kinds contained in the 'default' content assist list: 中把 Other Java Proposals 选项打上勾就可以了。
+ 
+2、使用中文Eclipse的请看下面：
+      1、菜单->窗口->首选项->Java->编辑器->内容辅助>启用自动激活
+      2、窗口-->首选项-->工作空间-->键 ->恢复默认值
+      3、窗口->首选项->Java->编辑器->内容辅助>高级   上面的选项卡 选择“缺省”内容辅助列表中包含的建议类型 中把 其它建议 选项打上勾就可以了。

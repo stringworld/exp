@@ -1,0 +1,19 @@
+static 静态变量
+	
+static怎么用的
+http://blog.csdn.net/anmei2010/article/details/4096131
+
+static的作用
+http://zhidao.baidu.com/link?url=jPNNwBPo2addGeEbDgzn5VEUYvJ98DolhNebYRqW6lAErfQpqEbCRTtiCPiY9k9C2Kezf2acMgRCpJZPW9XsCK
+
+static 静态方法
+
+	2中
+访问修饰符
+设计模式
+	就是编程的成功经验和方案
+
+单态的设计模式
+	就是采取一定的方法保证在整个软件系统中，对某个类 
+
+通过什么样的方式保证类在内存中只能创建一个实例对象

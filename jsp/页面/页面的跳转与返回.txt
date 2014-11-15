@@ -1,0 +1,5 @@
+1.页面的跳转
+	response.setHeader("Refresh","5;URL=success.jsp");
+
+2.页面的返回上一层
+	<a href="javascript:history.back(-1);">返回</a>
