@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+    </head>
+    <body>
+        <div>
+            <p>Hello!</p>
+        </div>
+        <div id="test2"></div>
+        <input type="checkbox" name="newsletter" value="Hot Fuzz" />
+        <input id="myID" type="checkbox" name="newsletter" value="Cold Fusion" />
+        <input type="checkbox" name="newsaccept" value="Evil Plans" />
+        <script type="text/javascript">
+
+            //1)查找所有含有id属性的div元素个数[$("div[id]")]
+                //alert($("div[id]").size());
+
+            //2)查找所有name属性是newsletter的input元素，并将其选中[$("input[name='newsletter']").attr("checked","checked")]
+                //alert($("input[name='newsletter']").size());
+                //$("input[name='newsletter']").attr("checked","checked");
+
+            //3)查找所有name属性不是newsletter的input元素，并将其选中[$("input[name!='newsletter']").attr("checked","checked")]
+                //$("input[name!='newsletter']").attr("checked","checked");
+
+            //4)查找所有name以'news'开始的input元素，并将其选中[$("input[name^='news']").attr("checked","checked")]
+                //$("input[name^='news']").attr("checked","checked");
+
+            //5)查找所有name 以'letter'结尾的input元素，并将其选中[$("input[name$='letter']").attr("checked","checked")]
+                //$("input[name$='letter']").attr("checked","checked");
+
+            //6)查找所有name包含'news'的input元素，并将其选中[$("input[name*='news']").attr("checked","checked")]
+                //$("input[name*='news']").attr("checked","checked");
+
+            //7)找到所有含有id属性，并且它的name属性是以"letter"结尾的input元素，并将其选中[$("input[id][name=$'letter']").attr()
+                console.log($("input[id][name$='letter']").attr("checked","checked"));
+                //$("input[id][name^='news']").attr("checked","checked");//以news为开头的
+
+
+
+            $(function(){
+
+            });
+        </script>
+    </body>
+</html>

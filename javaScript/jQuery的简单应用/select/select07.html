@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+    </head>
+    <body>
+        <body>
+            <ul>
+                <li>John</li>
+                <li>Karl</li>
+                <li>Brandon</li>
+            </ul>
+            <ul>
+                <li>Glen</li>
+                <li>Tane</li>
+                <li>Ralph</li>
+            </ul>
+            <ul>
+                <li>Jack</li>
+            </ul>
+        <script type="text/javascript">
+
+            //1)迭代每个ul中第1个li元素中的内容,索引从1开始
+            /*$("ul li:first-child").each(function(){
+                alert($(this).html());
+            });*/
+            //2)迭代每个ul中最后1个li元素中的内容,索引从1开始
+            /*$("ul li:last-child").each(function(){
+               alert($(this).html());
+            });*/
+
+            //3)在ul中查找是唯一子元素的li元素的内容
+            /*$("ul li:only-child").each(function(){
+                alert($(this).html());
+            });*/
+            //4)迭代每个ul中第2个li元素中的内容,索引从1开始
+//            console.log($("ul li:nth-child(2)")[0]);
+            /*$("ul li:nth-child(2)").each(function(){
+                console.log($(this).html());
+            });*/
+        </script>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+    </head>
+    <body>
+        <body>
+            <form>
+                <input type="button" value="Input Button"/><br/>
+                <input type="checkbox" /><br/>
+                <input type="file" /><br/>
+                <input type="hidden" /><br/>
+                <input type="image" /><br/>
+                <input type="password" /><br/>
+                <input type="radio" /><br/>
+                <input type="reset" /><br/>
+                <input type="submit" /><br/>
+                <input type="text" /><br/>
+                <select><option>Option</option></select><br/>
+                <textarea></textarea><br/>
+                <button>Button</button><br/>
+            </form>
+            <script type="text/javascript">
+//                1)查找所有input元素的个数[$(":input")]注：包含所有input,textarea,select和button元素
+                  console.log($(":input").size());
+//                2)查找所有文本框的个数[$(":text")]
+                    console.log($(":text").size());
+//                3)查找所有密码框的个数[$(":password")]
+                    console.log($(":password").size());
+//                4)查找所有单选按钮的个数[$(":radio")]
+                    console.log($(":radio").size());
+//                5)查找所有复选框的个数[$(":checkbox")]
+                    console.log($(":checkbox").size());
+//                6)查找所有提交按钮的个数[$(":submit")]
+                    console.log($(":submit").size());
+//                7)匹配所有图像域的个数[$(":image")]
+                    console.log($(":image").size());
+//                8)查找所有重置按钮的个数[$(":reset")]
+                    console.log($(":reset").size());
+//                9)查找所有普通按钮的个数[$(":button")]
+                    console.log($(":button").size());
+//                10)查找所有文件域的个数[$(":file")]
+                    console.log($(":file").size());
+//                11)查找所有input元素为隐藏域的个数[$("input:hidden")]
+                    console.log($(":input:hidden").size());
+
+            </script>
+        </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+        <style type="text/css">
+            .oneclass{font-size:13px; font-family:"新宋体"; color:red;}
+        </style>
+    </head>
+    <body>
+        <div id="divID1">div1</div>
+        <div class="myclass">myclass1</div>
+        <div class="myclass">myclass2</div>
+        <div class="myclass">myclass3</div>
+        <span>span</span>
+        <p>p</p>
+        <script type="text/javascript">
+            //1获取divID1的长度（使用size()和length方法）
+            //alert($("#divID1").size());
+            //alert($("#divID1").length);
+
+            //2获取使用div元素的个数
+            //alert($("div").size());
+
+            //3.查找样式名为"myclass"元素的个数
+            //alert($(".myclass").length);
+            //alert($(".myclass").size());
+
+            //4.查找所有div,span，p标签的个数
+            //alert($("div,span,p").length);
+
+            //5.查找所有id为divID1和class为mycalss元素的个数
+            alert($("#divID1,.myclass").size());
+
+            $(function(){
+
+            });
+        </script>
+    </body>
+</html>

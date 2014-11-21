@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+        <style>
+            .main{margin:auto;padding:0px;width:800px;height:1000px;border:1px solid }
+            .main .top{height:20px; background-color:#85aeec;}
+
+            /*默认样式，主要是position:fixed实现屏幕绝对定位*/
+            #gotoTop{display:none;position:fixed;top:75%;left:50%;cursor:pointer;margin-top:-50px;margin-left:520px;padding:9px 4px;width:20px;text-align:center;border:1px solid #e0e0e0;background:#fff;}
+            /*用CSS表达式(expression)来实现ie6下position:fixed效果*/
+            #gotoTop{_position:absolute;_top:expression(documentElement.scrollTop + documentElement.clientHeight * 3/4 + "px")}
+            /*鼠标进入的反馈效果*/
+            #gotoTop.hover{background:#5CB542;color:#fff;text-decoration:none;}
+
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="top"></div>
+
+
+        </div>
+
+        <div id="gotoTop">返回顶部</div>
+        <script>
+            //js代码
+            function gotoTop(min_height){
+                //预定义返回顶部的html代码，它的css样式默认为不显示
+                var gotoTop_html = '<div id="gotoTop">返回顶部</div>';
+                //将返回顶部的html代码插入页面上id为page的元素的末尾
+                $("#page").append(gotoTop_html);
+                $("#gotoTop").click(//定义返回顶部点击向上滚动的动画
+                        function(){$('html,body').animate({scrollTop:0},700);
+                        }).hover(//为返回顶部增加鼠标进入的反馈效果，用添加删除css类实现
+                        function(){$(this).addClass("hover");},
+                        function(){$(this).removeClass("hover");
+                        });
+                //获取页面的最小高度，无传入值则默认为600像素
+                min_height ? min_height = min_height : min_height = 600;
+                //为窗口的scroll事件绑定处理函数
+                $(window).scroll(function(){
+                    //获取窗口的滚动条的垂直位置
+                    var s = $(window).scrollTop();
+                    //当窗口的滚动条的垂直位置大于页面的最小高度时，让返回顶部元素渐现，否则渐隐
+                    if( s > min_height){
+                        $("#gotoTop").fadeIn(100);
+                    }else{
+                        $("#gotoTop").fadeOut(200);
+                    };
+                });
+            };
+            gotoTop();
+            //js代码
+            function pageScroll(){
+                //把内容滚动指定的像素数（第一个参数是向右滚动的像素数，第二个参数是向下滚动的像素数）
+                window.scrollBy(0,-100);
+                //延时递归调用，模拟滚动向上效果
+                scrolldelay = setTimeout('pageScroll()',100);
+                //获取scrollTop值，声明了DTD的标准网页取document.documentElement.scrollTop，否则取document.body.scrollTop；因为二者只有一个会生效，另一个就恒为0，所以取和值可以得到网页的真正的scrollTop值
+                var sTop=document.documentElement.scrollTop+document.body.scrollTop;
+                //判断当页面到达顶部，取消延时代码（否则页面滚动到顶部会无法再向下正常浏览页面）
+                if(sTop==0) clearTimeout(scrolldelay);
+            }
+            $(function(){
+
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+    </head>
+    <body>
+        <table border="1" align="center">
+            <tr>
+                <td>用户名</td>
+                <td>密码</td>
+            </tr>
+            <tr>
+                <td>Value 1</td>
+                <td>123456</td>
+            </tr>
+            <tr>
+                <td>Value 2</td>
+                <td>123456</td>
+            </tr>
+            <tr>
+                <td>Value 3</td>
+                <td>123456</td>
+            </tr>
+        </table>
+        <script type="text/javascript">
+            $("table tr:first").css("background","#ecc");
+            $("tr:gt(0):odd").css("background","red");
+            $("tr:gt(0):even").css("background","yellow");
+        </script>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+        <style type="text/css">
+            .myClass{
+                font-size:44px;
+                color:blue
+            }
+        </style>
+    </head>
+    <body>
+        <div><p>John Resig</p></div>
+        <div><p>George Martin</p></div>
+        <div>Malcom John Sinclair</div>
+        <div>J. Ohn</div>
+        <p></p>
+        <p></p>
+        <div></div>
+        <script type="text/javascript">
+
+            //1)查找所有包含文本"John"的div元素的个数[$("div:contains('John')")]，严格区分大小写
+                //alert($("div:contains('John')").size());
+
+            //2)查找所有p元素为空的元素个数[$("p:empty")]
+                //alert($("p:empty").size());
+
+            //3)给所有包含p元素的div元素添加一个myClass样式[$("div:has(p)").addClass("myClass")]
+               // $("div:has(p)").addClass("myClass");
+
+            //4)查找所有含有子元素或者文本的p元素个数,即p为父元素[$("p:parent")]
+                alert($("p:parent").size());
+
+
+            $(function(){
+
+            });
+        </script>
+    </body>
+</html>

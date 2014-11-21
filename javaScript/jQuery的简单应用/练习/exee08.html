@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+
+    </head>
+    <body>
+        <input type="button" value="选中1号"/>
+        <input type="button" value="选中2号"/>
+        <select>
+            <option>0号</option>
+            <option>1号</option>
+            <option>2号</option>
+            <option>3号</option>
+        </select>
+        <hr>
+        <input type="button" value="选中北京和广州"/>
+        <select multiple size="4">
+            <option>北京</option>
+            <option>上海</option>
+            <option>广州</option>
+            <option>重庆</option>
+        </select>
+
+        <script type="text/javascript">
+            $(":input").first().click(function(){
+                $("select").val("1号");
+            });
+            //.next()表示相邻的下一条数据，注意：val()中的值必须要和下拉列表中的标签文本的内容相同，否则就会传递不了值
+            $(":input").first().next().click(function(){
+                $("select").val("2号");
+            });
+            $("input").last().click(function(){
+                $("select").val(['北京','广州']);
+            });
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+        <style>
+            .myClass{
+                font-size:15px;
+                color:red;
+            }
+        </style>
+    </head>
+    <body>
+        <div>无样式1</div>
+        <div>无样式2</div>
+        <div>无样式3</div>
+        <div>无样式4</div>
+        <div>无样式5</div>
+        <div class="myClass">有样式</div>
+        <script type="text/javascript">
+            $("div").eq(3).addClass("myClass");
+
+            $("div").last().removeClass("myClass");
+            $("div").last().toggleClass("myClass");
+
+        </script>
+    </body>
+</html>

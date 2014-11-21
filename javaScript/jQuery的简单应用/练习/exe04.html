@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+    </head>
+    <body>
+        <div>
+            <select style="width:80px" multiple size="10" id="leftID">
+                <option>选项A</option>
+                <option>选项B</option>
+                <option>选项C</option>
+                <option>选项D</option>
+                <option>选项E</option>
+                <option>选项F</option>
+                <option>选项G</option>
+                <option>选项H</option>
+                <option>选项I</option>
+                <option>选项J</option>
+            </select>
+        </div>
+        <div style="position:absolute;left:100px;top:60px">
+            <input type="button" value="批量右移" id="rightMoveID"/>
+        </div>
+        <div style="position:absolute;left:100px;top:90px">
+            <input type="button" value="全部右移" id="rightMoveAllID"/>
+        </div>
+        <div style="position:absolute;left:220px;top:20px">
+            <select multiple size="10" style="width:80px" id="rightID">
+            </select>
+        </div>
+        <script type="text/javascript">
+            //双击右移
+            $("#leftID").dblclick(function(){
+                $("#rightID").append($("select option:selected"));
+            });
+            //批量右移
+            $("#rightMoveID").click(function(){
+                $("#rightID").append($("select option:selected"));
+            });
+            //全部右移
+            $("#rightMoveAllID").click(function(){
+                $("#rightID").append($("select option"));
+            });
+
+        </script>
+    </body>
+</html>

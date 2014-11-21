@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+        <style type="text/css">
+            .myClass{
+                font-size:15px;
+                color:red;
+            }
+            .disPlay{
+                display:none;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            中国0<br/>
+            中国1<br/>
+            中国2<br/>
+            中国3<br/>
+            中国4<br/>
+            中国5<br/>
+            中国6<br/>
+            中国7<br/>
+            中国8<br/>
+            中国9<br/>
+        </div>
+        <input type="button" value="我的好友"/>
+        <script type="text/javascript">
+            //仿照qq打开好友列表的样式 slideUp()向上打开 slideDown()向下打开 slideToggle() 来回打开
+            //slideToggle() 来回打开
+            $(":input").click(function(){
+                $("div").slideToggle(1000,function(){
+                    $(this).addClass("disPlay");
+                });
+            });
+            //slideDown()向下打开
+           /* $(":input").click(function(){
+                $("div").slideDown(1000,function(){
+                    $(this).addClass("disPlay");
+                });
+            });*/
+            //slideUp()向上打开
+            /*$(":input").click(function(){
+                $("div").slideUp(1000,function(){
+                    $(this).addClass("disPlay");
+                });
+            });*/
+        </script>
+    </body>
+</html>
