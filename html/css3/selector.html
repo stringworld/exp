@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8"/>
+    </head>
+    <style>
+        *{margin:0;padding:0;}
+        span::selection{background-color:yellow;}
+        html:root{background-color:#eee;}
+        .header>div{height:50px;}
+        /*
+        [say]
+        [say=a]
+        [say~=a]空格分割
+        [say|=a]-分割
+        [say*=a]
+        [say^=a]
+        [say$=a]
+         */
+        .header div[ok]{background-color:#3cc;}
+        .header div[say*=a]{background-color:#09f;}
+        .main{border-radius:12px;border:1px solid #ccc;padding:0px 10px;}
+        /*后面所有的兄弟div标签*/
+        .main~div{background-color:#fcf;}
+        /*后面紧跟的兄弟div标签*/
+        .main+div{border:3px solid #aaa;}
+        /*子元素第一个标签*/
+        .mcon :first-child{background-color:#3cc;}
+        /*子元素最后一个标签*/
+        .mcon :last-child{background-color:#f80;}
+        /*子元素第n个标签，从1开始计数，偶数2n或者even，奇数2n+1或者odd*/
+        .mcon :nth-child(2n){background-color:#09f;}
+        /*子元素第1个p标签，从1开始计数，偶数2n或者even，奇数2n+1或者odd*/
+        .mcon p:first-of-type{border:5px solid #666;}
+        .mcon p:nth-of-type(2){border:5px solid #f09;}
+        /*
+        倒数
+        .mcon p:nth-last-of-type(2){border:5px solid #f09;}
+        .mcon :nth-last-child(2){border:5px solid #f09;}
+        */
+        input:checked{width:30px;height:30px;}
+        input:disabled{border:1px solid #f00;}
+        
+        #other{margin-top:50px;}
+        /*标签前面插入图标*/
+        #other a[href$=".txt"]::before{content:url(https://raw.githubusercontent.com/programfuture/src/master/css_selector_txt.jpg);}
+        #other a[href$=".ppt"]::before{content:url(https://raw.githubusercontent.com/programfuture/src/master/css_selector_ppt.jpg);}
+        #other a[href$=".word"]::before{content:url(https://raw.githubusercontent.com/programfuture/src/master/css_selector_word.jpg);}
+    </style>
+    <body>
+        <div class="header">
+            <div ok><span>header1</span></div>
+            <div say="abc">header2</div>
+        </div>
+        <div class="main">
+            <div>
+                <input type="checkbox" /><br/>
+                <input type="radio" name="sex" /><input type="radio" name="sex" /><br/>
+                <input type="text" disabled="disabled" value="disabled" />
+            </div>
+            <div class="mcon">
+                <div>mcon1</div>
+                <div>mcon2</div>
+                <div>mcon3</div>
+                <div>mcon4</div>
+                <div>mcon5</div>
+                <div>mcon6</div>
+                <div>mcon7</div>
+                <p>mcon8</p>
+                <p>mcon9</p>
+                <p>mcon10</p>
+            </div>
+        </div>
+        <div class="footer">footer</div>
+        <div class="bottom">bottom</div>
+        <div id="other">
+            <p><a target="_blank" href="x.txt">txt</a></p>
+            <p><a target="_blank" href="x.ppt">ppt</a></p>
+            <p><a target="_blank" href="x.word">word</a></p>
+        </div>
+    </body>
+    <script>
+        var other=document.getElementById("other");
+        other.onclick=function(e){
+            return false;
+        }
+    </script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8"/>
+        <style>
+            @-webkit-keyframes move{
+                0%{margin:0;opacity:0;width:50px;}
+                30%{margin:30px 0 0 80px;opacity:0.8;}
+                100%{margin:100px 0 0 100px;opacity:1;width:200px;}
+            }
+            .btn{
+                width:200px;height:50px;margin:100px 0 0 100px;border:0;border-radius:10px;
+                -webkit-animation:move 2s linear 0s 1 alternate;
+            }
+            /*
+            animation-name                  属性名
+            animation-duration              持续时间
+            animation-timing-function       速度曲线；linear，ease，ease-in，ease-out，ease-in-out，cubic-bezier(0,0,1,1)
+            animation-delay                 延迟时间
+            animation-iteration-count       循环次数；infinite：无限次
+            animation-direction             是否应该轮流反向播放；normal：正常，alternate：轮流反向播放
+            */
+        </style>
+    </head>
+    <body>
+        <input class="btn" type="button"/>
+    </body>
+</html>
