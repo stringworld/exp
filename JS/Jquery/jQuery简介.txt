@@ -1,0 +1,9 @@
+jquery是做什么的？
+	jquery主要是用来简化javascript的各种操作以及解决各种浏览器之间的兼容性
+用jquery能办到的用javascript都能办到
+
+用哪种方法可以调用jQuery？
+dom与jQuery的联系与区别？
+	document.getElementByID()得到的是dom对象，
+	$("div")得到的是jquery对象，
+	$("div").get(0)将jquery对象转化为dom对象

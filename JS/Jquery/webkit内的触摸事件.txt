@@ -1,0 +1,8 @@
+http://www.cxyclub.cn/n/46058/
+
+
+
+touchstart---->触摸开始
+touchmove----->接触点改变
+touchend------>触摸结束
+touchcancel--->触摸取消

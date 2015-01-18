@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+
+    </style>
+    <script src="js/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+    <div id="switcher">
+        <div class="label">Text Size</div>
+        <button id="switcher-default">default</button>
+        <button id="switcher-large">点击，字体变大</button>
+        <button id="switcher-small">点击，字体变小</button>
+    </div>
+    <div class="speech">
+        <p>如果每次都增大或减小为预定的值，那么仍然可以使用.addClass()方法。但是，这次假
+            设我们希望每单击一次按钮，文本的字体大小就会持续地递增或递减。虽然为每次单击定义一个
+            单独的类，然后迭代这些类也是可能的，但更简单明了的方法是每次都以当前字体大小为基础，
+            按照一个设定的系数（例如40%）来递增字体大小。
+        </p>
+    </div>
+    <script>
+        $(document).ready(function(){
+           var $speech=$('div .speech');
+            var fontSize=10;
+            $('#switcher-large').click(function(){
+               // console.log('dfdf');
+                var num=parseFloat(($speech.css('fontSize'),10));
+                num *= 1.4;
+                $speech.css('fontSize',num+'px');
+                console.log(num);
+            });
+        });
+    </script>
+</body>
+</html>

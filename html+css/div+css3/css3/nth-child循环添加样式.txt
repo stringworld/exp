@@ -1,0 +1,25 @@
+使用nth-child选择器，只要在“nth-child(n)”只要把n参数改为xn+y的形式就可以了
+
+x表示每次循环中共包含集中样式
+
+y表示指定的样式在循环中的位置
+
+例如此处是4种背景色作为一组循环
+
+<style type="text/css">
+
+li:nth-child(4n+1){
+	background-color:yellow;
+}
+li:nth-child(4n+2){
+	background-color:limegreen;
+}
+li:nth-child(4n+3){
+	background-color:red;
+}
+
+li:nth-child(4n+4){
+	background-color:white;
+}
+}
+</style>

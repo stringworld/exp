@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <title>demo7--toggle与toggleClass</title>
+
+        <meta charset="utf-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <style>
+            .click{background-color: yellow;border: 10px solid #efc;}
+        </style>
+
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+
+    </head>
+    <body>
+    <a id="a1" href="http://www.baidu.com/">使用toggle进行click事件时，会让a标签的超链接失效,使用unbind()</a>
+    <hr>
+
+    <a id="a2" href="http://www.sogou.com/">使用toggle进行click事件时，会让a标签的超链接失效,使用toggleClass()</a>
+
+    <script>
+            $('#a1').toggle('click',function(){
+                $(this).addClass('click');
+            },function(){
+                $(this).removeClass('click');
+            }).unbind('click');
+            
+            $('#a2').toggle(function(){
+                $(this).toggleClass('click');
+            });
+    </script>
+    </body>
+</html>

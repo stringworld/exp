@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <title>demo8-2toggle()的用法</title>
+
+        <meta charset="utf-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+
+    </head>
+    <body>
+    <input type="button" value="切换"/>
+        <p>这个是显示的</p>
+        <p style="display: none">这个是不显示的</p>
+    <script>
+        $(document).ready(function(){
+            $('input').click(function(){
+                $('p').toggle();
+            });
+        });
+        /*元素的可见状态
+        使用toggle()可以吧元素，如果是显示的，则隐藏，如果是隐藏的，则显示*/
+    </script>
+    </body>
+</html>

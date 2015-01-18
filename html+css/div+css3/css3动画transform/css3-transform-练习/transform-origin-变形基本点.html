@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>transform属性的应用</title>
+    <style>
+        div{width: 200px;height: 200px;display: inline-block;
+        }
+        div .a{background-color: pink;}
+        div .b{background-color: green;
+            -webkit-transform:rotate(45deg);
+            -moz-transform:rotate(45deg);
+            -o-transform:rotate(45deg);
+            //修改变形基点
+            -webkit-transform-origin:left bottom;
+            -moz-transform-origin:left bottom;
+            -o-transform-origin:left bottom;
+        }
+    </style>
+</head>
+<body>
+
+<div class="a"></div>
+
+<div class="b"></div>
+
+<img src="http://imgstore03.cdn.sogou.com/app/a/100520020/d9281ce42a7217cfed5005c005fcfcd8" alt="图"/>
+
+<P>在各个浏览器中书写的形式：
+
+    chrome，Safari：-webkit-transform
+
+    firefox:-moz-transform
+
+    opera:-o-transform
+</P>
+</body>
+</html>

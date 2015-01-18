@@ -1,0 +1,4 @@
+进入wamp中相应的工程
+gitbash	cd /d/wamp/inesa
+git update-index --assume-unchanged core/config/config/Config_Db.php   忽略文件同步 
+git update-index --no-assume-unchanged core/config/config/Config_Db.php 取消忽略同步

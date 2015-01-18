@@ -1,0 +1,18 @@
+这个页面如果是弹出窗口,弹窗代码不能有scrollbars=no,建议用auto,然后继续修改弹出窗口那个网页的代码
+如果不是弹窗,那么直接在页面上修改body标签,增加一个style标记
+
+
+<body style="overflow-x: hidden;overflow-y: auto">
+
+
+overflow-x是水平滚动条,一般没用,设置成hidden.也可以设置成auto,不过某些情况下适得其反,比如页面宽度显示了垂直滚动条后就不够了..会变得超难看
+
+
+overflow-y是垂直滚动条,设成auto,超过1页就自动显示滚动条了
+
+
+overflow:hide  没有滚动条
+
+overflow:scroll-x 滚动条横向
+
+overflow:scroll-y 滚动条竖向

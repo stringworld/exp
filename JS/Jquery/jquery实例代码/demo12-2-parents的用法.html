@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <title>demo12-2-parents()方法</title>
+
+        <meta charset="utf-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+
+        <style>
+            .bgcolor{background-color: gray;border: 5px solid #eec;}
+        </style>
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+
+    </head>
+    <body>
+    <table>
+        <tr>
+            <td><input type="button" value="test" id="btn1" class="btn1"></td>
+            <td>some test </td>
+        </tr>
+    </table>
+
+    <script>
+        $(document).ready(function(){
+            $('#btn1').click(function(){
+                alert($(this).parents().next().html());
+            });
+        });
+    </script>
+    </body>
+</html>

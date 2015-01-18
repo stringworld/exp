@@ -1,0 +1,24 @@
+问题：
+	在一个div 中设置好背景图片后，然后在用一个div 输入一行文字，使文字居中显示
+
+解决方法：在设置文字的div 中设置行高line-height与设置背景图片的div 相同，
+
+
+例：.tu{
+	width:773px;
+	height:157px;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	background-image:url(pic/5.jpg)
+	}
+
+
+	.p1{
+	font-size:36px;
+	text-align:center;
+	color:#00CC66;
+	line-height:157px;/*行高与图片的高度相同,作用是使文字居中对齐*/
+	}
+
+	<div class="tu"><div class="p1">淮南联合大学计算机系</div></div>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <title>demo0--ready与onload</title>
+
+        <meta charset="utf-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+
+    </head>
+    <body>
+        <a href="http://www.jb51.net/article/21628.htm">使用说明</a>
+        <script>
+            /*
+            *   是DOM结构绘制完毕后就执行，不必等到加载完毕。
+            *   可以同时编写多个，并且都可以得到执行
+            *   $(document).ready(function(){})可以简写成$(function(){});
+            *
+            * */
+            $(document).ready(function(){
+                alert("Hello.world!");
+            });
+            /*
+            *   在整个页面中只能有一个，有多个时就会只执行一个
+            *   并且没有简化
+            *   还只能在页面中的所有包括图片的所有元素加载完毕后才能执行
+            *
+            * */
+            window.onload=function(){
+                alert('Hello world!!');
+            }
+        </script>
+    </body>
+</html>

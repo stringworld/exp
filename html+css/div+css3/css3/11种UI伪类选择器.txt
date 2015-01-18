@@ -1,0 +1,22 @@
+E:hover	
+	鼠标移动到元素上使用的样式
+E:active
+	鼠标在元素上按下还没有松开时使用的样式
+E:focus
+	获得光标焦点时使用的样式
+E:emabled
+	指定元素处于可用的状态下使用
+E:disabled
+	指定元素处于不可用的状态下使用
+E:read-only
+	指定元素处于只读状态时使用
+E:read-write
+	指定元素处于非只读状态下使用
+E:checked
+	指元素复选框在选中的情况下使用
+E:default
+	指元素在页面打开时默认处于选取状态时使用
+E:indeterminate
+	指一组单选框在页面打开时默认都没有被设定为选取时的样式（只有opera支持）
+E:selection
+	指定元素处于选中时使用样式

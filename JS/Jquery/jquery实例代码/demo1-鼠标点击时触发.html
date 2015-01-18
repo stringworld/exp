@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <title>demo1</title>
+
+        <meta charset="utf-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+
+    </head>
+    <body>
+
+        <p>$(document)是获取整个网页文档对象,$("p")是获取所有的段落标签. ---单击我</p>
+        <hr/>
+        <p>我也是一个段落文本,单击我也弹出  .---单击我</p>
+
+    <script>
+        $(document).ready(function(){
+            $('p').click(function(){
+                alert('点击我时，才会出现');
+            });
+        });
+
+    </script>
+    </body>
+</html>

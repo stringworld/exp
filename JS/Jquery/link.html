@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <title>链接 href调用js里面的相对应的链接</title>
+
+        <meta charset="utf-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+    </head>
+    <body>
+        <div id="linkTest">
+            <a id="baidu" href="baidu">百度链接</a>
+            <a id="sogou" href="sogou">搜狗链接</a>
+            <a id="xinlang" href="xinlang">新浪链接</a>
+            <a id="wangyi" href="wangyi">网易邮箱</a>
+        </div>
+        <script type="text/javascript">
+            window.onload=function(){
+                linkes();
+            }
+            function linkes(){
+                //获取整个页面中的所有 a标签，当发生点击事件时，触发
+                $('#linkTest a').click(function(){
+                    //var hrefV=$(this).attr('href');
+                    //对页面中的要链接的网址存放到数组中去，
+                    var arr=[{baidu:'http://www.baidu.com/',sogou:'http://www.sogou.com/',xinlang:'http://www.sina.com/',wangyi:'http://www.qiye.163.com/'}];
+                    for(var i=0;i<arr.length;i++){   //根据链接名称通过循环寻找相匹配的链接
+                        for(var key in arr[i]){
+                            //alert(key);
+                            //alert(key+':'+arr[i][key]);
+                            if($(this).attr('href')==key){  //判断页面中的名称与数组中的名称是否相匹配
+                                $(this).attr('href',arr[i][key]);  //复制网址
+                            }
+                        }
+                    }
+                });
+                /*
+                 //传统的老方法，虽然麻烦但容易理解
+                 var baidu=document.getElementById('baidu');
+                 var sogou=document.getElementById('sogou');
+                 var xinlang=document.getElementById('xinlang');
+                 baidu.href='http://www.baidu.com/';
+                 sogou.href='http://www.sogou.com/';
+                 xinlang.href='http://www.sina.com/';
+                 */
+            }
+        </script>
+    </body>
+</html>

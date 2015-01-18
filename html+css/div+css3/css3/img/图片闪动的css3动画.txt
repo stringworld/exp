@@ -1,0 +1,6 @@
+#image{
+	-webkit-animation: flash 1s linear infinite;
+}
+
+
+注意：其中的1s表示图片闪动的间隔

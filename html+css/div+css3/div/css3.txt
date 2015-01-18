@@ -1,0 +1,6 @@
+<img src="./images/index/text1.png" id="text1" animation="text_from_right" delay="600" />
+
+
+animation:¶¯»­
+
+delay£ºÑÓ³Ù

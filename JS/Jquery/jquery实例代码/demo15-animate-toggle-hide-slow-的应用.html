@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <title>demo15-animate-toggle-hide-slow-综合应用</title>
+
+        <meta charset="utf-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+
+    </head>
+    <body>
+
+    <a href="#">点击测试</a>
+    <div class="studff">
+        手册解释：
+        用于创建自定义动画的函数。这个函数的关键在于指定动画形式及结果样式属性对象
+        。这个对象中每个属性都表示一个可以变化的样式属性（如“height”、“top”或“opacity”）。
+
+        而每个属性的值表示这个样式属性到多少时动画结束。如果是一个数值，样式属性就会从当前的值渐变到指定的值。如果使用的是“hide”、“show”或“toggle”这样的字符串值，则会为该属性调用默认的动画形式。
+
+        [示例]:
+        $("p").animate({
+        height: 'toggle', opacity: 'toggle'
+        }, "slow");
+        [示例]:
+        $("p").animate({
+        left: 50, opacity: 'show'
+        }, 500);
+        [示例]:
+        一个使用“擦除”函数提供不同动画样式的例子。只有在一个插件可以提供这个“擦除”函数（jQuery库中默认只提供“linear”函数）的情况下才有效。
+
+        $("p").animate({
+        opacity: 'show'
+        }, "slow", "easein");
+
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('a').click(function(){
+                $('.studff').toggle();
+            });
+        });
+    </script>
+    </body>
+</html>

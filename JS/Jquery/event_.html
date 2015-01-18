@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .large ,.chapter{font-size: 1.5em;background-color: #c1c1c1;}
+        .narrow{width: 200px;border: 1px solid red;background-color: #f0c8c6}
+        .selected{font-weight: bold;font-size: 20px;}
+        .hidden{display: none;}
+        .hover{cursor: pointer;background-color: #afa;width: 40%;}
+    </style>
+    <script src="js/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+
+<div id="switcher" class="switcher">
+    <h3>Style Switcher（网页风格切换） </h3>
+    <button id="switcher-default">
+        Default 系统设置
+    </button>
+    <button id="switcher-narrow">
+        Narrow Column 缩小
+    </button>
+    <button id="switcher-large">
+        Large Print 排印
+    </button>
+</div>
+
+<script>
+ /*   $(document).ready(function(){
+        $('#switcher-default')
+                .addClass('selected')
+                .on('click',function(){
+                     //默认的移除所有的样式
+                    $('body').removeClass('narrow');
+                    $('body').removeClass('large');
+                    // 给用户进行反馈
+                    $('#switcher button').removeClass('selected');
+                    $(this).addClass('selected');
+                });
+        $('#switcher-narrow').on('click',function(){
+            // 根据需要添加样式
+            $('body').addClass('narrow');
+            $('body').removeClass('large');
+             //给用户进行反馈
+            $('#switcher button').removeClass('selected');
+            $(this).addClass('selected');
+        });
+        $('#switcher-large').on('click',function(){
+            // 根据需要添加样式
+            $('body').removeClass('narrow');
+            $('body').addClass('large');
+             //给用户进行反馈
+            $('#switcher button').removeClass('selected');
+            $(this).addClass('selected');
+        });
+    });*/
+    /*  下面的代码是对上面的代码的简写  ，实现的功能是一样的   */
+/*    $(document).ready(function() {
+        $('#switcher-default')
+                .addClass('selected')
+                .on('click', function() {
+                    $('body').removeClass('narrow').removeClass('large');
+                });
+        $('#switcher-narrow').on('click', function() {
+            $('body').addClass('narrow').removeClass('large');
+        });
+        $('#switcher-large').on('click', function() {
+            $('body').removeClass('narrow').addClass('large');
+        });
+        $('#switcher button').on('click', function() {
+            $('#switcher button').removeClass('selected');
+            $(this).addClass('selected');
+        });
+    })*/;
+    /* 以上的代码还可以简化 */
+ $(document).ready(function() {
+     //var arr="1,2,2,3,6,9".split(",");
+     var arr="1/2/2/3/6/9".split("/");
+     console.log(arr);
+     $('#switcher-default').addClass('selected');
+     $('#switcher button').click(function() {
+         //分隔符  -  取出后面的样式
+         var bodyClass = this.id.split('-')[1];
+         $('body').removeClass().addClass(bodyClass);
+         $('#switcher button').removeClass('selected');
+         $(this).addClass('selected');
+     });
+ });
+    /* 单机隐藏按钮 */
+    $(document).ready(function(){
+        $('#switcher h3').click(function() {
+            $('#switcher button').toggleClass('hidden');
+        });
+    });
+    /* 对鼠标进行的事件 */
+ $(document).ready(function(){
+        $('#switcher h3').hover(function(){
+            $(this).addClass('hover');
+        },function(){
+            $(this).removeClass('hover');
+        });
+    });
+</script>
+</body>
+</html>

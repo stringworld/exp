@@ -1,0 +1,34 @@
+transitions功能支持从一个属性值平滑过渡到另一个属性值
+
+animations功能支持通过关键帧来制定页面上产生更复杂的动画效果
+
+
+transitions在浏览器中的书写形式：
+
+chrome：-webkit-transition
+firefox:-moz-transition
+opera:-o-transition
+
+
+使用格式：
+
+transition:property duration timing-function
+
+property:表示对那个属性进行平滑过渡
+duration:表示在多长的时间内完成属性值的平滑过渡
+timing-function:表示通过什么方法来进行平滑过渡
+
+
+例如：
+
+<style>
+        div{background-color: #ffff00;text-align: center;
+            -webkit-transition:background-color 1s linear;
+            -moz-transition:background-color 1s linear;
+            -o-transition:background-color 1s linear;
+        }
+        div:hover{background-color: #00ffff;}
+</style>
+
+
+鼠标放在属性上，1s时间来实现背景颜色的转化

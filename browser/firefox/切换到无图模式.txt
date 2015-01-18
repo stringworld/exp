@@ -1,0 +1,1 @@
+在地址栏输入about:config 设置permissions.default.image为0即可

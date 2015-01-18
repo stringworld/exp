@@ -1,0 +1,5 @@
+visibility:
+	定义是否显示一个元素生成的元素框。这意味着元素仍然占据原来的空间，原来的空间可以完全不可见，即设定元素的可见性。
+
+visibility：inherit|visible|collapse|hidden
+	

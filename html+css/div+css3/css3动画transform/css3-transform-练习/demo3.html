@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>左右出现</title>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <style>
+        div{border: 1px solid red;width: 100%;height: 1000px;}
+        .img{-webkit-animation:leftTest 1s linear;}
+        @-webkit-keyframes leftTest{
+            0%{-webkit-transform:translate(-300px)}
+            30%{-webkit-transform:translate(0px)}
+            70%{-webkit-transform:translate(150px)}
+            100%{-webkit-transform:translate(300px)}
+        }
+    </style>
+</head>
+<body>
+<div><img id="img" src="http://cdn.t03.pic.sogou.com/cf8b1451a18f67f5-fcfe0d46ecb5462c-aa511e8f5eee1736f9677964f556a1ee.jpg" alt="桌子"/></div>
+<script>
+    $(function(){
+        $('div img').click(function(){
+            $(this).toggleClass('img');
+        });
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+	<style type="text/css" media="all">
+			ul 
+			{ 
+				list-style-image:url("/images/list-orange.png");
+			}
+		</style>
+	
+	<body>
+		<ul>
+			<li>使用图片显示列表样式</li>
+			<li>本例中使用了 list-orange.png 图片</li>
+			<li>我们还可以使用 list-green.png top.png 或 up.png 图片</li>
+			<li>学习<a href="http://www.dreamdu.com/css/property_list-style-image/">列表样式</a></li>
+		</ul>
+
+	</body>

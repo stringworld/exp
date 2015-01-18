@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+        <style>
+            /****** reset{ ******/
+            body,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,hr,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}
+            body,button,input,select,textarea{line-height:1.5;outline:0;}
+            table{border-collapse:collapse;border-spacing:0;}
+            a{text-decoration:none;cursor:pointer;outline:0;}
+            a:hover{text-decoration:underline;}
+            h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+            textarea{resize:none;overflow:auto;}
+            b,strong,em,i{font-style:normal;font-weight:normal;}
+            ol,ul{list-style:none;}
+            fieldset,img{border:0;}
+            q:before,q:after{content:'';}
+            del,ins{text-decoration:none;}
+            legend{*left:-7px;*position:relative;}
+            /****** reset} ******/
+
+            .banner{position:relative;margin:0px auto;width:670px;height:240px;}
+            .banner .imgw{position:relative;width:100%;height:100%;overflow:hidden;}
+            .banner .imgw ul{height:100%;width:1000%;}
+            .banner .imgw li{float:left;overflow:hidden;height:100%;}
+            .banner .btnw{position:absolute;right:10px;bottom:10px;}
+            .banner .btnw li{display:inline;float:left;width:20px;height:20px;margin-left:5px;border-radius:50%;background-color:#ccc;line-height:20px;text-align:center;font-size:13px;color:#333;cursor:pointer;}
+            .banner .btnw li.f{background-color:#83B842;color:#fff;}
+            .banner .to{position:absolute;top:45%;width:11px;height:18px;background-repeat:no-repeat;cursor:pointer;}
+            .banner .to.left{left:5px;background-image:url(ico_left.png);}
+            .banner .to.right{right:5px;background-image:url(ico_right.png);}
+        </style>
+    </head>
+    <body>
+         <!--
+            宽固定：670*240
+            宽不固定：动态设置li的宽度等于imgw的宽度，img的margin-left等于li的宽度减去img的宽度后除以2
+         -->
+        <div id="banner" class="banner">
+            <div class="imgw">
+                <div class="to left"></div>
+                <div class="to right"></div>
+                <ul>
+                    <li><img src="https://raw.githubusercontent.com/programfuture/src/master/img_banner_big1.jpg" width="670" height="240" /></li>
+                    <li><img src="https://raw.githubusercontent.com/programfuture/src/master/img_banner_big2.jpg" width="670" height="240" /></li>
+                    <li><img src="https://raw.githubusercontent.com/programfuture/src/master/img_banner_big3.jpg" width="670" height="240" /></li>
+                </ul>
+            </div>
+            <div class="btnw">
+                <ul>
+                    <li class="f">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            $(function () {
+                /****** 广告切换{ ******/
+                (function () {
+                    // 计时器
+                    var show_timer;
+                    // 显示效果时间
+                    var show_time = 300;
+                    // 图片切换间隔时间
+                    var show_spacetime = 2000;
+                    // 当前显示的图片索引
+                    var show_current = 0;
+                    // 图片个数
+                    var show_count;
+                    function show(i) {//切换图片、更换按钮样式
+                        if (i < 0) {
+                            show_current = show_count - 1;
+                        } else if (i >= show_count) {
+                            show_current = 0;
+                        } else {
+                            show_current = i;
+                        }
+                        var imgWidth = banner.find(".imgw li").outerWidth(true);
+                        banner.find(".imgw ul").stop().animate({"marginLeft": 0 - imgWidth * show_current}, show_time);
+                        banner.find(".btnw li").removeClass("f").eq(show_current).addClass("f");
+                        clearTimeout(show_timer);
+                        show_timer = setTimeout(
+                            function () {
+                                show(show_current + 1);
+                            },
+                            show_spacetime
+                        );
+                    }
+                    var banner = $("#banner");
+                    if(banner.length){
+                        banner.find(".btnw li").on("mouseenter", function () {
+                            show($(this).index());
+                        });
+                        show_count = banner.find(".imgw li").length;
+                        banner.find(".imgw li").each(function () {
+                            $(this).width(banner.width());
+                        });
+
+                        banner.find(".imgw .left").on("click", function () {
+                            show(show_current - 1);
+                        });
+                        banner.find(".imgw .right").on("click", function () {
+                            show(show_current + 1);
+                        });
+                        if (show_count > 1) {
+                            setTimeout(function () {
+                                show(1);
+                            }, show_spacetime);
+                        }
+                    }
+                })();
+                /****** 广告切换} ******/
+            });
+        </script>
+    </body>
+</html>

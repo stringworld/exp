@@ -1,0 +1,11 @@
+使用translate()方法来将文字或图像进行移动，在参数中指定水平和垂直方向上的移动距离
+
+例如：
+	-webkit-transform:translate(50px,50px);
+        -moz-transform:translate(50px,50px);
+       -o-transform:translate(50px,50px);
+
+水平移动：50px
+垂直移动：50px
+
+如果只有一个参数，则只水平上移动，垂直不移动

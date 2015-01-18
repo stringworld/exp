@@ -1,0 +1,7 @@
+问题：
+	当引用别的js时，与jquery起了冲突
+
+解决方法：
+	在script标签中加入
+	jQuery..noConflict();
+	jQuery('#a).val();

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <title>animations实现动画的方法的比较</title>
+    <style>
+        @-webkit-keyframes divcolor{
+            0%{width: 100px;height: 100px;}
+            100%{width: 500px;height:500px;}
+        }
+        div{background-color: yellow;width: 500px;height: 500px;-webkit-animation:divcolor 5s ease-out infinite;}
+    </style>
+</head>
+<body>
+<div>animations动画的方法的比较</div>
+
+<p>linear	在动画开始时到结束时以同样速度进行改变</p>
+<p>ease-in	动画开始时速度很慢，然后速度沿曲线值进行加快</p>
+<p>ease-out 动画开始时速度很快，然后速度沿曲线值进行放慢</p>
+<p>ease	动画开始速度很慢，然后速度沿曲线值进行加快，然后再沿曲线值放</p>
+<p>ease-in-out	动画开始时速度很慢，然后速度沿曲线值进行加快，然后再沿曲线值放慢</p>
+
+</body>
+</html>

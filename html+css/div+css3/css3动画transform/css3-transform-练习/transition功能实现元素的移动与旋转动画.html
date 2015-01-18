@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>transition动画--平滑过渡一个属性--旋转</title>
+
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <style>
+        img{position: absolute;top: 70px;left: 0;
+            -webkit-transform:rotate(0deg);
+            -webkit-transition:left 1s linear,top 1s linear,-webkit-transform 1s linear;
+            -moz-transform:rotate(0deg);
+            -moz-transition:left 1s linear,top 1s linear,-moz-transform 1s linear;
+            -o-transform:rotate(0deg);
+            -o-transition:left 1s linear,top 1s linear,-o-transform 1s linear;
+        }
+        .img{position: absolute;left: 1000px;top: 200px;
+            -webkit-transform:rotate(720deg);
+            -moz-transform:rotate(720deg);
+            -o-transform:rotate(720deg);
+        }
+    </style>
+</head>
+<body>
+<div>transition动画演示实例---改变多个属性的过渡
+    <img src="http://img04.sogoucdn.com/app/a/100520024/ded2a999b9be623b0c6a5ed1e7c0db44" alt="松鼠"/></div>
+
+<p>
+    transitions在浏览器中的书写形式：
+
+    chrome：-webkit-transition
+    firefox:-moz-transition
+    opera:-o-transition
+
+</p>
+<p>
+    使用格式：
+
+    transition:property duration timing-function
+</p>
+<p>
+    property:表示对那个属性进行平滑过渡<br>
+    duration:表示在多长的时间内完成属性值的平滑过渡<br>
+    timing-function:表示通过什么方法来进行平滑过渡
+</p>
+<script>
+    $(function(){
+        $('img').addClass('img');
+    });
+</script>
+</body>
+</html>

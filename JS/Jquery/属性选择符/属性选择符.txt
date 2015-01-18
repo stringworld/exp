@@ -1,0 +1,64 @@
+为链接添加样式：
+	属性选择符使用一种从正则表达式中借鉴来的通配符语法，
+
+以^表示值在字符串的开始，
+
+以$表示值在字符串的结尾。
+
+	而且，也是用星号*表示要匹配的值可以出现在字符串中的任意位置，用叹号!表示对值取反。
+
+
+
+例题：
+	以不同的文本颜色来显示不同类型的链接
+
+
+a { 
+ color: #00c; 
+} 
+a.mailto { 
+ background: url(images/email.png) no-repeat right top; 
+ padding-right: 18px; 
+} 
+a.pdflink { 
+ background: url(images/pdf.png) no-repeat right top; 
+ padding-right: 18px; 
+} 
+a.henrylink { 
+ background-color: #fff; 
+ padding: 2px; 
+ border: 1px solid #000; 
+} 
+
+
+1.要为所有电子邮件链接添加类，需要构造一个选择符，用来寻找所有带href属性（[href]）
+且以mailto开头（^="mailto:"]）的锚元素（a）
+
+代码：
+$(document).ready(function() { 
+ $('a[href^="mailto:"]').addClass('mailto'); 
+}); 
+
+
+2.要为所有指向PDF文件的链接添加类，需要使用美元符号（$）而不是脱字符号（^）。这是因为我们要选择所有href属性
+以.pdf结尾的链接
+
+代码：
+$(document).ready(function() { 
+ $('a[href^="mailto:"]').addClass('mailto'); 
+ $('a[href$=".pdf"]').addClass('pdflink'); 
+}); 
+
+
+3.属性选择符也可以组合使用。例如，可以为href属性即以http开头且任意位置包含henry的所有链接添加一个henrylink类
+
+$(document).ready(function() { 
+ $('a[href^="mailto:"]').addClass('mailto'); 
+ $('a[href$=".pdf"]').addClass('pdflink'); 
+
+
+ $('a[href^="http"][href*="henry"]').addClass('henrylink'); 
+
+
+ }); 
+}); 

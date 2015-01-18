@@ -1,0 +1,16 @@
+﻿Ctrl + Shift + Down     复制行
+Ctrl+Shift+P            打开命令面板
+Ctrl+Shift+T            打开最近关闭的文件
+Ctrl+P                  搜索项目中的文件
+Ctrl+G                  跳转到第几行
+Ctrl+W                  关闭当前打开文件
+Ctrl+F                  查找内容
+Ctrl+Shift+F            查找并替换
+Ctrl+H                  替换
+Ctrl+R                  前往 method
+Ctrl+N                  新建窗口
+Ctrl+/                  单行注释
+Ctrl+Shift+/            多行注释
+F11                     全屏
+Alt+1、2、3             切换打开第N个文件
+Ctrl+Tab                切换tab

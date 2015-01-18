@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>transition动画--平滑过渡一个属性</title>
+    <style>
+        div{background-color: #ffff00;text-align: center;color: black;width: 400px;
+            -webkit-transition:background-color 1s linear,color 1s linear,width 1s linear,margin 1s linear;
+            -moz-transition:background-color 1s linear,color 1s linear,width 1s linear,margin 1s linear;
+            -o-transition:background-color 1s linear,color 1s linear,width 1s linear,margin 1s linear;
+
+            -webkit-transform:rotate(45deg);
+        }
+        div:hover{background-color: blue;color: white;width: 500px;margin: 100px;}
+
+    </style>
+</head>
+<body>
+<div>transition动画演示实例---改变多个属性的过渡</div>
+
+<p>
+    transitions在浏览器中的书写形式：
+
+    chrome：-webkit-transition
+    firefox:-moz-transition
+    opera:-o-transition
+
+</p>
+<p>
+    使用格式：
+
+    transition:property duration timing-function
+</p>
+<p>
+    property:表示对那个属性进行平滑过渡<br>
+    duration:表示在多长的时间内完成属性值的平滑过渡<br>
+    timing-function:表示通过什么方法来进行平滑过渡
+</p>
+</body>
+</html>

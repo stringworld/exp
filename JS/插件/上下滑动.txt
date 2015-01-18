@@ -1,0 +1,18 @@
+<script>
+        window.onload=function(){
+            var mySwiper = new Swiper('swiper-container',{
+                //页面是否循环滑动
+                loop:false,
+                //页面滑动的速度，数值越大滑动的越慢
+                speed:450,
+                touchRatio:0.3,
+                //垂直滑动
+                mode:'vertical'
+                //水平滑动
+                //mode:'horizontal'
+            });
+        }
+    </script>
+
+
+注意：此文件要用在swiper.js应用的网页中

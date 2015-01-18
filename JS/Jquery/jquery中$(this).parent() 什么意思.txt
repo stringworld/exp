@@ -1,0 +1,4 @@
+当前标记的父标记。如：
+<div id="parent"><div id="children1"></div></div>,
+
+如果children1是当前元素的话，那么$("#children1").parent()就是指parent这个标记。

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <title>demo10-jquery的$的共存</title>
+
+        <meta charset="utf-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+
+        <style>
+            td {padding:3px 11px;border-bottom:1px solid #95bce2;vertical-align:top;text-align:center;}
+            .click{background:yellow;}
+        </style>
+
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+
+    </head>
+    <body>
+
+    <table id="tabList" border="1" width="50%">
+        <tr>
+            <th>姓名</th>
+            <th>电话</th>
+            <th>地址</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            <td>小明</td>
+            <td>123456789</td>
+            <td>上海</td>
+            <td>123456@qq.com</td>
+        </tr>
+        <tr>
+            <td>小明</td>
+            <td>123456789</td>
+            <td>上海</td>
+            <td>123456@qq.com</td>
+        </tr>
+        <tr>
+            <td>小明</td>
+            <td>123456789</td>
+            <td>上海</td>
+            <td>123456@qq.com</td>
+        </tr>
+        <tr>
+            <td>小明</td>
+            <td>123456789</td>
+            <td>上海</td>
+            <td>123456@qq.com</td>
+        </tr>
+        <tr>
+            <td>小明</td>
+            <td>123456789</td>
+            <td>上海</td>
+            <td>123456@qq.com</td>
+        </tr>
+    </table>
+
+
+    <p>在实际的项目中可能会遇到jquery的$符号被别的js占用，导致jquery不能使用$，这时有2种解决方法：</p>
+    <p>第一种是把jquery的引用放在所有js的上面，让jquery作为第一个被引用的</p>
+    <p>第二种就是使用jQuery定义，这时候要注意：jquery对大小写敏感</p>
+    <script>
+      /*  $(document).ready(function(){
+            $('#tabList tr').click(function(){
+                $(this).toggleClass('click');
+            });
+        });*/
+        jQuery(function(){
+            jQuery('#tabList tr').click(function(){
+                jQuery(this).toggleClass('click');
+            });
+        });
+    </script>
+    </body>
+</html>

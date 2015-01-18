@@ -1,0 +1,12 @@
+使用skew()方法来实现文字或图像的倾斜处理，在参数中分别指定水平方向上的倾斜角度与垂直方向上的倾斜角度。
+
+例如：
+
+	-webkit-transform:skew(1deg,30deg);
+        -moz-transform:skew(30deg,30deg);
+        -o-transform:skew(30deg,30deg);
+
+水平方向倾斜30°，垂直方向上倾斜30°
+
+
+如果只设置一个参数，则认为只在水平方向上倾斜，垂直方向上不倾斜

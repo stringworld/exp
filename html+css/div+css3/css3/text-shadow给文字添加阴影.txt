@@ -1,0 +1,7 @@
+text-shadow:length length length color;
+
+length:表示阴影离文字的横向距离，阴影离开文字的纵向距离，阴影的模糊半径
+
+color:阴影的颜色
+
+可以有多个阴影,只需要在长度后添加多个长度就可以了，长度之间用逗号区分

@@ -1,0 +1,87 @@
+让DIV高度自适应，这是在网页设计中常遇到的问题，为了给大家提供参考，这里提供3种div高度自适应的方法：一是JS法、二是背景图填充法、三是“补丁大法”（比较变态）。
+
+
+1、JS法
+
+
+代码如下。原理：用JS判断左右DIV的高度，若不一致则设为一致。
+<div style="width:500px;background:#cccccc;height:0px;">
+<div id="right" style="width:380%;height:100%;float:left;border:1px solid #265492;">left</div>
+<div id="left" style="width:60%;;float:left;background:#376037;">
+right<br>
+right<br>
+right<br>
+right<br>
+right<br>
+right<br>
+right<br>
+</div>
+</div>
+<script type="text/javascript">
+<!-- 
+var a=document.getElementById("left");
+var b=document.getElementById("right");
+if(a.clientHeight<b.clientHeight){
+  a.style.height=b.clientHeight+"px";
+}else{ 
+  b.style.height=a.clientHeight+"px";
+}
+-->
+</script>
+
+
+2、背景图填充法
+
+这是大站用得比较多的方法，如163等，研究了一下，结果如下。
+这里是给父DIV设置了背景图片填充，所有DIV都不设高度。
+HTML代码：
+<div class="endArea">
+<div class="col1">第一列　左边正文</div>
+<div class="col3">第二列　右边<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />字字</div>
+<div class="col2">第三列　中间图片</div>
+<div class="clear"></div>
+</div>
+CSS代码：
+.endArea{margin:0 auto; width:960px; background:url(http://cimg2.163.com/cnews/img07/end_n_bg1.gif); clear:both;}
+.endArea .col1{float:left; width:573px; }
+.endArea .col2{float:left; width:25px; }
+.endArea .col3{float:right; width:362px;}
+
+
+
+
+3、补丁大法
+
+
+就是“隐藏容器溢出”和“正内补丁”和“负外补丁”结合的方法。比较另类的方法，在IE6、IE7、FF3下测试通过。要点：
+1、父DIV设置　overflow:hidden;
+2、对要高度自适应的DIV设置　padding-bottom:100000px;margin-bottom:-100000px; 两列或多列同理。
+代码如下：
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>Div高度自适应</title>
+<style type="text/css">
+#wrap{overflow:hidden;}
+#sidebar_left,#sidebar_right{padding-bottom:100000px;margin-bottom:-100000px;}
+</style>
+</head>
+<body>
+<div id="wrap" style="width:300px; background:#FFFF00;">
+<div id="sidebar_left" style="float:left;width:100px; background:#777;">居左</div>
+<div id="sidebar_mid" style="float:left;width:100px; background:#999;">
+居中<br />
+居中<br />
+居中<br />
+居中<br />
+居中<br />
+居中<br />
+居中<br />
+</div><div id="sidebar_right" style="float:right;width:100px; background:#888;">居右</div></div>
+</body>
+</html>
+
+
+
+
+http://www.codefans.net/articles/602.shtml

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <title>html网页  数组遍历</title>
+        <meta charset="utf-8"/>
+        <style>
+            body{text-align: center;}
+        </style>
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+    </head>
+    <body>
+    <script>
+        $().ready(
+            function(){
+                var anObject = {one:1,two:2,three:3};//对json数组each
+                $.each(anObject,function(name,value) {
+                    alert(name);
+                    alert(value);
+                });
+                var anArray = ['one','two','three'];
+                $.each(anArray,function(n,value){
+                            alert(n);
+                            alert(value);
+                        }
+                );
+            }
+        );
+    </script>
+    </body>
+</html>

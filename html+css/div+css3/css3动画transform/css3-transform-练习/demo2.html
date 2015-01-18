@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>旋转</title>
+    <style>
+
+        @-webkit-keyframes testRotate{
+            0%{-webkit-transform:rotate(0deg) scale(0)}
+            50%{-webkit-transform:rotate(360deg) scale(0.5)}
+            100%{-webkit-transform:rotate(720deg) scale(1.1)}
+        }
+        img{-webkit-animation:testRotate 5s linear;}
+    </style>
+</head>
+<body>
+<img src="http://img03.sogoucdn.com/app/a/100520024/a34f0c000d8fc29dbfaf4f190e7113b4" alt="测试"/>
+<p>就是我们同时对一个元素进行transform的多种属性操作，例如rotate、scale、translate三种，但这里需要提醒大家的，以往我们叠加效果都是用逗号（“，”）隔开，但transform中使用多个属性时却需要有空格隔开。大家记住了是空格隔开。</p>
+</body>
+</html>

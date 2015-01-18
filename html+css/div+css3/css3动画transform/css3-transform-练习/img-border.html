@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>图片添加边框</title>
+    <style>
+        /*css2的实现方试*/
+        .Timg-border{width: 440px;height: 100px;margin: 3px;padding: 20px 0 0 14px;background: url("http://img01.sogoucdn.com/app/a/100520020/d268f7b59da6c9a157f9cf077740750d") no-repeat;}
+        /*css3实现的方式*/
+        .img-border{width: 440px;padding: 20px 0 0 14px;-moz-border-image:url("http://img01.sogoucdn.com/app/a/100520020/d268f7b59da6c9a157f9cf077740750d") 3 stretch stretch;/*指定边框图像*/}
+    </style>
+</head>
+<body>
+<div class="img-border">
+    ●实例文字1<br>
+    ●实例文字2<br>
+    ●实例文字3<br>
+    ●实例文字4
+</div>
+</body>
+</html>

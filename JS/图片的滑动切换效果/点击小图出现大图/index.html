@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>index</title>
+		<meta charset="UTF-8"/>
+		<style type="text/css">
+			#select img{cursor:pointer;}
+			#select{width: 50px;height: 120px;border: 1px solid red;float: left;text-align: center;padding-top: 5px;}
+			.show{float: left;width: 200px;height: 105px;border: 1px solid blue;padding: 10px;border-right: 0;}
+		</style>
+	</head>
+	<body>
+		<div id="show" class="show"></div>
+		<div id="select">
+			<img src="flower.png" alt="" /><br>
+			<img src="plant.png" alt="" /><br>
+			<img src="corpse.png" alt="" />
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="jquery-1.8.0.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#select img").bind("click", function(){
+		var imgSrc = $(this).attr("src");
+		var img = "<img src='"+imgSrc+"' alt='' />";
+		
+		$("#show").html(img);
+	});
+})
+</script>

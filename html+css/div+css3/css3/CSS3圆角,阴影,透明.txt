@@ -1,0 +1,80 @@
+CSS实现圆角,阴影,透明的方法很多,传统的方法都比较复杂,用CSS3就方便很多了,虽然现在各浏览器对CSS3的支持还不是很好,但不久的将来CSS3就会普及.
+
+ 
+
+1.圆角
+
+CSS3实现圆角有两种方法.
+
+第一种是背景图像,传统的CSS每个元素只能有一个背景图像,但是CSS3可以允许一个元素有多个背景图像.这样给一个元素添加4个1/4圆的背景图像,分别位于4个角上就可以实现圆角了.
+
+Html代码    收藏代码
+.box {  
+    /* 首先定义要使用的4幅图像为背景图 */  
+    background-image: url(/img/top-left.gif),  
+                                   url(/img/top-right.gif),  
+                                   url(/img/bottom-left.gif),  
+                                   url(/img/bottom-right.gif);  
+    /* 然后定义不重复显示 */  
+    background-repeat: no-repeat,  
+                                     no-repeat,  
+                                     no-repeat,  
+                                     no-repeat;  
+    /* 最后定义4幅图分别显示在4个角上 */  
+    background-position: top left,  
+                                       top right,  
+                                       bottom left,  
+                                       bottom right;  
+}  
+ 第二种方法就简洁了,直接用CSS实现,不需要用图片.
+
+Html代码    收藏代码
+.box {  
+    /* 直接定义圆角的半径就可以了 */  
+    border-radius: 1em;  
+}  
+ 但是第二种方法还没有得到很好的支持,当前Firefox和Safari(同一个核心的Chrome也可以),需要使用前缀
+
+Html代码    收藏代码
+.box {  
+    -moz-border-radius: 1em;  
+    -webkit-border-radius: 1em;  
+    border-radius: 1em;  
+}  
+ 
+
+2.阴影
+
+CSS3的box-shadow属性可以直接实现阴影
+
+Html代码    收藏代码
+img {  
+    -webkit-box-shadow: 3px 3px 6px #666;  
+    -moz-box-shadow: 3px 3px 6px #666;  
+    box-shadow: 3px 3px 6px #666;  
+}  
+ 这个属性的4个参数是:垂直偏移,水平偏移,投影的宽度(模糊程度),颜色
+
+ 
+
+3.透明
+
+CSS本来就是支持透明的,IE以外的浏览器是opacity属性,IE是filter:alpha.但是,这个透明度有个缺点,就是它会使应用元素的内容也会继承它,比如有一个DIV,
+
+Html代码    收藏代码
+<div style="opacity:0.8;filter:alpha(opacity=80); font-weight: bold;">>  
+    内容  
+</div>  
+ 如果像上面这样DIV的背景是透明了,但是内容两个字也透明了,这时可以用RGBa.
+
+Html代码    收藏代码
+.alert {  
+    rgba(0,0,0,0.8);  
+}  
+ 这个属性前3个属性表示颜色红,绿,蓝,第四个是透明度.红绿蓝都是0代表黑色,所以rgba(0,0,0,0.8)就是将黑色的透明度设置为0.8.
+
+ 
+
+ 
+
+CSS3使得原来很难实现的效果变得很简单,希望各浏览器对CSS3尽快实现完美支持.

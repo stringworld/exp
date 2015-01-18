@@ -1,0 +1,4 @@
+http://www.w3cplus.com/css3/attribute-selectors
+
+[id^='cloud']
+	指定了属性名，并且有属性值，属性值是以value开头的；

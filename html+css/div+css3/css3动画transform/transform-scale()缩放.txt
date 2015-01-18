@@ -1,0 +1,17 @@
+使用scale()方法来实现文字或图像的缩放处理，在参数中指定缩放倍率
+
+如
+
+            -webkit-transform:scale(0.5);
+            -moz-transform:scale(0.5);
+            -o-transform:scale(0.5);
+
+“scale(0.5)”表示缩小50%；
+
+还可以分别指定元素水平方向的放大倍率与垂直方向的发达倍率
+
+    -webkit-transform:scale(0.5,2);
+    -moz-transform:scale(0.5,2);
+    -o-transform:scale(0.5,2);
+
+即水平方向缩小50%，垂直方向放大一倍

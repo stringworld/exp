@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <title>demo6-appendTo()与append()的用法</title>
+
+        <meta charset="utf-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+
+        <style>
+
+        </style>
+
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+
+    </head>
+    <body>
+
+        <input type="button" name="head2" id="head2"/><br>
+        <div name="ccc" id="ccc">看这里的变化 <br></div><br><hr>
+
+        <input type="button" name="head1" id="head1"/><br>
+        <div name="rain" id="rain">看这里的变化 2 <br></div><br>
+
+        <!--这里我们必须知道一点：
+        就是 append和appendTo的区别：
+        append 单纯的内容
+        appendTo要把内容传给某个元素
+        -->
+        <script>
+            $(document).ready(function(){
+                $('#head2').click(function(){
+                    $("<input type='button' name='ddd' id='ddd' value='hello appendTo'><br>").appendTo('#ccc');
+                });
+                $('#head1').click(function(){
+                    $('#rain').append("<input type='button' name='ddd' id='ddd' value='hello append'><br>");
+                });
+            });
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,29 @@
+$("div").eq(3).addClass("myClass");   添加样式
+$("div").last().removeClass("myClass");   删除最后一个div的样式
+$("div").last().toggleClass("myClass");	控制样式的重复切换，如果类名存在则删除它，如果类名不存在则添加它
+
+在添加样式是时可以选择给具体的哪个div添加
+	.eq(index)	：指定位置的添加
+	.first()	:给第一个添加
+	.last()		:给最后一个添加
+	.focus()	:光标定位，添加焦点
+	.val()	:如果将val()设置给一个select/radio/checkbox元素，内容取决于option元素的value或显示的内容值，value优先。
+$("div").children().first().html()	：把div中的子元素的内容显示出来，使用html()可以把内容和标签都显示出来，而用text()只会把内容显示出来，不会显示标签
+
+	.prev(): 取得元素上的一个同级的兄弟元素内容
+		$("div").prev().html()
+	.sibling():  取得div元素的上下一个同级的所有兄弟元素内容
+		$("div").siblings().each(function(){
+		alert($(this).html());
+	});
+	.show():缓慢显示图片
+		 $("p").first().show(4000,function(){
+                $("div").first().html("加载完成！").addClass("myClass");
+            });
+	.hide():  缓慢隐藏图片
+		$("p").first().hide(4000,function(){
+                $("div").first().html("加载完成！").addClass("myClass");
+            });
+	.fadeIn():  淡入显示图片
+	.fadeOut()： 淡入隐藏图片
+	.fadeToggle()： 来回显示图片

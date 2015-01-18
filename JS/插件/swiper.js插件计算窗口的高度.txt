@@ -1,0 +1,19 @@
+再给img标签的height:auto;时，窗口的高度会变得很高，有多少页就会把多少也累加在一起。
+
+添加一下js代码就不会出现了。
+
+
+<script>
+    /*js函数的主题内容*/
+
+    /*swiper.js插件计算窗口大小，如果不写这段js代码，就会把有多少页，就把多少页的高度都加在一起*/
+    var divwidth=  $("#device").width();
+    var divheight=  divwidth * 1.775;
+    $("#device,#loading").css("height",divheight);
+
+
+</script>
+
+
+
+#device：是swiper.js插件的引用id

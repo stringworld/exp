@@ -1,0 +1,12 @@
+z-index:用来设置元素层叠的次序，其方法是为每一个元素指定一个数字，数字较大的元素将叠加在数字较小的元素之上。
+语法格式：
+	z-index:auto | number
+
+z-index：-1;
+z-index:0;
+z-index:1;
+
+表示层次关系负值表示在最下层，0表示默认，正数表示在最上层
+
+
+注意：仅在position属性为relative和absolute时有效。

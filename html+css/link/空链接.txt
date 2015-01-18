@@ -1,0 +1,3 @@
+在js中表示空连接：<a href="JavaScript:;"></a>
+
+css中表示空连接：<a href="#"></a>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>transition动画--平滑过渡一个属性</title>
+    <style>
+        div{background-color: #ffff00;text-align: center;
+            -webkit-transition:background-color 1s linear;
+            -moz-transition:background-color 1s linear;
+            -o-transition:background-color 1s linear;
+        }
+        div:hover{background-color: #00ffff;}
+        .div{background-color: #00ffff;text-align: center;margin-top:30px;
+            -webkit-transition-property:background-color;
+            -webkit-transition-duration:1s;
+            -webkit-transition-timing-function:linear;
+            -moz-transition-property:background-color;
+            -moz-transition-duration:1s;
+            -moz-transition-timing-function:linear;
+            -o-transition-proprty:background-color;
+            -o-transition-duration:1s;
+            -o-transition-timing-function:linear;
+        }
+        .div:hover{background-color: #ffff00;}
+        /*
+            上面的2段动画代码实现的效果是一样的
+        */
+    </style>
+</head>
+<body>
+<div>transition动画演示实例1</div>
+<div class="div">transition动画演示实例2</div>
+<p>
+    transitions在浏览器中的书写形式：
+
+    chrome：-webkit-transition
+    firefox:-moz-transition
+    opera:-o-transition
+
+</p>
+<p>
+    使用格式：
+
+    transition:property duration timing-function
+</p>
+<p>
+    property:表示对那个属性进行平滑过渡<br>
+    duration:表示在多长的时间内完成属性值的平滑过渡<br>
+    timing-function:表示通过什么方法来进行平滑过渡
+</p>
+</body>
+</html>

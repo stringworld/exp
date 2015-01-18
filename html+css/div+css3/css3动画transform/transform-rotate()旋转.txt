@@ -1,0 +1,7 @@
+使用ratate()方法
+
+例如：旋转45°，deg为角度单位
+
+-webkit-transform:rotate(45deg);
+-moz-transform:rotate(45deg);
+-o-transform:rotate(45deg);

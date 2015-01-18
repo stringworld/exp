@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="./js/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+<button id="btn1">隐藏</button>
+<button id="btn2">显示</button>
+<button id="btn3">切换</button><br>
+
+<img src="./imges/pic.jpg" width="251" height="300">
+    <script>
+        $(function(){
+            //btn2失效
+            var isHideShow;
+            $("#btn2").attr("disabled", true);
+            $('#btn1').click(function(e){
+                isHideShow=false;
+                $('img').hide(500);
+                //btn2启用
+                $("#btn2").removeAttr("disabled");
+                //btn1失效
+                $("#btn1").attr("disabled", true);
+            });
+            $('#btn2').click(function(e){
+                isHideShow=true;
+                $('img').show(500);
+                //btn1失效
+                $("#btn1").removeAttr("disabled");
+                //btn2启用
+                $("#btn2").attr("disabled", true);
+            });
+            $('#btn3').click(function(e){
+                $('img').toggle(1000);
+            });
+        });
+    </script>
+</body>
+</html>

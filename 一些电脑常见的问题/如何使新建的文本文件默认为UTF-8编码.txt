@@ -1,0 +1,10 @@
+﻿1.用记录本新建一个空白文档并另存为UTF-8编码到D盘为“文本模板.txt”；
+
+2.把下面代码保存为注册表文件“指定新建文本默认模板.reg”，并执行即可：
+
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\.txt\ShellNew]
+"FileName"="d:\\文本模板.txt"
+
+这样原来的文本默认编码为ANSI，现在就转变为了UTF-8编码了，避免出现乱码。

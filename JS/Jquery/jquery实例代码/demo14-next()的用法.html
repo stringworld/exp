@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <title>demo14-next()的用法</title>
+
+        <meta charset="utf-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+
+    </head>
+    <body>
+
+    <p>你好啊</p>
+    <p>大家都好啊</p>
+
+    <div><span class="selected">点击我来测试</span></div>
+
+<!--取得一个包含匹配的元素集合中每一个元素紧邻的后面同辈元素的元素集合。
+
+    这个函数只返回后面那个紧邻的同辈元素，而不是后面所有的同辈元素。
+
+    可以用一个可选的表达式进行筛选。
+-->
+    <script>
+        $(document).ready(function(){
+            $('span').click(function(){
+                //alert($('p').next('.selected').html());
+                //alert($('p').nextAll('.selected').html());
+                 alert($('p').next().html());//也可以
+            });
+        });
+    </script>
+    </body>
+</html>

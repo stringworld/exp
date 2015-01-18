@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>insert </title>
+
+    <script language="javascript">
+        var arr=new Array("img1.jpeg","img2.jpeg","img3.jpeg","img4.jpeg","img5.jpeg","img6.jpeg","img7.jpeg","img8.jpeg","img9.jpeg","img10.jpeg");
+        var arr1=new Array("img9.jpeg","img1.jpeg","img2.jpeg","img3.jpeg","img4.jpeg","img5.jpeg","img6.jpeg","img7.jpeg","img8.jpeg");
+        var length=9;
+        var len=arr.length;
+        var newarr=new Array();
+        function roll(){
+//var len=arr.length;
+            if(newarr.length==0){
+            }else{
+                arr=newarr;
+            }
+            for(var i=0;i<length;i++){
+                var div=document.getElementById("div"+(i+1));
+                if(i==0){
+                    div.innerHTML="<img style='width:20px;height:80px'src='"+arr[i+1]+"' onclick=''/>";
+                }else if(i==1||i==length-2){
+                    div.innerHTML="<img style='width:40px;height:80px'src='"+arr[i+1]+"' onclick=''/>";
+                }else if(i==2||i==length-3){
+                    div.innerHTML="<img style='width:60px;height:80px'src='"+arr[i+1]+"' onclick=''/>";
+                }else if(i!=length-1){
+                    div.innerHTML="<img style='width:80px;height:80px'src='"+arr[i+1]+"' onclick=''/>";
+                }else{
+                    div.innerHTML="<img style='width:20px;height:80px'src='"+arr[0]+"' onclick=''/>";
+                }
+            }
+            var temp=arr[0];
+            //alert(temp);
+            arr.shift();
+            newarr=arr;
+            //alert(newarr.length);
+            newarr[len-1]=temp;
+            //alert(newarr.length);
+            /*for(var i=0;i<newarr.length;i++){
+             alert(newarr[i]);
+             }*/
+        }
+        function rollBack(){
+//var len=arr.length;
+            if(newarr.length==0){
+            }else{
+                arr=newarr;
+            }
+            for(var i=0;i<length;i++){
+                var div=document.getElementById("div"+(i+1));
+                if(i==0){
+                    div.innerHTML="<img style='width:20px;height:80px'src='"+arr[len-1]+"' onclick=''/>";
+                }else if(i==1||i==length-2){
+                    div.innerHTML="<img style='width:40px;height:80px'src='"+arr[i-1]+"' onclick=''/>";
+                }else if(i==2||i==length-3){
+                    div.innerHTML="<img style='width:60px;height:80px'src='"+arr[i-1]+"' onclick=''/>";
+                }else if(i!=length-1){
+                    div.innerHTML="<img style='width:80px;height:80px'src='"+arr[i-1]+"' onclick=''/>";
+                }else if(i==length-1){
+                    div.innerHTML="<img style='width:20px;height:80px'src='"+arr[i-1]+"' onclick=''/>";
+                }
+            }
+            var temp=arr[len-1];
+            //alert(temp);
+            arr.pop();
+            arr.reverse();
+            arr[len-1]=temp;
+            newarr=arr.reverse();
+            /*for(var i=0;i<newarr.length;i++){
+             alert(newarr[i]);
+             }*/
+        }
+    </script>
+<body>
+<table>
+    <tr>
+        <td><div id="div1"><img style="width:20px;height:80px"src="img1.jpeg" onclick=""/></div><td>
+        <td><div id="div2"><img style="width:40px;height:80px"src="img2.jpeg" onclick=""/></div><td>
+        <td><div id="div3"><img style="width:60px;height:80px"src="img3.jpeg" onclick=""/></div><td>
+        <td><div id="div4"><img style="width:80px;height:80px"src="img4.jpeg" onclick=""/></div><td>
+        <td><div id="div5"><img style="width:80px;height:80px"src="img5.jpeg" onclick=""/></div><td>
+        <td><div id="div6"><img style="width:80px;height:80px"src="img6.jpeg" onclick=""/></div><td>
+        <td><div id="div7"><img style="width:60px;height:80px"src="img7.jpeg" onclick=""/></div><td>
+        <td><div id="div8"><img style="width:40px;height:80px"src="img8.jpeg" onclick=""/></div><td>
+        <td><div id="div9"><img style="width:20px;height:80px"src="img9.jpeg" onclick=""/></div><td>
+    </tr>
+    <tr>
+        <td colspan="4" align="left"><input type="button"value="next" onclick="roll()"/></td>
+        <td colspan="5"align="right"><input type="button"value="previous" onclick="rollBack()"/></td>
+    <tr>
+</table>
+</body>
+</html>

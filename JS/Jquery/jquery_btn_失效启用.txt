@@ -1,0 +1,15 @@
+http://outofmemory.cn/code-snippet/4954/jquery-control-button-keyong-and-not-keyong
+
+
+
+Disable:禁止
+
+$("#submit-button").attr("disabled", true);
+
+Re-enable:启用
+
+$("#submit-button").removeAttr("disabled");
+
+jquery定义的方法，自动判定，来回切换
+
+ $('img').toggle(1000);

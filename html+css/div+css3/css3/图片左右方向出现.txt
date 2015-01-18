@@ -1,0 +1,39 @@
+html代码：
+	 <img src="./images/index/cloud.png" id="cloud_left"  animation="cloud_left" delay="1300"  />
+         <img src="./images/index/cloud.png" id="cloud_right" animation="cloud_right" delay="1300" />
+
+css3动画代码：
+	.text_from_right{
+		-webkit-animation: text_from_right 0.7s ease-in;
+		/*-webkit-animation-delay: 0.6s;*/
+	}
+	@-webkit-keyframes text_from_right{
+		0% {-webkit-transform: translateX(100%)}
+		70% {-webkit-transform: translateX(-10%)}
+		100% {-webkit-transform: translateX(0%)}
+	}
+
+	.text_from_left{
+		-webkit-animation: text_from_left 0.7s ease-in;
+		/*-webkit-animation-delay: 0.6s;*/
+	}
+	@-webkit-keyframes text_from_left{
+		0% {-webkit-transform: translateX(-100%)}
+		70% {-webkit-transform: translateX(10%)}
+		100% {-webkit-transform: translateX(0%)}
+	}
+
+animation：动画引用
+delay：延迟时间
+
+-webkit-transform:   transform可以对元素进行角度旋转和缩放
+transform：
+	scale：缩放
+	rotate：水平旋转
+	translate：定位元素，基于xy轴重新定位
+	skew：水平方向倾斜变形
+	matrix：矩阵，六个值
+
+
+
+http://blog.163.com/prevBlogPerma.do?host=hszy00232&srl=43022753201081822131223&mode=prev

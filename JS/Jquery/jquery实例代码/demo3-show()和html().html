@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <title>demo3-show()和html()</title>
+
+        <meta charset="utf-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+
+        <style>
+            .test{color: red;}
+        </style>
+
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+
+    </head>
+    <body>
+        <a href="http://www.baidu.com/">百度</a>
+        <a href="http://www.sina.com/" style="display: none">新浪</a>
+
+    <script>
+
+        /*
+        *  首先增加样式，
+            然后
+            show( ):显示隐藏的匹配元素。
+            html("foo"):设置每一个匹配元素的html内容
+            我们发现 超连接里面的内容 已经被替换了.
+
+        * */
+
+        $(document).ready(function(){
+            $('a').addClass('test').show().html("搜狗");     //用来替换链接里面的文字
+           // $('#a').addClass('test').html('谷歌');
+        });
+    </script>
+    </body>
+</html>

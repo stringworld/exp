@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <script src="./js/jquery-1.10.1.min.js"></script>
+    <style>
+        tr {
+            background-color: #fff;
+        }
+        .alt {
+            background-color: #ccc;
+        }
+        .highlight {font-weight:bold; font-style:italic; color: red;}
+    </style>
+</head>
+<body>
+<table>
+    <h1>第一个表格</h1>
+    <tr>
+        <td>自定义选择符，每隔一行添加样式</td>
+        <td>自定义选择符，每隔一行添加样式</td>
+        <td>自定义选择符，每隔一行添加样式</td>
+    </tr>
+    <tr>
+        <td>自定义选择符，每隔一行添加样式</td>
+        <td>自定义选择符，每隔一行添加样式</td>
+        <td>自定义选择符，每隔一行添加样式</td>
+    </tr>
+    <tr>
+        <td>自定义选择符，每隔一行添加样式</td>
+        <td>自定义选择符，每隔一行添加样式</td>
+        <td>自定义选择符，每隔一行添加样式</td>
+    </tr>
+    <tr>
+        <td>自定义选择符，每隔一行添加样式</td>
+        <td>自定义选择符，每隔一行添加样式</td>
+        <td>自定义选择符，每隔一行添加样式</td>
+    </tr>
+    <tr>
+        <td>自定义选择符，每隔一行添加样式</td>
+        <td>自定义选择符，每隔一行添加样式</td>
+        <td>自定义选择符，每隔一行添加样式</td>
+    </tr>
+    <tr>
+        <td>自定义选择符，每隔一行添加样式</td>
+        <td>自定义选择符，每隔一行添加样式</td>
+        <td>自定义选择符，每隔一行添加样式</td>
+    </tr>
+    <tr>
+        <td>自定义选择符，每隔一行添加样式</td>
+        <td>自定义选择符，每隔一行添加样式</td>
+        <td>自定义选择符，每隔一行添加样式</td>
+    </tr>
+    <!-- 使用:eq()选择符、:odd和:even选择符 添加下面的一行，会出现不同的效果 -->
+<!--    <tr>
+        <td>自定义选择符，每隔一行添加样式</td>
+        <td>自定义选择符，每隔一行添加样式</td>
+        <td>自定义选择符，每隔一行添加样式</td>
+    </tr>-->
+</table>
+
+<table>
+    <h1>第二个表格</h1>
+    <tr>
+        <td>自定义选择符，每隔一行添加样式</td>
+        <td>自定义选择符，每隔一行添加样式</td>
+    </tr>
+    <tr>
+        <td>自定义选择符，每隔一行添加样式</td>
+        <td>自定义选择符，每隔一行添加样式</td>
+    </tr>
+    <tr>
+        <td>自定义选择符，每隔一行添加样式</td>
+        <td>自定义选择符，每隔一行添加样式</td>
+    </tr>
+</table>
+
+<script>
+    $(document).ready(function(){
+        /* 有一种缺陷，如果存在2个表格，并且行数不一致，则可能会出现不一样的效果，即2个表格显示的行的颜色是相反的 */
+        // $('tr:even').addClass('alt');
+        /* 想要解决以上的问题，可以使用 :nth-child() */
+        $('tr:nth-child(odd)').addClass('alt');
+        /* 突出显示 */
+        $('td:contains(Henry)').addClass('highlight');
+    });
+</script>
+</body>
+</html>

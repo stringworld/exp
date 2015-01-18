@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>animations功能实现的示例</title>
+    <style>
+        div{background-color: red;width: 400px;height: 40px;line-height: 40px;text-align: center;}
+        @-webkit-keyframes divcolor{
+            0%{background-color: red;}
+            40%{background-color: darkblue;}
+            70%{background-color: yellow;}
+            100%{background-color: red;}
+        }
+        div:hover{
+            /*-webkit-animation-name:divcolor;
+            -webkit-animation-duration:5s;
+            -webkit-animation-timing-function:linear;*/
+            -webkit-animation:divcolor 5s linear;/*与上面的代码等价*/
+        }
+    </style>
+</head>
+<body>
+<div>animations实现背景颜色的变换</div>
+
+
+<p>
+    使用animations功能时创建的格式：
+    @-webkit-keyframes 关键帧属性集合名称{创建关键帧的属性代码}
+
+</p>
+
+</body>
+</html>

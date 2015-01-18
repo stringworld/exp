@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>animations功能实现的示例--改变多个属性</title>
+    <style>
+        div{background-color: yellow;position: absolute;top: 100px;width: 500px;height: 200px;line-height: 50px;}
+        @-webkit-keyframes divColor{
+            0%{background-color: red;-webkit-transform:rotate(0deg);-webkit-transform:translate(0px,0px);}
+            40%{background-color: darkblue;-webkir-transform:rotate(720deg);-webkit-transform:translate(150px,100px);}
+            70%{background-color: yellow;-webkit-transform:rotate(-720deg);-webkit-transform:translate(-50px,-100px);}
+            100%{background-color: red;-webkit-transform:rotate(0deg);-webkit-transform:translate(0px,0px);}
+        }
+        div:hover{
+            /*-webkit-animation-name:divcolor;
+            -webkit-animation-duration:5s;
+            -webkit-animation-timing-function:linear;
+            -webkit-animation-iteration-count:infinite;*//*指定动画循环播放*/
+            -webkit-animation:divColor 5s linear infinite;/*与上面的代码等价*/
+        }
+    </style>
+</head>
+<body>
+<div>animations实现背景颜色，位置的变换</div>
+
+
+<p>
+    使用animations功能时创建的格式：
+    @-webkit-keyframes 关键帧属性集合名称{创建关键帧的属性代码}
+
+</p>
+
+</body>
+</html>

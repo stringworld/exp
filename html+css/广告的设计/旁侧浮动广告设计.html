@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312"  /> 
+		<title>
+			旁侧浮动广告设计
+		</title>
+		<style type="text/css">
+			body
+			{
+				margin:0;
+				padding:0;	
+			}
+			#adsense 
+			{/*border:#FF0000 1px solid;*/
+				position:absolute;
+				left:0;
+				top:0;
+				width:100%;
+				display:none;/**/
+			}/*错误1  border:#0000FF solid 1px; margin: 0 auto;    position:relative; (+height:0;) */
+			/*错误2  border:#0000FF solid 1px; margin: 0 auto;    position:absolute;*/
+			#adsense .left, #adsense .right
+			{
+				border-color:#CCCCCC;
+				border-style:solid;
+				border-width:1px;
+				margin:10px;
+			}
+			#adsense .left
+			{
+				float:left;
+			}
+			#adsense .right
+			{
+				float:right;
+			}
+			#adsense #content
+			{
+				width:100px;
+				height:200px;
+				font-size:24px;
+			}
+			#adsense  #panel
+			{/*border:#999999 solid 1px; */
+				background-image: -moz-linear-gradient(top, #FFFFFF, #CCCCCC ); /* Firefox */
+				background-image: -webkit-gradient(linear,left top, left bottom, color-stop(0, #FFFFFF), color-stop(1,#CCCCCC)); /* Saf4+, Chrome */
+				filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#CCCCCC', GradientType='0'); /* IE*/
+				width:200px;
+				float:left;
+			}
+			#adsense #panel div
+			{
+				border:#333333 1px solid;
+				float:right; 
+				background-image:url(img/close.png); 
+				height:10px ;
+				width:10px; 
+				margin:3px; 
+				margin-top:6px;
+				overflow:hidden; 
+				cursor:pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="adsense" >
+			<div class="left">
+				<div id="content">
+					在这里添加你希望添加的内容（文字、图片、链接）
+				</div>
+				<div id="panel" >
+					<div>		 
+					</div>
+				</div>
+			</div>
+			<div class="right">
+				<div id="content">
+					在这里添加你希望添加的内容（文字、图片、链接）
+				</div>
+				<div id="panel" >
+					<div>		 
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="border:#0000FF solid 1px; margin: 0 auto; width:900px; height:10000px;">
+			页面主体内容
+		</div>
+	</body>
+	<script type="text/javascript">
+		 window.onscroll=function(){
+				obj=document.getElementById("adsense");
+				if(document.all)
+					obj.style.top=document.documentElement.scrollTop+"px";
+				else
+					obj.style.top=document.body.scrollTop+"px";
+		}
+		obj=document.getElementById("adsense");
+		childnodes=obj.childNodes;
+		obj.style.display="block";/*父节点要设置为block，才能获取子节点的offsetWidth属性*/
+		for(i=0; i<childnodes.length ;i++)
+		{
+			if(childnodes[i].className=="right"||childnodes[i].className=="left")
+			{
+				childnodes_2=childnodes[i].childNodes;
+				panel_obj=null;
+				content_obj=null;
+				for( j=0; j<childnodes_2.length ;j++ )
+				{
+					if(childnodes_2[j].id=="content")
+						content_obj=childnodes_2[j];
+					if(childnodes_2[j].id=="panel")
+						panel_obj=childnodes_2[j];
+				}
+				panel_obj.style.width=content_obj.offsetWidth+"px";
+				for( j=0; j<panel_obj.childNodes.length ;j++ )
+				{
+					if(panel_obj.childNodes[j].nodeName=="DIV")
+					{
+						panel_obj.childNodes[j].onclick=close_adsense;
+						break;
+					}
+				}
+			//	alert(content_obj);
+			}
+			//childnodes[i].offsetWidth;
+		}
+		function close_adsense()
+		{
+			obj.style.display="none";
+		}
+	</script>
+</html>

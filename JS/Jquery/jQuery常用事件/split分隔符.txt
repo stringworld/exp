@@ -1,0 +1,25 @@
+
+<div id="switcher" class="switcher">
+    <h3>Style Switcher（网页风格切换） </h3>
+    <button id="switcher-default">
+        Default 系统设置
+    </button>
+    <button id="switcher-narrow">
+        Narrow Column 缩小
+    </button>
+    <button id="switcher-large">
+        Large Print 排印
+    </button>
+</div>
+
+<script>
+ $('#switcher button').click(function() {
+         //分隔符  -  取出后面的样式
+         var bodyClass = this.id.split('-')[1];
+         $('body').removeClass().addClass(bodyClass);
+     });
+</script>
+
+
+
+注意：其中的分隔符是自定义的，要根据样式表中你定义的来规定

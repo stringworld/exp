@@ -1,0 +1,3 @@
+ctrl+shift+t	恢复关闭的网页（撤销）
+
+Ctrl+H	打开Chrome历史浏览页面

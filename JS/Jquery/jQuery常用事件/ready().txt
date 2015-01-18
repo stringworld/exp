@@ -1,0 +1,7 @@
+ready(function):将html和js代码分离，在加载html页面时绑定事件
+	/*$(document).ready(function(){
+		alert();
+	});*/
+	$(function(){
+		alert("最简形式");
+	});

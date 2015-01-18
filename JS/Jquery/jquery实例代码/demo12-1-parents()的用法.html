@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <title>demo12-1-parents()方法</title>
+
+        <meta charset="utf-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+
+        <style>
+            .bgcolor{background-color: gray;border: 5px solid #eec;}
+        </style>
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+
+    </head>
+    <body>
+    <p style="border: 1px solid teal">这里没用p标签包含p标签
+        <p>一个p标签包含a标签。 <a href="#"> 一个p标签包含a标签。 </a> </p>
+    </p>
+    <p>一个p标签包含a标签。 <a href="#"> 一个p标签包含a标签。 </a> </p>
+
+    <!--hover(over, out)
+    一个模仿悬停事件（鼠标移动到一个对象上面及移出这个对象）的方法。这是一个自定义的方法，它为频繁使用的任务提供了一种“保持在其中”的状态。 当鼠标移动到一个匹配的元素上面时，会触发指定的第一个函数。
+    当鼠标移出这个元素时，会触发指定的第二个函数。而且，会伴随着对鼠标是否仍然处在特定元素中的检测（例如，处在div中的图像），如果是，则会继续保持“悬停”状态，而不触发移出事件（修正了使用mouseout事件的一个常见错误）。
+    over (Function): 鼠标移到元素上要触发的函数
+    out (Function): 鼠标移出元素要触发的函数
+    示例
+    jQuery 代码:
+    $("p").hover(function(){ $(this).addClass("over"); },function(){ $(this).addClass("out"); });
+
+
+    parents( String expr )
+    取得一个包含着所有匹配元素的唯一祖先元素的元素集合（不包含根元素）。
+    -->
+    <script>
+        $(document).ready(function(){
+            $('a').hover(function(){
+                $(this).parents('p').addClass('bgcolor');
+            },function(){
+                $(this).parents('p').removeClass('bgcolor');
+            });
+
+        });
+    </script>
+    </body>
+</html>

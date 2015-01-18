@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <title>事件有时需要延迟去执行</title>
+    <style type="text/css">
+
+    </style>
+    <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+<span>3秒钟后显示要延迟的事件</span>
+<script>
+	var wait=function(e){
+		var dtd=$.Deferred();
+		var tasks=function () {
+			// body...
+			//dtd.resolve();//改变deferred对象的执行状态：成功
+			dtd.reject();//改变deferred对象的执行状态：失败
+		};
+		setTimeout(tasks,3000);
+		return dtd.promise();//无法改变返回的这个对象的执行状态
+    };
+    $.when(wait()).done(function () {
+    	// body...
+    	document.write('done');
+    }).fail(function () {
+    	// body...
+    	document.write('fail,要延迟的事件或则函数');
+    });
+</script>
+</body>
+</html>

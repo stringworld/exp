@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>animations实现页面的淡入效果</title>
+    <style>
+        @-webkit-keyframes fadein{
+            0%{opacity:0;background-color:red;}
+            100%{opacity:1;background-color:white;}
+        }
+        body{
+            -webkit-animation-name:fadein;
+            -webkit-animation-duration:5s;
+            -webkit-animation-timing:linear;
+            -webkit-animation-iteration-count:2;/*循环播放动画infinite*/
+        }
+    </style>
+</head>
+<body>
+animations实现页面的淡入效果
+</body>
+</html>

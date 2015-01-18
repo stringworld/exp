@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <title>demo5--收索展开slideToggle()</title>
+
+        <meta charset="utf-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+
+        <style>
+            p,div{margin:0;padding: 0;}
+            #head{width: 300px;height: 20px;border: 1px solid #aaa;background-color: #ddd;}
+            #content{width: 300px;height: 480px;border: 1px solid #aaa;background-color: #adf;margin-top: 0px;}
+        </style>
+
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+
+    </head>
+    <body>
+
+    <p id="head">单击这里，测试一个展开收索的功能</p>
+    <div id="content">
+        1,首先把JQ导入.
+        2,然后开始写函数了。$(document).ready(function(){});
+        3,前面说过了，获取标签能直接 $("标签")。给标签注册 onclick事件直接可以 click.
+        4,核心代码:
+        $("head").click(function(){$("content").slideToggle("slow");});
+        5,slideToggle(speed, callback)
+        通过高度变化来切换所有匹配元素的可见性，并在切换完成后可选地触发一个回调函数。
+        这个动画效果只调整元素的高度，可以使匹配的元素以“滑动”的方式隐藏或显示。
+
+        返回值
+        jQuery
+
+        参数
+        speed (String|Number): (可选) 三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)
+        callback (Function): (可选) 在动画完成时执行的函数
+        示例
+        jQuery 代码:
+        $("p").slideToggle("slow");
+
+        --------------------------------------------------------------------------------
+
+        jQuery 代码:
+        $("p").slideToggle("slow",function(){ alert("Animation Done."); });
+
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('#head').click(function(){
+                $('#content').slideToggle('slow',function(){
+                    alert('应用 slideToggle 来实现展开，收索功能');
+                });
+            });
+        });
+    </script>
+    </body>
+</html>

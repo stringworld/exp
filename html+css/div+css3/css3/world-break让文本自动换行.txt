@@ -1,0 +1,22 @@
+word-break是文字自动换行
+
+<style>
+div{
+	word-break:keep-all;
+}
+</style>
+
+
+
+属性：
+normal:使用浏览器自带的默认换行规则
+
+keep-all：只能在半角空格或连字符处换行
+
+break-all:允许在单词内换行
+
+
+word-wrap属性来实现长单词与URL地址的自动换行
+div{
+	word-wrap:break-word;
+}

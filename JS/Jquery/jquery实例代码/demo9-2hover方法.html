@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <title>demo9-1hover()方法的使用</title>
+
+        <meta charset="utf-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+
+        <style>
+            .blue{background-color: #0033CC;}
+        </style>
+
+        <script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+
+    </head>
+    <body>
+
+        <table id="tabList" border="1" width="50%">
+            <tr>
+                <th>姓名</th>
+                <th>电话</th>
+                <th>地址</th>
+                <th>Email</th>
+            </tr>
+            <tr>
+                <td>小明</td>
+                <td>123456789</td>
+                <td>上海</td>
+                <td>123456@qq.com</td>
+            </tr>
+            <tr>
+                <td>小明</td>
+                <td>123456789</td>
+                <td>上海</td>
+                <td>123456@qq.com</td>
+            </tr>
+            <tr>
+                <td>小明</td>
+                <td>123456789</td>
+                <td>上海</td>
+                <td>123456@qq.com</td>
+            </tr>
+            <tr>
+                <td>小明</td>
+                <td>123456789</td>
+                <td>上海</td>
+                <td>123456@qq.com</td>
+            </tr>
+            <tr>
+                <td>小明</td>
+                <td>123456789</td>
+                <td>上海</td>
+                <td>123456@qq.com</td>
+            </tr>
+        </table>
+
+    <script>
+        $(document).ready(function(){
+            $('#tabList tr').hover(function(){
+                $(this).addClass('blue');
+            },function(){
+                $(this).removeClass('blue');
+            });
+        });
+    </script>
+    </body>
+</html>

@@ -1,0 +1,4 @@
+jquery中:input和input的区别  
+  
+:input表示选择表单中的input,select,textarea,button元素
+input仅仅选择input元素。

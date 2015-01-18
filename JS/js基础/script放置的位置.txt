@@ -1,0 +1,4 @@
+加载样式与执行代码
+为了保证JavaScript代码执行以前页面已经应用了样式，最好是在<head>
+元素中把<link rel="stylesheet">标签和<style>标签放在<script>标
+签前面。
