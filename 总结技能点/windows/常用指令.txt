@@ -1,4 +1,0 @@
-cmd->help	
-
-msconfig	开机启动
-services.msc	服务面板

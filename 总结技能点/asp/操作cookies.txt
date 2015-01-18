@@ -1,4 +1,0 @@
-赋值		response.cookies("username")=username
-设置过期时间	response.cookies("username").expires=dateadd("d",30,now())
-取		usernamse=request.cookies("username")
-删除		response.cookies("username").expires=(now()-1)

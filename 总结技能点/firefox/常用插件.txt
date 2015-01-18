@@ -1,5 +1,0 @@
-Firebug		调试
-gTranslator	翻译页面
-Web Developer	查看页面信息
-Adblock plus	拦截广告
-NetVideoHunter	下载视频

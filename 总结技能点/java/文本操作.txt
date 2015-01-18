@@ -1,9 +1,0 @@
-File file=new File(config.getServletContext().getRealPath("\\")+config.getInitParameter("path"));
-//计算文件有多少行
-LineNumberReader line=new LineNumberReader(new InputStreamReader(new FileInputStream(file)));
-line.skip(file.length());
-if(line.getLineNumber()>300)
-	return;
-//追加文本
-FileWriter write=new FileWriter(file,true);
-write("");

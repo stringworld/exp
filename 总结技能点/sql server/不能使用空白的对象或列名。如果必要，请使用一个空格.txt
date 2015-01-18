@@ -1,4 +1,0 @@
-在更新sql语句时弹出：不能使用空白的对象或列名。如果必要，请使用一个空格。
-原因是：我之前写的sql语句为：update t_category set remark="" where subjectId=1
-应改为：update t_category set remark='' where subjectId=1
-虽然是字符串但应该用单引号（‘）而不是双引号（"）

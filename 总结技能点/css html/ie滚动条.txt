@@ -1,6 +1,0 @@
-overflow:auto;
-
-ie:
-overflow-x:hidden
-
-overflow-y:hidden

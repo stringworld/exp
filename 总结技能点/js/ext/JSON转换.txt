@@ -1,2 +1,0 @@
-Ext.decode
-Ext.encode

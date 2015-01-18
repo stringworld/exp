@@ -1,1 +1,0 @@
-string.join(split,array)	合并数组元素

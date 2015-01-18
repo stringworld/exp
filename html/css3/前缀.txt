@@ -1,4 +1,0 @@
--webkit-    chromeAsafari
--moz-       firefox
--ms-        ie
--o-         opera

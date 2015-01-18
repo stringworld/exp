@@ -1,2 +1,0 @@
-ALTER  TABLE 选课表
-ADD  CONSTRAINT  PK_XK  PRIMARY  KEY(学号,课程号)—-添加表级约束

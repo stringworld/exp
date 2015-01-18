@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        .btn1{}
+        .btn2{width: 500px;height: 200px;border: 1px solid red;}
+        .btn3{background-color: #f0c8c6;}
+        .selected{font-size: 15px;font-weight: bold;}
+        .hidden{display: none;}
+    </style>
+    <script src="js/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+<!--    <div id="event_practice" class="event_practice">
+        <button id="event_practice-btn1">默认属性样式</button>
+        <button id="event_practice-btn2">改变宽度</button>
+        <button id="event_practice-btn3">改变背景</button>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('#event_practice-btn1').addClass('selected');
+            $('#event_practice button').click(function(){
+                var bodycalss=this.id.split('-')[1];
+                $('body').removeClass().addClass(bodycalss);
+                $('#event_practice button').removeClass('selected');
+                $(this).addClass('selected');
+            });
+        });
+    </script>-->
+<div id="event_practice" class="event_practice">
+    <h3>第三章--事件--练习</h3>
+    <button id="btn1">默认属性样式</button>
+    <button id="btn2">改变宽度</button>
+    <button id="btn3">改变背景</button>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('#btn1').addClass('selected');
+        $('#event_practice button').click(function(){
+            //获取每个按钮的 id，进行添加样式
+            var bodycalss=this.id;
+            $('body').removeClass().addClass(bodycalss);
+            $('#event_practice button').removeClass('selected');
+            $(this).addClass('selected');
+        });
+        $('#event_practice h3').click(function(){
+            $('#event_practice button').toggleClass('hidden');
+        });
+    });
+</script>
+
+</body>
+</html>

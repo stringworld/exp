@@ -1,2 +1,0 @@
-ALTER TABLE Ñ§Éú±í
-DROP CONSTRAINT UQ_xm 

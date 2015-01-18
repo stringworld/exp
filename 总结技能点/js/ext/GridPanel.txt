@@ -1,9 +1,0 @@
-当前页面刷新
-goodsGrid.getStore().reload();
-
-获取选中行
-var record=this.getSelectionModel().getSelected();
-var selections=this.getSelectionModel().getSelections();
-
-获取选中行索引
-var index=this.getSelectionModel().lastActive;

@@ -1,1 +1,0 @@
-CREATE RULE R_øº ‘ AS  @ks in('øº ‘','øº≤È')

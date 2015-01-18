@@ -1,7 +1,0 @@
-Error creating bean with name 'dataSource' defined in class path resource [applicationContext.xml]: Initialization of bean failed; nested exception is javax.naming.NoInitialContextException:
-
-此错误是在测试类里测试applicationContext.xml文件是否有错的时候在控制台报的错。代码本身是没有问题的，意思是少了一个包。
-
-解决方法：
-
-将commons-pool.jar此包拷贝到lib下，就Ok了

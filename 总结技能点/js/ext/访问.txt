@@ -1,7 +1,0 @@
-访问父级
-this.ownerCt.items
-
-访问子级
-_window.findByType("textfield")[6].getEl().dom.src
-
-ownerCt.form.getForm().loadRecord(record);

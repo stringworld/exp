@@ -1,3 +1,0 @@
-ÔÚhibernate.cfg.xmlÀï<session-factory>Ìí¼Ó
-<property name="hibernate.query.factory_class "> 		org.hibernate.hql.classic.ClassicQueryTranslatorFactory
-</property>

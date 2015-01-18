@@ -1,8 +1,0 @@
-$(window).width(); 			//浏览器当前窗口可视区域宽度 
-$(document).width();			//浏览器当前窗口文档对象宽度 
-$(document.body).width();		//浏览器当前窗口文档body的宽度
-
-innerWidth()				内容宽度
-width()					内容宽度+padding
-outerWidth()				内容宽度+padding+border
-outerWidth(true)			内容宽度+padding+border+margin

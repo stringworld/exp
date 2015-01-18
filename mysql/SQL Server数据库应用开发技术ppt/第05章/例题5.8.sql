@@ -1,1 +1,0 @@
-DROP TABLE 课程信息表

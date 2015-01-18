@@ -1,1 +1,0 @@
-EXEC SP_UNBINDRULE '课程表.学分'

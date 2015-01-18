@@ -1,3 +1,0 @@
-.file{position:absolute;right:10px;top:10px;width:280px;height:26px;opacity:0;filter:alpha(opacity=0);}
-
-设置一个文件域透明在图片上面，需要动态修改文件名称

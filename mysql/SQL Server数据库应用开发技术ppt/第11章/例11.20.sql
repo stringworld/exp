@@ -1,3 +1,0 @@
-DENY  SELECT,INSERT  ON  Ñ§Éú±í  TO  DB_USER01
-
-

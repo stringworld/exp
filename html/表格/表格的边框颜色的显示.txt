@@ -1,4 +1,0 @@
-问题：
-	有时在设置表格的边框的颜色时会因为浏览器兼容的原因是的边框颜色显示不出来，这时就需要设置强制显示，这时一般有两种方法，
-	一是在表格的<table>中设置style="border-top:1px solid red;border-buttom:1px solid red;border-left:1px solid red;border-right:1px solid red;"
-	另一种是设置border-color:red;(这一种方法有时也会因为浏览器兼容问题而显示不出来)

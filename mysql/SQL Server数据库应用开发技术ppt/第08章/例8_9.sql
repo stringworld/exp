@@ -1,1 +1,0 @@
-DBCC INDEXDEFRAG (教务管理数据库,学生表,XS_XH_INDEX)

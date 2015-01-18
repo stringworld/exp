@@ -1,1 +1,0 @@
-SELECT  я╖╨е,пуцШ,©нЁл╨е FROM  XS_VIEW3

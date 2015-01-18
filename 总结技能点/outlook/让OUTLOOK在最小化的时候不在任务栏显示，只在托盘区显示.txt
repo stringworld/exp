@@ -1,5 +1,0 @@
-开始－运行：输入regedit。打开注册表编辑器。
-打开HKEY_CURRENT_USER\Software\Microsoft\Office\11.0\Outlook\Preferences项目。其中11.0对应OUTLOOK 2003，如果你使用的是OUTLOOK 2007，这里应该是12.0，OUTLOOK XP对应的是10.0。
-新建一个DWORD类型的值，名称为“MinToTray”，取值改成1（默认是0）。
-关闭注册表编辑器。
-重新启动OUTLOOK，当你把OUTLOOK主窗口最小化的时候，它就会自己缩到托盘区了。

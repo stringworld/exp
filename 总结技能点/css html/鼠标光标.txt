@@ -1,1 +1,0 @@
-cursor:url("http://ctc.i.gtimg.cn/qzone/space_item/orig/0/57136.gif"), default;

@@ -1,7 +1,0 @@
-.scroll { 
-	width:500px; 
-	height:200px; 
-	overflow:scroll; /*只显示垂直滚动条*/
-	overflow-x:hidden; /*禁止显示水平滚动条*/
-}
-<div class="scroll"></div>

@@ -1,6 +1,0 @@
-在web.xml文件中设置
-
-<error-page>
-  	<error-code>404</error-code>
-  	<location>/error.html</location>
-  </error-page>

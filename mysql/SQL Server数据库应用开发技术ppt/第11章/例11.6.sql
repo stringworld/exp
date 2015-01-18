@@ -1,3 +1,0 @@
-USE 教务管理数据库
-GO
-CREATE LOGIN  login_02  WITH PASSWORD='002'

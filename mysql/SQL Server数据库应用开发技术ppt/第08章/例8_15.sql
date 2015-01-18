@@ -1,1 +1,0 @@
-SP_HELP   XS_VIEW1

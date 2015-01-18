@@ -1,2 +1,0 @@
-//
-WebContextFactory.get().getSession().setAttribute(arg0, arg1)

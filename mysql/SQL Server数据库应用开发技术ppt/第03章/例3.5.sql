@@ -1,7 +1,0 @@
-select ascii('A'), unicode('李') ,unicode('ABCD')
-select char(65), nchar(26446), nchar(65)
-select rtrim (' 中国  '), ltrim ('  北京')
-select left('中国北京',2), right('中国北京',2) ,substring('abcdef', 2, 3)
-select reverse(12345), reverse('abc')
-select str(123.45, 6, 1)
-select replace('abcdefghicde','cde','xxx'), stuff('abcdef', 2, 3, 'ijklmn') 

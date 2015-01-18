@@ -1,1 +1,0 @@
-INSERT INTO  XS_VIEW2  VALUES('20070401101','李明','男','共青党员')

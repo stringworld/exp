@@ -1,2 +1,0 @@
-右键git->Settings->Network->SSH client
-	修改为 D:\Program Files\Git\bin\ssh.exe
