@@ -1,0 +1,5 @@
+﻿(function(){
+	var Fun=function add(a,b){
+		return a+b;
+	}
+})()
