@@ -1,0 +1,5 @@
+﻿1.获取在页面中间的iframe标签
+
+2.获取页面中间iframe的window对象，
+
+3.重新定义iframe的高度
