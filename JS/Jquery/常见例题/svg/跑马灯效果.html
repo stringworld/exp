@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,minimal-ui">
+	<style type="text/css">
+	html,body{
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		width: 100%;
+	}
+	#container{
+		margin: 30% auto;
+		width: 51%;
+		height: 50px;
+		overflow: hidden;
+	}
+	</style>
+</head>
+<body>
+	<div id="container"></div>
+
+
+	<script type="text/javascript">
+	function numToPic(num, options){
+
+		this.num = num.split("");
+		this.length = this.num.length;
+
+		this.init(options);
+	}
+
+	numToPic.prototype = {
+		parent : {},
+
+		url : "",
+
+		mode : "forward",//backward
+
+		num : [],//array
+
+		running : false,
+
+		length : 0,
+
+		size : {},//{}
+
+		distance : 2000,
+
+		divs : null,//[]
+
+		init : function(options){
+			for(var i in options){
+				this[i] = options[i];
+			}
+			this.parent = document.querySelector(this.parent);
+
+			this.size = {
+				w : Math.floor(this.parent.offsetWidth/this.length*10)/10-1,
+				h : this.parent.offsetHeight
+			};
+
+			this.divs = [];
+
+			this.construct();
+		},
+
+		construct : function(){
+			var bgH = this.size.h*10,
+				n = this.num,
+				self = this;
+
+			if(self.mode === "forward"){
+				for(var i = 0; i < self.length; i++){
+					var d = document.createElement("div");
+					setCss(d);
+				}
+			}else{
+				for(var i = self.length-1; i >=0 ; i--){
+					var d = document.createElement("div");
+					setCss(d);
+				}
+			}
+
+			function setCss(d){
+				self.css(d, {
+					width : self.size.w+"px",
+					height : self.size.h+"px",
+					float : "left",
+					backgroundImage : "url("+self.url+")",
+					backgroundRepeat : "repeat-y",
+					backgroundSize : "100% "+ bgH + "px",
+					backgroundPosition : "0 -"+ self.distance + "px",
+					webkitTransition : (i+2)+"s ease-out"
+				});
+				self.divs.push(d);
+				self.parent.appendChild(d);
+			}
+
+			setTimeout(function(){
+				self.run();
+			}, 0)
+			
+		},
+
+		reset : function(num){
+			if(this.running == true){
+				return;
+			}
+			this.parent.innerHTML = "";
+			this.divs = [];
+
+			this.num = num.split("");
+			this.length = this.num.length;
+
+			this.size.w  = Math.floor(this.parent.offsetWidth/this.length*10)/10-1;
+
+
+			this.construct();
+		},
+
+		run : function(){
+			var self = this,
+				n = this.num;
+
+			self.running = true;
+
+			setTimeout(function(){
+				self.running = false;
+			}, (self.length+1)*1000)
+
+			this.divs.forEach(function(v, i){
+				self.css(v, {
+					backgroundPosition : "0 -"+ self.size.h*n[i] + "px"
+				})
+			})
+		},
+
+		css : function(ele, styles){
+			for(var i in styles){
+				ele.style[i] = styles[i];
+			}
+		}
+	}
+
+
+
+
+var b = 122+"";
+	var a = new numToPic(b, {
+		parent : "#container",
+		url : "./number.png",
+		mode : "backward"
+	});
+
+
+	document.getElementById("container").onclick = function(){
+		a.reset("1232");
+	}
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

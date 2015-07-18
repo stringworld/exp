@@ -1,0 +1,71 @@
+<!doctype>
+<html>
+	<head>
+		<title>jQuery操作属性的2种方法</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+		<script src="http://lib.sinaapp.com/js/jquery/1.10.2/jquery-1.10.2.min.js"></script>
+		<style type="text/css">
+			#div1{position: absolute;width: 320px;height: 320px;background: #efc;border: 3px solid blue;z-index: 0;}
+			#div2{position: absolute;width: 320px;height: 320px;background: #e6e6e6;border: 4px solid yellow;z-index: 0;}
+			#div3{position: absolute;width: 320px;height: 320px;border: 5px solid red;z-index: 0;}
+			.show{display: block;}
+			.hide{display: none;}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<button id="click1" value="111">点击1</button>
+			<div style="width:200px;height:200px;margin:10px;border:1px solid green;"></div>
+		</div>
+		<div id="div2">
+			<button id="click2" value="222">点击2</button>
+			<div id="topic" style="width:200px;height:200px;margin:10px;border:1px solid black;z-index:1;">原始的题目</div>
+			<div id="topic_checked" style="width:200px;height:200px;margin:10px;border:1px solid green;z-index:2;" data="okokokokokok">选中之后的题目</div>
+			<p id="checked_ok" style="z-index:1">就选你了</p>
+			<p id="next" style="z-index:3;">下一题</p>
+			<p id="ok" style="z-index:4;">确定</p>
+		</div>
+		<div id="div3">
+			<button id="click3" value="333">点击3</button>
+			<div style="width:200px;height:200px;margin:10px;border:1px solid green;"></div>
+
+		</div>
+
+		<script type="text/javascript">
+		$(function(){
+			bind();
+		});
+		//页面中元素事件绑定的函数
+		function bind(){
+			//除了页面加载时显示的第一个页面显示，其余的页面隐藏
+			$('#div2,#div3').addClass('hide'); 
+			//第一页的单击事件
+			$('#click1').on('click',function(){
+				$('#div1').addClass('hide');
+				//第二页中要隐藏的元素
+				$('#div2,#topic_checked,#next,#ok').toggleClass('hide');
+			});
+			//第二页的单价事件
+			$('#click2').on('click',function(){
+				//$('#div2').addClass('hide');
+				$('#div3').toggleClass('hide');
+			});
+			//第二页中元素的单击事件,题目的单击事件
+			$('#topic').on('click',function(){
+				$('#topic,#topic_checked').toggleClass('hide');
+			});
+			$('#checked_ok').on('click',function(){
+				//获取自定义标签属性的值
+				alert($('#topic_checked').attr('data'));
+				$('#next').toggleClass('hide');
+			});
+			$('#next').on('click',function(){
+				$('#next,#ok').toggleClass('hide');
+			});
+			$('#ok').on('click',function(){
+				$('#div2,#div3,#topic,#topic_checked,#next,#ok,#checked_ok').toggleClass('hide');
+			});
+		}
+		</script>
+	</body>
+</html>
