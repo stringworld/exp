@@ -1,0 +1,16 @@
+﻿第一种方法：
+attr()	添加或修改
+removeAttr()	删除
+
+第二种方法：
+
+prop()  禁用页面上的所有复选框。$("input[type='checkbox']").prop({disabled: true});
+
+removeProp()	用来删除由.prop()方法设置的属性集
+
+随着一些内置属性的DOM元素或window对象，如果试图将删除该属性，浏览器可能会产生错误。jQuery第一次分配undefined值的属性，而忽略了浏览器生成的任何错误
+
+
+
+
+

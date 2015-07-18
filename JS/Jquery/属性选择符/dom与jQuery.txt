@@ -1,0 +1,93 @@
+﻿jQuery开发步骤：
+	1.导入jquery的js类库
+	2.定位html元素，格式 $("#ID");
+	3.使用val()和html()获取html中的值
+
+dom与jQuery相互转换
+	dom-->jquery   $(dom对象)-->jquery对象
+	jQuery-->dom   
+		$div[0]
+		$div.get(0)
+
+jQuery3种html元素定位方法
+	$("#ID")
+	$("标签名")
+	$(".样式名")
+
+dom与jQuery处理错误信息
+	dom需要判断要查找的元素是否为null，而jQuery则不需要，因为jQuery内置判断器，在找不到时，返回“undefined"
+
+jquery的9中选择器
+	1.基本选择器
+		#id/标签名/样式名/组合$("div,span,p")
+	2.层次选择器
+		$("form input")：查询form下所有input元素的个数，含有后代关系
+		$("form>input")：查询form下所有input元素的个数，只有父子关系，没有后代关系
+		$("form+input")：查询与form同级的第一个input元素，是兄弟关系
+		$("form~input")：查询与form同级的所有input元素，是兄弟关系
+	3.增强基本选择器
+		:first：查询第一个元素
+		:last：查询最后一个元素
+		:checked：查询选中的复选框
+		:not(:checked)：查询未选中的复选框
+		:even：偶数
+		:odd：奇数
+		:eq()：索引从0开始
+		:gt():大于索引号
+		:lt()：小于索引号
+		:header：查询所有<h1/2/3/4/5/6>标签
+	 	.css("样式名","属性值")为查询到的所有标签添加CSS样式
+	4.内容选择器
+		$("div:contains('John')")：查找所有包含John的div元素个数，区分大小写
+		$("p:empty")：查找所有包含p标签的div标签的个数
+		$("div:has(p)")：查询有子元素的元素
+		.addClass("myClass")：给所有查询到的p标签添加样式
+		$("p:parent")：查询非空的标签
+	5.可见性选择器
+		$("tr:hidden")：查询显示的个数
+		$("tr:visible")/$("table tr:not(:hidden)")：查询隐藏的个数
+	6.属性选择器（^=表示以什么为开头的，$=表示是以什么为结尾的）
+		$("div[id]"):查找所有含有id属性的div元素个数
+		$("input[name='newsletter']"):查找所有name属性是newsletter的input元素
+		.attr("checked","checked"):并将其选中
+		$("input[name!='newsletter']"):查找所有name属性不是newsletter的input元素
+		$("input[name^='news']")：查找所有name以'news'开始的input元素
+		$("input[name$='letter']")：查找所有name 以'letter'结尾的input元素
+		$("input[name*='news']")：查找所有name包含'news'的input元素
+		$("input[id][name$='letter']")：找到所有含有id属性，并且它的name属性是以"letter"结尾的input元素
+	7.子元素选择器
+		$("ul li:first-child")：迭代每个ul中第1个li元素中的内容
+		$("ul li:last-child")：迭代每个ul中最后1个li元素中的内容
+		$("ul li:only-child")：在ul中查找是唯一子元素的li元素的内容
+		$("ul li:nth-child(指定编号)")：查询指定编号的元素
+	8.表单选择器
+		$(":input")：
+		$(":text")：
+		$(":password")：
+		$(":radio")：
+		$(":checkbox")：
+		$(":submit")：
+		$(":image")：
+		$(":reset")：
+		$(":button")：
+		$(":file")：
+		$(":input:hidden")：
+	9.表单对象属性
+		$("input:enabled")：所有可用的input元素的个数
+		$("input:disabled")：表示查询不可用的元素
+		$("input:checked")：表示查询选中的复选/单选框的元素
+		$("input:not(:checked)")：表示查询没有选中的复选/单选框的元素
+		$("select option:selected")：表示查询选中的下拉框元素
+
+jQuery中DOM常用方法或属性
+	1)val()：取得标签中value属性的值
+	2)html()：取得标签内的内容
+	3)size()或length：取得数组的长度
+	4)each()：该方法必须由jQuery对象调用（即数组对象），each(function)方法，会自动将数组中的每个元素自动调用function函数
+	5)click(function) 单击
+	6)dblclick(function) 双击
+	7)父.append(子)，子元素位于父元素之后，但依然是父子关系 
+   	8)父.prepend(子)，子元素位于父元素之前，但依然是父子关系 
+   	9)text()：取得标签的内容，优先考虑html()方法
+	10）attr("disabled","disabled"); 使按钮失效
+	11）removeAttr("disabled")
