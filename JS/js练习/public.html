@@ -1,0 +1,73 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+
+        <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    </head>
+    <body>
+
+        <p>定义原型方法</p>
+        <!--<script>
+            //定义类
+            var Box = function(){}
+            //定义类的原型方法
+            //设置值
+            Box.prototype.set=function(x){
+                this.x=x;
+            }
+            //获取值
+            Box.prototype.get=function(x){
+                return this.x;
+            }
+            //创建类的实例对象
+            var Box=new Box();
+            //赋值
+            Box.set(10);
+            //取值
+            var a=Box.get();
+            alert(a)
+            console.log(a);
+        </script>-->
+
+        <p>封装原型方法</p>
+        <!--<script>
+            //定义类
+            var Box=function(){}
+            Box.prototype={
+                set: function (x) {
+                    this.x=x;
+                },
+                get:function(x){
+                    return this.x;
+                }
+
+            }
+            var Box=new Box();
+            Box.set(5);
+            var b=Box.get();
+            console.log(b);
+
+        </script>-->
+        <script>
+            //定义类
+            var Box=function(){}
+            //为类的祖宗定义一个制造方法的引擎
+            Box.prototype.constructor.constructor.prototype.make=function(n,f){
+                this.prototype[n]=f;
+                return this;
+            }
+            Box.make("set",function(x){
+                this.x=x;
+            });
+            Box.make("get",function(x){
+                return this.x=x;
+            });
+            var box=new Box();
+            box.set(22)
+
+            console.log(box.get())
+        </script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+
+        <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    </head>
+    <body>
+
+        <script>
+            var a=1;    //如果下方的赋值没有var，a则为全局变量，赋值都有效
+            if(true){   //没有作用域
+                var a=2;
+            }
+            console.log("第一次出现"+a);
+            (function (){    //有作用域
+                var a=3;
+            })();
+            console.log("第二次出现"+a); //输出2，因为函数体的变量声明属于局部作用域，不是全局
+        </script>
+    </body>
+</html>

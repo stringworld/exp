@@ -1,0 +1,47 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+
+        <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    </head>
+    <body>
+
+        <p>万物皆对象</p>
+        <!--<script>
+            var o=new Object();
+            o.val=1;
+            o.alert=function(x){
+                alert(x);
+            }
+            o.alert(2);
+        </script>-->
+
+        <p>奇怪的指针，引用指向的是具体的对象，而不是另一个引用。</p>
+        <!--<script>
+            //创建对象
+            var o=new Object();
+            //定义引用
+            var a=o;
+            //覆盖对象o
+            o=new Array();
+            //返回false，则说明他们的指向具体对象不同了
+            console.log(a==o)
+        </script>-->
+        <p>灵活的用法</p>
+        <script>
+            function F(name){   //定义类
+                this.name=name; //定义属性
+            }
+            var a=new F("a");   //创建一个对象实例，名称为"a"
+                                //然后在为类F添加一个方法
+
+            F.prototype.rename=function(name){
+                this.name=name;     //修改他的属性name
+            }
+            a.rename("A");  //调用rename()，修改属性name的值
+            console.log(a.name);    //输出的是A，而不是a
+        </script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+﻿--创建表 --auto_increment自动增长，primary key主键，not null不允许为空
+create table employee(
+id int auto_increment not null primary key,
+name varchar(20) not null,
+entry_date date not null,
+job   varchar(20) not null
+);
+
+
+--添加数据--自动增长可以不用写，数据库会自动添加的
+insert into employee(name,entry_date,job) values('小明1','2015-9-16','学生1');
+insert into employee(name,entry_date,job) values('小明2','2015-9-16','学生2');
+insert into employee(name,entry_date,job) values('小明3','2015-9-16','学生3');
+insert into employee(name,entry_date,job) values('小明4','2015-9-16','学生4');
+insert into employee(name,entry_date,job) values('小明5','2015-9-16','学生5');
+insert into employee(name,entry_date,job) values('小明6','2015-9-16','学生6');
+insert into employee(name,entry_date,job) values('小明7','2015-9-16','学生7');
+insert into employee(name,entry_date,job) values('小明8','2015-9-16','学生8');
+insert into employee(name,entry_date,job) values('小明9','2015-9-16','学生9');
+insert into employee(name,entry_date,job) values('小明10','2015-9-16','学生10');
+
+--更新数据
+update employee set name='小青' where id='2';   --修改id为1的学生的姓名
+
+--删除数据
+delete from employee where name='小青';
+
+--查询所有的数据
+select * from employee; --查询表中所有的数据

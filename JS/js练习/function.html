@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+
+        <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    </head>
+    <body>
+
+        <script>
+            //作为运算元参与表达式运算
+            var a=5+(function(){
+                return 5;
+            })();
+            console.log(a);
+
+            //可以作为一个值存储的变量中
+            var a=function(){
+                return 5;
+            }
+            console.log(a())
+
+            //可以作为其他函数的参数
+            function fun(fn){
+                fn.call(null);
+            }
+            fun(function () {
+                console.log("hello")
+            });
+
+            //可以作为其他函数的返回值，传出函数
+            var i=1;
+            function f(){
+                console.log(i++);
+                return arguments.callee;    //返回函数本身
+            }
+            f()()()()()()()();      //连续调用自身8次，输出8次
+
+            //可以再运行时构造函数
+            function F(name){       //适应函数创建类
+                this.name=name;
+                this.saying=function(){
+                    console.log(this.name);
+                }
+            }
+            var f=new F("css3");    //创建对象实例
+            f.saying();             //返回字符串"css3"
+        </script>
+    </body>
+</html>

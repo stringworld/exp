@@ -1,0 +1,22 @@
+﻿http://blog.sina.com.cn/s/blog_42913d65010106k9.html
+
+
+
+最近在安装最近版wampserver 2.2 d时发现安装好后启动服务器，访问localhost显示You don't have permission to access / on this server.(您没有权限访问/在此服务器。) 而在目录127.0.0.1下可以访问。
+造成这个问题的原因是Apache 的httpd.conf内的默认配置是
+#   onlineoffline tag - don't remove
+    Order Deny,Allow
+    Deny from all
+    Allow from 127.0.0.1
+只允许127.0.0.1访问，左键点击wampserver图标让后点击Put Online,httpd.conf内的以上默认配置自动修改为
+#   onlineoffline tag - don't remove
+    Order Allow,Deny
+    Allow from all
+现在localhost可以访问了。
+
+同样phpMyadmin在localhost下不能正常访问在127.0.0.1能正常访问，解决方法：
+点击根目录下的alias目录，打开phpmyadmin.conf配置文件，和上面修改httpd.conf一样把
+    Deny from all
+    Allow from 127.0.0.1 
+修改为
+  Allow from all
