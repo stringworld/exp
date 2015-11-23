@@ -32,6 +32,10 @@ git remote add origin git@github.com:cqcre/cqc.git
 添加后，远程库的名字就是origin，这是Git默认的叫法，也可以改成别的，但是origin这个名字一看就知道是远程库
 
 
+如果以上的不行，那就用下面的：
+
 http://blog.csdn.net/withiter/Article/details/8650242
 
 http://www.cnblogs.com/sorex/archive/2011/08/10/2132359.html
+
+http://m.blog.csdn.net/blog/u011796274/38682839
