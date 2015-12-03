@@ -1,0 +1,11 @@
+css中：
+	使用before选择器在元素前面插入内容
+	使用after选择器在元素后面插入内容
+	在选择器的content属性中定义要插入的内容
+例如：
+<style>
+h2:before{
+	content:'COLUMN';
+}
+</style>
+如把before改为after，则COLUMN出现在标题的后面

@@ -1,0 +1,1 @@
+﻿create database `数据库名` default character set utf8;

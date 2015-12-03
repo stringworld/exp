@@ -1,0 +1,27 @@
+﻿找到文件该alias目录D:\wamp\alias\webdev.conf，文件的内容如下：
+
+
+<Directory "d:/wamp/apps/webgrind1.0/">
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride all
+        Order Deny,Allow
+	Deny from all
+	Allow from 127.0.0.1
+</Directory>
+
+
+如果再访问localhost该目录还提示提示You don't have permission to access /webdev/ in on this server.
+
+只需要在webdev.conf里面添加 Require local 即可
+
+<Directory "d:/wamp/apps/webgrind1.0/">
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride all
+        Order Deny,Allow
+	Deny from all
+	Allow from all
+
+	Require local
+</Directory>
+
+如果需要让局域网中的电脑通过IP访问你的网站，则需将 Require local 换成 Require all granted 即可。最后重启一下apache即可。
