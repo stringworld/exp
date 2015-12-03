@@ -1,0 +1,34 @@
+﻿1.安装nodejs
+
+2.安装Browsersync
+
+运行：npm install -g browser-sync
+
+3.启动Browsersync
+
+进入到当前项目的根目录运行下面命令：
+cd D:/demo
+// --files 路径是相对于运行该命令的项目（目录） 
+browser-sync start --server --files "css/*.css"
+
+如果您需要监听多个类型的文件，您只需要用逗号隔开。例如我们再加入一个.html文件
+// --files 路径是相对于运行该命令的项目（目录） 
+browser-sync start --server --files "css/*.css, *.html"
+// 如果你的文件层级比较深，您可以考虑使用 **（表示任意目录）匹配，任意目录下任意.css 或 .html文件。 
+browser-sync start --server --files "**/*.css, **/*.html"
+
+运行以上命令后自动打开你的浏览器后访问http://localhost:3000地址
+
+
+成功后显示：
+[BS] Access URLs:
+ -------------------------------------
+       Local: http://localhost:3000
+    External: http://192.168.1.31:3000
+ -------------------------------------
+          UI: http://localhost:3001
+ UI External: http://192.168.1.31:3001
+ -------------------------------------
+[BS] Serving files from: ./
+[BS] Watching files...
+
