@@ -1,0 +1,30 @@
+﻿http://www.jb51.net/article/44875.htm
+
+var arr=[2,5,3,8,0,6];
+
+var maxCall=Math.max.call(null,2,5,3,8,0,6);
+var maxApply=Math.max.apply(null,arr);
+console.log(maxCall);
+console.log(maxApply);
+console.time('a');
+//最大值
+Array.prototype.max = function(){return Math.max.apply(Math, this);}
+//最小值
+Array.prototype.min = function(){return Math.min.apply(Math, this);}
+//辅助函数，创建用于测试的随机数组
+function makeArray() {
+	var original = [];
+	for (var i = 0, l = 120000; i < l; i++) {
+		original[i] = i + 1;
+	}
+	original.sort(function() {
+		return 0.5 - Math.random();
+	});
+	return original;
+}
+//测试
+var array = makeArray();
+var dt = new Date();
+console.log( "value: " + array.max() + " ms:" + ((new Date()) - dt) );
+console.timeEnd('a');
+

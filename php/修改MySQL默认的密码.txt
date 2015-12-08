@@ -1,0 +1,34 @@
+﻿http://tomfish88.iteye.com/blog/1978638
+
+
+
+方法其实很简单： 
+
+1、打开mysql控制台，默认密码为空，直接回车进入； 
+
+2、输入如下命令进入mysql： 
+
+                                       
+mysql> use mysql          
+Database changed        
+mysql>                           
+                                       
+
+3、然后输入要修改的密码的sql语句 
+
+update user set password=PASSWORD('123456') where user='root'; 
+
+注意：sql语句结尾的分号不能少，提示什么什么OK就行了。 
+
+4、最后输入 
+
+flush privileges; 
+不输入这个的话，修改密码的操作不会生效的。或者重启mysql也可以。退出控制台，修改完成！ 
+
+5、这时候你访问phpMyAdmin会报错，提示无法连接，你只需要修改phpMyAdmin的配置就行了。 
+打开文件 
+wamp/apps/phpmyadmin/config.inc.php 
+修改这行为你的密码就行了 
+$cfg['Servers'][$i]['password'] = '你的密码'; 
+
+这时刷新你的phpMyAdmin页面看看是不是好了呢？

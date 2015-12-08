@@ -1,0 +1,8 @@
+﻿一、更改网站根目录的存放位置，需要更改Apache的httpd.conf文件的两处，打开httpd.conf文件（在X:\wamp\bin\apache\apache2.4.9\conf目录下）：
+1、DocumentRoot "X:/wamp\www" 中"X:/wamp\www"文件夹地址改为你新建的文件夹地址，例如"G:/Demo"
+2、下面几行<Directory "X:/wamp\www"> 中的"X:/wamp\www"文件夹地址亦改为你新建的文件夹地址，例如"G:/Demo"。
+3、重新启动所有服务即可。
+二、左击菜单栏“www 目录”显示的更改，需要更改wamp开发包中的配置文件wampmanager.ini和wampmanager.tpl。
+1、更改wampmanager.ini文件中[Menu.Left]标记中Type: item; Caption: "www 目录"; Action: shellexecute; FileName: "X:/wamp/www"; 这一句中的Caption值"www 目录"为"Demo目录"，并更改FileName值"X:/wamp/www"为目标文件夹，例如："G:/Demo"即可。
+2、更改wampmanager.tpl文件中[Menu.Left]标记中Type: item; Caption: "${w_wwwDirectory}"; Action: shellexecute; FileName: "${wwwDir}";这一句中的Caption值 "${w_wwwDirectory}"为 "Demo目录",更改FileName值"${wwwDir}"为"G:\Demo"。
+3、退出并重新启动所有服务即可。

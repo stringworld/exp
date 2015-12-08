@@ -1,0 +1,37 @@
+﻿http://www.cnblogs.com/xzjs/archive/2013/03/13/2958376.html
+
+http://blog.sina.com.cn/s/blog_6dae5a6901013g5n.html
+
+
+但想使用phpmyadmin时，发现提示如下内容：
+
+You don't have permission to access /phpmyadmin/ on this server.
+
+ s
+
+解决办法：
+
+　　打开如下文件:
+
+c:\wamp\alias\phpmyadmin.conf　　　　//这个就是你的wamp的安装目录下的内容
+
+修改成这样：
+
+<Directory "c:/wamp/apps/phpmyadmin3.4.5/">
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride all
+        Order Deny,Allow
+        Allow from all
+</Directory>
+ 
+
+你原本的配置应该是这样的：
+
+<Directory "c:/wamp/apps/phpmyadmin3.4.5/">
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride all
+        Order Deny,Allow
+    Deny from all
+    Allow from 127.0.0.1
+</Directory>
+修改保存后，重启wamp即可！

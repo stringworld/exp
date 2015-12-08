@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Clamp.js文本多行显示省略号</title>
+    <style>
+        body {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="http://www.111cn.net/cssdiv/css/67208.htm">来源</a>
+    <p></p>
+    <h1>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</h1>
+    <div>
+        <p>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</p>
+        <ul>
+            <li>elementum eget</li>
+            <li>massa. Sed a diam</li>
+            <li>dui,in <a href="#">iaculis felis.</a></li>
+        </ul>
+    </div>
+    <script src="./clamp.js"></script>
+    <script>
+        var header = document.getElementsByTagName('body')[0].getElementsByTagName('h1')[0],
+            paragraph = document.getElementsByTagName('body')[0].getElementsByTagName('div')[0];
+            
+        $clamp(header, {clamp: 1, useNativeClamp: false});
+        $clamp(paragraph, {clamp: 10, useNativeClamp: false, animate: true});
+    </script>
+</body>
+</html>

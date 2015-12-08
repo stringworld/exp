@@ -1,0 +1,59 @@
+﻿http://www.xuebuyuan.com/1979932.html
+
+SVN服务器端的安装步骤（我安装的服务器的版本为window server 2003）
+
+一.获取软件
+
+    从官网上获取相应的软件
+
+   1.服务器端软件Subversion，我使用的版本是1.6.6
+
+    2.获取客户端软件TortoiseSVN，我使用的版本是1.6.10
+
+二.准备工作做好后，下面开始安装工作
+
+   1.在服务器上安装软件Subversion.这个软件安装很简单，全部选择默认的选项即可.
+
+   2.在使用默认方法安装了Subversion后，在D盘根目录下建立一个名为SVN的目录.
+
+   3.使用如下命令安装Sbuversion为系统服务：
+
+      sc create SVNService binpath= "/"C:/Program Files/Subversion/bin/svnserve.exe/" --service --root /"D:/SVN"" displayname= "Subversion" depend= Tcpip start= auto
+
+     可将此命令直接复制到CMD窗口或运行栏中运行，成功后到服务中去查找名为Subversion的服务，如果存在但是没有启动，请手工启动，默认应当是自动启动。
+
+   4.在D:/SVN目录下创建文件夹Project
+
+   5.然后在服务器上安装客户端软件TortoiseSVN.注意，此软件安装完后需要重启
+
+   6.在安装完TortoiseSVN后，在D:/SVN目录下的Project文件夹上右键单击，在弹出的对话框中选择"在此创建版本库".
+
+   7.然后可以发现Project下多了几个文件.打开Project下的conf文件夹.在此文件夹下还有几个文件需要修改.
+
+       conf/passwd，将此文件修改成如下形式：
+
+       [users]
+       user_name = user_password
+
+       保存，user_name是要设置的用户名，名称可以自定义，user_password是密码，与用户名对应，一行一个用户。再改动一下conf/svnserve.conf文件，改成如下形式：
+
+      [general]
+      anon-access = none
+      auth-access = write
+      password-db = passwd
+
+保存，第一行是说，未授权用户不可访问；第二行是说，授权用户可读可写；第三行是指定授权的用户和密码数据来自于同目录下的passwd文件。
+
+   8.在运行中输入cmd，然后输入以下命令以运行服务：
+
+   svnserve.exe --daemon --root D:/SVN
+
+   在命令启动SVN服务，并且指定根目录为D:/SVN
+
+   此命令窗口不能关闭，因为要使用该服务来捕获用户的申请.
+
+   9.接下来，你就可以测试你的SVN的配置是否成功了..在服务器的任何一个位置右击，然后在TortoiseSVN选项下选择“repo-browser”
+
+,在弹出的对话框中输入以下地址:  svn://localhost/Project或则svn://本机ip/Project.在弹出的对话框中输入你的用户名，密码后便可以开始正常使用SVN了。
+
+   10.最后，你只需在客户端安装TortoiseSVN,然后输入你要访问的地址就可以了.

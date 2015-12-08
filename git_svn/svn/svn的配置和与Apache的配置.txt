@@ -1,0 +1,122 @@
+﻿1.svn的安装
+
+Subversion软件下载安装
+http://subversion.tigris.org或http://subversion.apache.org/
+我们使用的版本 Setup-Subversion-1.6.5.msi
+验证是否安装成功
+svnserve --version 
+svn --version
+
+2.subversion建立仓库（单仓库和多仓库）
+建立svn仓库（单仓库、多仓库）命令 svnadmin create 
+仓库名称例如：svnadmin create F:\repository\svn\html
+
+或则使用svn版本工具在任意目录下	  右键-->TortoiseSVN-->create repository here创建版本库
+
+3.启动服务
+sc.exesc create SVN-Service binpath= "D:\svn\Subversion\bin\svnserve.exe --service -r F:\repository\svn" displayname= "SVN-Service" start= auto depend= Tcpip
+
+binpath 指定svnserve 的路径和命令
+start= auto 表示服务自动启动。注意：等于号的左边无空格，而右边必须有一个空格Displayname描述、start启动方式、depend依存关系在此命令中-r(--root)项目版本仓库的根目录
+启动服务 net start SVN-Service
+删除服务 sc delete SVN-Service
+查看服务是否添加成功，可以选择windows 控制面板管理工具服务 会发现列表中有SVN-service服务
+
+4.修改版本库中config目录下的文件
+
+svnserve.conf：开启三处地方（注意，只需要把前面的#和空格除去，不能留空格）
+	auth-access = write
+	password-db = passwd
+	authz-db = authz
+
+passwd：添加用户就行
+	例如
+		zhangjun = 123456
+		zhanghui = 123456
+		zhanglipeng = 123456
+
+authz：添加用户组和配置具体的仓库访问者的权限
+
+用户组：例如
+	zj=zhangjun,zhanghui,zhanglipeng
+多仓库：格式 [仓库名称:/]  @zj 一组用户名  rw 读写权限
+	[html:/]
+	@zj=rw
+	*=
+
+
+5.svn与Apache的配置
+
+开启Apache安装目录下D:\wamp\bin\apache\Apache2.2.21\conf\httpd.conf  文件中83行
+
+去除下面文件前面的#，不能留空格
+
+LoadModule dav_module modules/mod_dav.so
+LoadModule dav_fs_module modules/mod_dav_fs.so
+
+添加下面的2行代码
+
+LoadModule dav_svn_module modules/mod_dav_svn.so
+LoadModule authz_svn_module modules/mod_authz_svn.so
+
+
+到Subversion安装目录D:\svn\Subversion\bin下找到 mod_dav_svn.so、mod_authz_svn.so这2个文件，
+把这2个文件拷贝到Apache安装目录下D:\wamp\bin\apache\Apache2.2.21\modules
+
+
+6.配置Apache访问仓库的密码，在D:\wamp\bin\apache\Apache2.2.21\bin>创建密码，是在cmd命令下进行
+
+D:\wamp\bin\apache\Apache2.2.21\bin>htpasswd -cb passwd.apache users1 123456
+Adding password for user users1
+
+D:\wamp\bin\apache\Apache2.2.21\bin>htpasswd -b passwd.apache users2 123456
+Adding password for user users2
+
+D:\wamp\bin\apache\Apache2.2.21\bin>htpasswd -b passwd.apache users3 123456
+Adding password for user users3
+
+-c:是创建
+-b:是追加
+
+把生成的passwd.apache 拷贝到svn版本库中的config目录下
+
+7.配置Apache的虚拟目录，到D:\wamp\bin\apache\Apache2.2.21\conf\httpd.conf文件下在最后添加如下内容，每创建一个版本库都要添加如下文件
+
+多仓库的配置：
+
+
+#有权限的访问
+
+#配置虚拟目录newcard
+<location /svn/newcard>
+#引用远程访问模块
+DAV svn
+#项目版本库路径
+SVNPath F:/repository/svn/newcard
+#授权文件
+AuthzSVNAccessFile F:/repository/svn/newcard/conf/authz
+#所有用户都需要身份验证
+Require valid-user
+#验证方式
+AuthType Basic
+#项目的名称
+AuthName "newcard"
+#用户文件
+AuthUserFile F:/repository/svn/newcard/conf/passwd.apache
+</location>
+
+
+newcard：当前版本库的名称，创建新的版本库，则需要把上面的文件复制一份，修改newcard为新的版本库的名称
+
+
+8.在使用svn版本工具创建仓库时，需要选择是否需要创建svn的版本目录
+
+如果使用则会在当前目录创建3个子目录
+
+branches：主线（project1.0 --> project2.0 的过程）
+tags	:分支（project1.0 --> project1.1 的过程）
+trunk	：标签（project1.0 project1.1 project2.0，标签中的内容不能修改。就是完整的功能）
+
+
+
+
