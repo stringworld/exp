@@ -1,0 +1,31 @@
+﻿http://www.w3chtml.com/css3/selectors/attribute/
+
+不起作用的css样式
+css:
+        .main {
+            width: 1000px;
+            height: 500px;
+            background-color: #cccccc;
+        }
+        .main[class^="reb"] {
+            width: 100%;
+            height: 50px;
+            border: 1px solid red;
+            background-color: #000;
+        }
+        .main[class$="1"] {
+            background-color: green;
+        }
+        .main[class$="2"] {
+            background-color: yellow;
+        }
+html:
+    <div class="main">
+        <div class="reb1"></div>
+        <div class="reb2"></div>
+        <div class="reb3"></div>
+    </div>
+
+原因在于：.main[class^="reb"] 中的.main和[class^="reb"]之间没有空格
+
+.main和[class^="reb"]之间必须有空格
