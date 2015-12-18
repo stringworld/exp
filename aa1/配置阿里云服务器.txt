@@ -1,0 +1,22 @@
+﻿1.
+http://bbs.aliyun.com/read/115891.html
+
+2.
+http://lnmp.org/install.html
+
+3.
+http://lnmp.org/faq/lnmp-vhost-add-howto.html
+
+
+
+1.安装yum	apt-get install yum
+
+2.安装screen	apt-get install screen
+
+3.运行 screen -S lnmp
+
+4.下载并安装LNMP一键安装包：
+wget -c http://soft.vpser.net/lnmp/lnmp1.2-full.tar.gz && tar zxf lnmp1.2-full.tar.gz && cd lnmp1.2-full && ./install.sh lnmp
+如需要安装LNMPA或LAMP，将./install.sh 后面的参数替换为lnmpa或lamp即可
+
+5.##添加网站(虚拟主机)##~/lnmp1.2-full

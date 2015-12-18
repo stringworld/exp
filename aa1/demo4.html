@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+	<style>
+		ul{width:100px;height:100px;}
+		ul li{list-style:none;width:100%;height:20px;line-height:20px;background-color:red;margin:5px 0;}
+		.temp{background-color:yellow;}		
+	</style>
+</head>
+<body>
+	<ul class="nameUl">
+		<li>这是第1个li</li>
+		<li>这是第2个li</li>
+		<li>这是第3个li</li>
+		<li>这是第4个li</li>
+		<li>这是第5个li</li>
+		<li>这是第6个li</li>
+		<li>这是第7个li</li>
+		<li>这是第8个li</li>
+		<li>这是第9个li</li>
+		<li>这是第10个li</li>
+	</ul>
+	<button id="btn">按钮</button>
+	<script>
+	
+	function liList(event){
+		var num=0;
+		var len=$(event).parent().children().length;
+
+		function nextNtm(){
+			if(num>len-1){
+				num=len-1;
+			}
+			$(event).eq(num++).addClass('temp').siblings(event).removeClass('temp');
+		}
+		$('#btn').click(function(){
+			nextNtm();
+		});
+	}
+	liList('.nameUl li');
+	</script>
+</body>
+</html>
