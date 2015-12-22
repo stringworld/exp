@@ -1,0 +1,4 @@
+﻿使用函数:  file_get_contents($url);
+传入接口url及其参数:如
+$url="http://192.168.1.1/test.jsp?id=1&type=2";
+$ret=file_get_contents($url);
