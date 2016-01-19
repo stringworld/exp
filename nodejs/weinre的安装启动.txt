@@ -1,0 +1,40 @@
+﻿安装：
+
+1.保证要有nodejs
+
+2.npm -g install weinre 
+
+启动：
+1.
+
+进入到dos界面，进入到你要看的项目的目录，输入
+
+weinre --boundHost 你的本地ip
+
+如：
+weinre --boundHost 192.168.1.31
+
+成功后出现：
+
+D:\wamp\www\finish\2016\201601\schools\schools>weinre --boundHost 192.168.1.31
+2016-01-19T06:07:38.251Z weinre: starting server at http://192.168.1.31:8080
+
+出现http://192.168.1.31:8080，表示你已经成功了，可以在浏览器中测试了
+
+
+2.在浏览器中的界面上找到Target Script ，你会看到如下内容
+
+You can use this script to inject the weinre target code into your web page.
+
+http://192.168.1.31:8080/target/target-script-min.js#anonymous
+
+Example:
+
+<script src="http://192.168.1.31:8080/target/target-script-min.js#anonymous"></script>
+
+
+
+把<script src="http://192.168.1.31:8080/target/target-script-min.js#anonymous"></script>
+放到你的页面上
+
+
