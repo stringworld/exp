@@ -1,0 +1,12 @@
+1、在做html5开发时，html5需要嵌入在手机中，当然有ios版本的。
+这个过程中遇到一个问题，就是new Date（"2015-12-04"）形式，ios版本解析不了，出现Invalid Date.
+
+
+解决
+它支持的写法为new Date('2016','10','21'),这样写就能解决"Invalid Date"的问题
+
+想要IOS5中的Safari能正确解析new Date()那么必须这么写    new Date('2013/10/21');
+
+var arr = "2016-03-15 10:30:00".split(/[- :]/), 
+date = new Date(arr[0], arr[1]-1, arr[2], arr[3], arr[4], arr[5]); console.log(date);
+// Mon Mar 15 2016 10:30:00 GMT+0000 (GMT Standard Time)

@@ -1,0 +1,31 @@
+﻿1.
+htmlshiv.js
+
+Remy开发的HTML5shiv工具能利用JavaScript在老式IE里创建main，header，footer等HTML5元素。也就是说使用JavaScript能创建这些本来不存在的HTML5新元素。这是什么原理？你可能花几天也想不明白，但谁在意呢！这个脚本几乎是所有正式网站必用的js。
+
+<!--[if lt IE 9]>
+<script src="dist/html5shiv.js"></script>
+<![endif]-->
+
+
+2.
+selectivizr.js
+
+Selectivizr.js是一款神奇的工具，它能提供大量IE不支持的CSS选择器和属性，包括所有的last-child选择器。最近在网站改版过程中，我使用了selectivizr，网站竟然可以毫不走样的在老式IE浏览器的正常显示。下面是我使用的代码片段：
+
+<!--[if lte IE 8]><script src="js/libs/selectivizr.js"></script><![endif]-->
+现代新技术WEB项目不可缺少的js库。它只会在老式IE里加载。
+
+3.
+<html>条件判断注释
+
+你一定见到过这种极其丑陋的条件判断注释。然而，丑虽丑，它却能让你的网页能按你希望的方式运行：
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+这段代码不需要JavaScript，不需要等待JavaScript的加载，你定义的CSS样式会立即生效起作用，没有那种因为加载延迟而出现的样式闪变。
+

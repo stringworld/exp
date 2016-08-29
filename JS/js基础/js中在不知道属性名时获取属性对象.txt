@@ -1,0 +1,21 @@
+如有对象aa={ "a": [{ "b": "c" }, { "d": "f"}] };，我们要得到aa的属性a的对象的一般做法是aa.a
+
+但如果我们不知道属性a的名称是a，如何获取呢，有人会说用遍历
+
+for(temO in aa){},但这时得到的temO的值为"a"，是个字符串，不是对象
+
+有人会说出现这种问题是程序设计得有问题，那如果aa={ "": [{ "b": "c" }, { "d": "f"}] };，这时候改如何获取aa的属性对象呢
+
+做法是：
+
+for(temO in aa)
+
+{var o=aa[temO];  }
+
+
+
+http://blog.csdn.net/libin_1/article/details/50706030
+
+
+
+git pull origin master && git add . && git commit -am 'h5 prm2.0' && git push origin master

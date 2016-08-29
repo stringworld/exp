@@ -1,0 +1,18 @@
+<div class="pageView temp">
+
+    <div ng-controller="view1Part">
+        <ul class="liststyle">
+            <li ng-repeat="item in dataList">
+                <i>{{$index + 1}}</i><em>{{item.name}}</em>
+
+            </li>
+        </ul>
+
+        {{stateDtail}}
+
+        <directive-test></directive-test>
+        <a ui-sref="view1.detail({detail:{{stateDtail}}})">goto-children</a><br/>
+        <a ui-sref="index">back</a>
+    </div>
+</div>
+<div ui-view class="page {{pageClass.index}}"></div>

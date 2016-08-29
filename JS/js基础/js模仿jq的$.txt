@@ -1,0 +1,13 @@
+var $ = document.querySelectorAll.bind(document);
+
+
+
+相当于
+
+var $ = function(document) {
+    return document.querySelectorAll.call(document, arguments);
+}
+
+
+用法
+$('span')

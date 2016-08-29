@@ -1,0 +1,17 @@
+//需要注意的是在Json字符串中不能出现单引号或者是字符串但不带双引号。
+
+<script type="text/javascript">
+    var jsonstr = '[{"Title":"星期二多云","Content":"是佛时间佛教;"},{"Title":" 第一章","Content":"<strong>多云，微风</strong>"},{"Title":" 第二章","Content":"降落伞"},{"Title":" 第三章","Content":"<em><u></u></em>"}]';
+
+    var jsonDataString = '{result:true,message:"这是返回的信息"}';
+　　
+　　//javascript 方式
+    var jsonData = eval("(" + jsonDataString + ")");
+　　//jQuery 方式
+    var dataset = $.parseJSON(jsonstr);
+
+    alert(dataset[0].Title);
+
+    alert(jsonData.message);
+
+</script>

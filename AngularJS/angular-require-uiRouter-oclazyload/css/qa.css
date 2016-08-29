@@ -1,0 +1,124 @@
+html,body{width:100%;height:100%;margin:0;}
+.body{
+    position:relative;min-height:75%;_height:75%;
+}
+.header-line{
+    border-bottom: 0.3em solid #46b7a5;
+}
+.bottom{
+    padding:10px 0;
+}
+.bottom-line{
+    border-top:0.3em solid #46b7a5;
+}
+.header-right{
+    height:100%;
+}
+.navbar .right{
+    float: right;
+}
+.bd-none{
+    border-top:none;
+    border-left:none;
+    border-right: none;
+    background: none;
+}
+.pop-up-bg{
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.2);
+    position: fixed;
+    z-index:2000;
+    display: none;
+}
+.pos-center{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -moz-transform: translate3d(-50%, -50%, 0);
+    -ms-transform: translate3d(-50%, -50%, 0);
+    -o-transform: translate3d(-50%, -50%, 0);
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+}
+.pop-up{
+    background:#fff;
+}
+/*decord*/
+.g-btmbar {
+    position: fixed;
+    _position: absolute;
+    zoom: 1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    width: 100%;
+    z-index: 1002;
+}
+.m-playbar {
+    position: absolute;
+    zoom: 1;
+    top: -53px;
+    left: 0;
+    width: 100%;
+    height: 53px;
+    margin: 0 auto;
+}
+.m-playbar .wrap {
+    position: absolute;
+    left: 50%;
+    top: 6px;
+    z-index: 15;
+    width: 980px;
+    height: 47px;
+    margin: 0 auto;
+    margin-left: -490px;
+}
+.m-playbar .btns {
+    width: 157px;
+    padding: 6px 0 0 6px;
+}
+.m-playbar .btns a {
+    display: block;
+    float: left;
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    margin-top: 5px;
+    text-indent: -9999px;
+}
+.m-playbar .play {
+    position: relative;
+    width: 570px;
+}
+.m-playbar .words {
+    height: 28px;
+    overflow: hidden;
+    color: #e8e8e8;
+    text-shadow: 0 1px 0 #171717;
+    line-height: 28px;
+}
+.m-pbar {
+    position: relative;
+}
+.m-pbar .time {
+    position: absolute;
+    top: -3px;
+    right: -84px;
+    color: #797979;
+    text-shadow: 0 1px 0 #121212;
+}
+.m-playbar .icn-list {
+    display: block;
+    float: none;
+    width: 38px;
+    padding-left: 21px;
+    background-position: -42px -68px;
+    line-height: 27px;
+    text-align: center;
+    color: #666;
+    text-shadow: 0 1px 0 #080707;
+    text-indent: 0;
+    text-decoration: none;
+}
