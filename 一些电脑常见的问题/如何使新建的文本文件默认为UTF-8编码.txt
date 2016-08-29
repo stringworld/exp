@@ -8,3 +8,5 @@ Windows Registry Editor Version 5.00
 "FileName"="d:\\文本模板.txt"
 
 这样原来的文本默认编码为ANSI，现在就转变为了UTF-8编码了，避免出现乱码。
+
+http://jingyan.baidu.com/article/48206aead9f54e216ad6b3d0.html
