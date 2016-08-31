@@ -1,0 +1,14 @@
+1.创建模拟器
+
+http://reactnative.cn/docs/0.31/android-setup.html#content
+
+2.搭建环境
+
+http://blog.csdn.net/u011068702/article/details/49448043
+
+http://www.lcode.org/%E5%8F%B2%E4%B8%8A%E6%9C%80%E8%AF%A6%E7%BB%86windows%E7%89%88%E6%9C%AC%E6%90%AD%E5%BB%BA%E5%AE%89%E8%A3%85react-native%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/
+
+
+http://www.cnblogs.com/meteoric_cry/p/4874517.html
+
+http://www.jianshu.com/p/2fdc4655ddf8

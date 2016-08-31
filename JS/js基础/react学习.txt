@@ -1,0 +1,54 @@
+﻿React 入门实例教程
+http://www.ruanyifeng.com/blog/2015/03/react.html
+
+Redux 
+http://cn.redux.js.org//index.html
+
+ECMAScript 6简介
+http://es6.ruanyifeng.com/#docs/intro
+
+Webpack+React+ES6开发模式入门指南
+http://www.cnblogs.com/skylar/p/React-Webpack-ES6.html
+
+router 路由分析
+https://segmentfault.com/a/1190000005160459
+
+
+理顺react+flux+redux
+https://www.zhihu.com/question/47686258
+
+
+React Native实践之携程Moles框架
+http://geek.csdn.net/news/detail/83674
+
+
+路由的基本原理：
+简而言之，用户可以通过手动输入或者与页面进行交互来改变 URL，然后通过同步或者异步的方式向服务端发送请求获取资源（当然，资源也可能存在于本地），成功后重新绘制 UI
+
+
+
+JavaScript apps with React.js and Redux
+https://learnredux.com/view/hmwBow1PUuo
+
+
+webpack基本的配置
+http://www.myexception.cn/web/2039222.html
+
+
+React Router 中文文档
+http://react-guide.github.io/react-router-cn/index.html
+https://zhuanlan.zhihu.com/p/20381597
+http://www.ruanyifeng.com/blog/2016/05/react_router.html?utm_source=tool.lu
+
+https://undefinedblog.com/react-router-0-13-3/
+
+
+
+路由案例：
+https://github.com/stringworld/react-router-tutorial
+
+
+
+
+
+加载ajax内容到页面后的样式重新渲染需$().listview('refresh');
