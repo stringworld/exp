@@ -1,0 +1,30 @@
+﻿https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
+
+
+1、assign()函数介绍
+Object.assign(target，...soure)函数可以将所有的源对象属性复制到目标对象并返回。
+
+2、使用方式一
+var o1 = {a:1};
+var o2 = {b:2};
+var o3 = {c:3};
+var obj1 = Object.assign(o1,o2,o3);
+ 
+console.log(o1); //{a: 1, b: 2, c: 3}
+ 
+console.log(obj1);// {a: 1, b: 2, c: 3}
+
+3、使用方式二
+
+/**
+对象中如果有重复的键值，则会以最后一次出现的为准
+*/
+var o4 = {a:1,b:2};
+var o5 = {b:3,c:4};
+var obj2 = Object.assign({},o4,o5);
+ 
+console.log(obj2);//{a: 1, b: 3, c: 4}
+
+4、我们要怎么用assign?
+
+我们必须保证reducer是一个纯函数，我们不能改变传入的state，所以在此我们需要使用Object.assign({},state,...)复制一个state

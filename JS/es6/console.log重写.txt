@@ -1,0 +1,13 @@
+﻿log=((logFunc)=>{return (str)=>{return logFunc.call(console,str)}})(console.log);
+log(1)
+
+log('name')
+
+
+log = (function(oriLogFunc){
+    return function(str){
+        oriLogFunc.call(console,str);
+    }
+})(console.log);
+
+log("userName");
