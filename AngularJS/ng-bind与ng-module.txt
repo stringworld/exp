@@ -1,0 +1,1 @@
+﻿ng-bind是从$scope -> view的单向绑定ng-modle是$scope <-> view的双向绑定

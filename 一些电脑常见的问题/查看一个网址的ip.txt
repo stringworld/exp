@@ -1,0 +1,9 @@
+﻿打开cmd
+
+输入  nslookup 网址
+
+例如：
+
+nslookup www.qlcoder.com
+
+网址不能带http:// 也不能带后面具体的路径

@@ -1,1 +1,8 @@
-﻿
+﻿text-align:right;  //只能满足苹果手机，不兼容安卓。
+
+direction: rtl; 安卓右对齐
+
+::-webkit-input-placeholder {color: #c7c7c7; direction: rtl; font-size:1.2rem;}
+:-moz-placeholder {color: #c7c7c7; direction: rtl;font-size:1.2rem;}
+::-moz-placeholder {color: #c7c7c7; direction: rtl;font-size:1.2rem;}
+:-ms-input-placeholder {color: #c7c7c7; direction: rtl;font-size:1.2rem;}
