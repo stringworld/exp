@@ -1,0 +1,287 @@
+@charset "utf-8";
+/*1070版本 @diego */
+/*header nav*/
+* {    margin: 0;  }
+
+*, *:before, *:after {  -webkit-box-sizing: border-box;  -moz-box-sizing: border-box;  box-sizing: border-box;  }
+
+article, aside, details, figcaption, figure, footer, header, menu, nav, section, summary {  display: block;  }
+
+audio, canvas, video {  display: inline-block;  }
+
+img {  border: none;  vertical-align: middle;  }
+
+ul, ol {
+    /*list-style: none;*/
+}
+.none{display: none!important;}
+.clear {  *zoom: 1;           /* for IE 6/7 */  }
+
+.clear:before, .clear:after {  height: 0;  content: "";  font-size: 0;  display: table;  line-height: 0;     /* for Opera */  visibility: hidden;  }
+.clear:after {  clear: both;  }
+
+body {  font-size: 14px;  font-family: "Microsoft YaHei", "微软雅黑", Helvetica, Tahoma, STXihei, "华文细黑", STHeiti, "Helvetica Neue", Helvetica, Tahoma, "Droid Sans", "wenquanyi micro hei", FreeSans, Arimo, Arial, SimSun, "宋体", Heiti, "黑体", sans-serif;  background: #fff;  }
+body {height:100%;  /*padding-bottom:60px;*/  position:relative;  }
+a{text-decoration: none!important;}
+div[contentEditable], input, textarea, button, a:link {  -webkit-tap-highlight-color: rgba(225,225,225,.5);  }
+/*li{list-style:none;}*/
+.fl{float:left;}
+.fr{float:right;}
+
+.pd10{padding:10px;}
+.pd_t10{padding-top:10px;}
+.pd_b10{padding-bottom:10px;}
+.pd_l10{padding-left:10px;}
+.pd_r10{padding-right:10px;}
+.mr10{margin:10px;}
+.mr_t10{margin-top:10px;}
+.mr_b10{margin-bottom:10px;}
+.mr_l10{margin-left:10px;}
+.mr_r10{margin-right:10px;}
+.mr0{margin:0;}
+.bor{border:1px solid #bbb;}
+.bor_te{border-top:1px solid #eee;}
+.bor_t{border-top:1px solid #bbb;}
+.bor_b{border-bottom:1px solid #ccc;}
+.bor_l{border-left:1px solid #bbb;}
+.bor_r{border-right:1px solid #bbb;}
+.bold{font-weight: bold;}
+.font15{font-size:15px;}
+.font18{font-size:18px;}
+.font20{font-size:20px;}
+.mb20{margin-bottom:20px;}
+.fontw{font-weight: 700;}
+.col88{color:#888;}
+/*重置bootstrap部分属性*/
+.row{  margin-left: 0 !important;  margin-right: 0 !important;  }
+ol,ul{  margin-bottom:0!important;  }
+
+.contain {
+    width: 1070px;
+    margin: 0 auto;
+}
+div[contentEditable], input, textarea, button, a:link {  -webkit-tap-highlight-color: rgba(225,225,225,.5);  }
+#bs-example-navbar-collapse-1 ul li a.active{  color: #fff;  background-color: #363c41;  }
+/*私信提示*/
+.s_tip{  position:absolute;  top: 0;  left: 3rem;  background:red;  }
+
+/*下拉菜单*/
+.dropdown-menu{  padding:0;  background:#333;  min-width:120px;  }
+.dropdown-menu li a:hover{  background:#363c41;  color:#fff;  }
+.dropdown-menu li a{  padding:10px 50px;  color:#9d9d9d;  }
+.dropdown-menu li i{font-size:20px;padding-right:15px;}
+.avator .dropdown-menu {  right: 15px;  left: auto;  top:46px; z-index:11;}
+.nav {
+    background-image: -webkit-linear-gradient(top, #3c3c3c 0%, #222 100%);
+    background-image: -o-linear-gradient(top, #3c3c3c 0%, #222 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#3c3c3c), to(#222));
+    background-image: linear-gradient(to bottom, #3c3c3c 0%, #222 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3c3c3c', endColorstr='#ff222222', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    background-repeat: repeat-x;
+    width: 100%;
+    min-width: 1070px;
+    margin-bottom: 20px;
+}
+.container-fluid{width:1070px;padding:0;margin:0 auto;}
+.nav-list ul li, .login li {  float: left;  position: relative;  display: block;  list-style: none;  }
+.nav-list ul li a, .avator li a, .login li a {
+    color: #9d9d9d;
+    display: block;
+    padding:15px 15px;
+    line-height: 20px;
+    /*-moz-transition: all ease-in-out 0.5s;*/
+    /*-webkit-transition: all ease-in-out 0.5s;*/
+    /*-o-transition: all ease-in-out 0.5s;*/
+    /*-ms-transition: all ease-in-out 0.5s;*/
+    /*transition: all ease-in-out 0.5s;*/
+}
+.nav-list ul li,.login li{  float: left;  position: relative;  display: block;  list-style: none;  }
+
+.nav-list ul li.active>a{
+    position: relative;
+    background-image: -webkit-linear-gradient(top, #080808 0%, #0f0f0f 100%);
+    background-image: -o-linear-gradient(top, #080808 0%, #0f0f0f 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#080808), to(#0f0f0f));
+    background-image: linear-gradient(to bottom, #080808 0%, #0f0f0f 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff080808', endColorstr='#ff0f0f0f', GradientType=0);
+    background-repeat: repeat-x;
+    -webkit-box-shadow: inset 0 3px 9px rgba(0, 0, 0, .25);
+    box-shadow: inset 0 3px 9px rgba(0, 0, 0, .25);
+    color:white;
+}
+.avator .open>a, .avator .open>a:focus, .avator .open>a:hover {  background: transparent;  }
+.nav-list ul li a:hover,.avator li a:hover{  color: white;  }
+/*超出隐藏*/
+.overhidden {
+    word-wrap: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/*防止遮罩层的时候页面一起滚动*/
+.alpha {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.alpha body {
+    height: 100%;
+    overflow: hidden;
+}
+.lock-test{
+    overflow-y: hidden!important;
+}
+/*所有用户名姓名可点击跳转至个人中心*/
+.black,.username{
+    color:#000!important;
+}
+.gray{
+    color:gray!important;
+}
+a.black:hover,a.username:hover{
+    text-decoration: underline!important;
+}
+a.gray:hover{
+    text-decoration: underline!important;
+    color:#337ab7!important;
+}
+
+img.avatar{
+     -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+/* 锚点跳转的背景颜色变化 */
+.targetColor{
+    animation: targetColor 2s;
+    -moz-animation: targetColor 2s; /* Firefox */
+    -webkit-animation: targetColor 2s;  /* Safari 和 Chrome */
+    -o-animation: targetColor 2s;   /* Opera */
+}
+@keyframes targetColor
+{
+    from {background: #FFF7AE;}
+    to {background: #fff;}
+}
+
+@-moz-keyframes targetColor /* Firefox */
+{
+    from {background: #FFF7AE;}
+    to {background: #fff;}
+}
+
+@-webkit-keyframes targetColor /* Safari 和 Chrome */
+{
+    from {background: #FFF7AE;}
+    to {background: #fff;}
+}
+
+@-o-keyframes targetColor /* Opera */
+{
+    from {background: #FFF7AE;}
+    to {background: #fff;}
+}
+i.new{
+	color:white;
+    position: absolute;
+    font-size: 12px;
+    background: red;
+    top: 3px;
+    right: 0;
+    font-style: normal;
+    padding: 0 2px;
+    line-height: 12px;
+    -webkit-animation: dou 1s infinite;
+    -o-animation: dou 1s infinite;
+    animation: dou 1s infinite;
+}
+@keyframes dou {
+    0% {top:6px;}
+    25%{top:3px;}
+    50%{top:6px;}
+    90%{top:3px;}
+    100%{top:3px;}
+}
+
+@-moz-keyframes mymove /* Firefox */
+{
+    0% {top:6px;}
+    25%{top:3px;}
+    50%{top:6px;}
+    90%{top:3px;}
+    100%{top:3px;}
+}
+
+@-webkit-keyframes mymove /* Safari 和 Chrome */
+{
+    0% {top:6px;}
+    25%{top:3px;}
+    50%{top:6px;}
+    90%{top:3px;}
+    100%{top:3px;}
+}
+
+@-o-keyframes mymove /* Opera */
+{
+    0% {top:6px;}
+    25%{top:3px;}
+    50%{top:6px;}
+    90%{top:3px;}
+    100%{top:3px;}
+}
+/*modal*/
+.result-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 450px;
+    background: #fff;
+    padding: 15px;
+    overflow: hidden;
+    z-index: 111;
+    margin-left: -240px;
+    margin-top: -130px;
+    border-radius: 15px;
+}
+.result-alert .warning {
+    padding: 10px;
+    text-align: center;
+}
+.result-alert .warning i {
+    font-size: 80px;
+    color: #ea8010;
+}
+.result-alert p {
+    color: #777;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 300;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    font-family: "微软雅黑";
+}
+.result-alert .query {
+    text-align: center;
+}
+/*遮罩*/
+.task-shadow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.4);
+    z-index: 100;
+}
+.well,.btn{
+    z-index: 0
+}
+/*footer*/
+footer{  width:100%;min-width: 1070px;  text-align: center;  background: #000000;  color: #787d82;  height: 60px;  line-height: 60px;position:relative;z-index: 2;}
+footer p {  font-size: 1.2rem;  width: 1070px;  margin: 0 auto;  }
+
+.markdown-body blockquote {
+    font-size: inherit;
+}

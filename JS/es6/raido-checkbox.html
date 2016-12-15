@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>问卷类型的radio--checkbox选择</title>
+    <script src="https://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+
+<body>
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <div ng-repeat="prent in institution" ng-init="parentIndex=$index">
+            <p>{{prent.text}} {{$index+1}}</p>
+            <p>
+                <label ng-repeat="list in prent.quesion">
+                <input type="{{prent.type}}" name="{{list.name}}" ng-click="onchecked(parentIndex,$index,list.name,checkedValue,list.id)" ng-model="checkedValue" value="{{list.value}}" ng-checked="{{list.checked}}">{{list.value}}
+            </label>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope) {
+            $scope.institution = [{
+                text: '这是问题',
+                type: 'radio',
+                result: [],
+                quesion: [{
+                    checked: true,
+                    value: 'one-one',
+                    name: 'one',
+                    id: 1
+                }, {
+                    checked: false,
+                    value: 'one-two',
+                    name: 'one',
+                    id: 2
+                }]
+            }, {
+                text: '这是问题',
+                type: 'radio',
+                result: [],
+                quesion: [{
+                    checked: true,
+                    value: 'two-one',
+                    name: 'two',
+                    id: 1
+                }, {
+                    checked: false,
+                    value: 'two-two',
+                    name: 'two',
+                    id: 2
+                }]
+            }, {
+                text: '这是问题',
+                type: 'checkbox',
+                result: [],
+                quesion: [{
+                    checked: true,
+                    value: 'three-one',
+                    name: 'three',
+                    id: 1
+                }, {
+                    checked: false,
+                    value: 'three-two',
+                    name: 'three',
+                    id: 2
+                }, {
+                    checked: false,
+                    value: 'three-three',
+                    name: 'three',
+                    id: 3
+                }, ]
+            }];
+            Array.prototype.remove = function(val) {
+                var index = this.indexOf(val);
+                if (index > -1) {
+                    this.splice(index, 1);
+                }
+            };
+            $scope.institution.forEach(function(value) {
+                // if (value.type === 'checkbox') {
+                value.result = value.quesion.filter(item => (item.checked)).map(item => item.id);
+                // }
+            })
+
+            $scope.onchecked = function(parentIndex, index, name, value, resultId) {
+                if ($scope.institution[parentIndex].type === 'radio') {
+                    $scope.institution[parentIndex].quesion.map(function(item) {
+                        if (item.name === name) {
+                            item.checked = false;
+                        }
+                    })
+                    $scope.institution[parentIndex].quesion[index].checked = true;
+                } else {
+                    if ($scope.institution[parentIndex].result.some(function(val, rindex) {
+                            return val === resultId
+                        })) {
+                        $scope.institution[parentIndex].result.splice($scope.institution[parentIndex].result.indexOf(resultId), 1);
+                        //$scope.institution[parentIndex].result.remove(resultId);
+                        $scope.institution[parentIndex].quesion[index].checked = false;
+                    } else {
+                        $scope.institution[parentIndex].result.push(resultId);
+                        $scope.institution[parentIndex].quesion[index].checked = true;
+                    }
+                }
+                console.log($scope.institution)
+            }
+        });
+    </script>
+
+</body>
+
+</html>

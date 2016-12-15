@@ -1,0 +1,23 @@
+﻿js版本的比较
+
+        function compareVersion(v1, v2){
+            var tokens1 = v1.split('.');
+            var tokens2 = v2.split('.');
+            var length = Math.max(tokens1.length, tokens2.length);
+            var index = 0;
+            while(index < length){
+                var token1 = +tokens1[index];
+                var token2 = +tokens2[index];
+                if(!token1 && token2 || token1 < token2) {
+                    return -1;
+                }
+                if(!token2 && token1 || token1 > token2){
+                    return 1;
+                }
+                index++;
+            }
+            return 0;
+        }
+
+
+compareVersion('2.0.0','2.1.0')>=0

@@ -1,0 +1,79 @@
+﻿
+var a = 'Hi, my name\'s Han Meimei, a SOFTWARE engineer';
+1、for循环：
+
+//for循环
+function titleCase(s) {
+	var i, ss = s.toLowerCase().split(/\s+/);
+	for (i = 0; i < ss.length; i++) {
+		ss[i] = ss[i].slice(0, 1).toUpperCase() + ss[i].slice(1);
+	}
+	return ss.join(' ');
+}
+console.log(titleCase(a));
+
+2、for循环+replace：
+
+//for循环+replace
+function titleCase1(str) {
+	//将字符串分解为数组并将其小写化
+	var convertToArray = str.toLowerCase().split(" ");
+
+	for (var i = 0; i < convertToArray.length; i++) {
+		var char = convertToArray[i].charAt(0);
+		//使用 replace()方法将数组中的每个首字母大写化
+		convertToArray[i] = convertToArray[i].replace(char, function replace(char) {
+			return char.toUpperCase();
+		});
+	}
+	return convertToArray.join(" ");
+}
+console.log(titleCase1(a));
+
+
+3、正则+replace：
+
+//正则+replace
+function titleCase2(s) {
+	return s.toLowerCase().replace(/\b([\w|']+)\b/g, function(word) {
+		//return word.slice(0, 1).toUpperCase() + word.slice(1);
+		return word.replace(word.charAt(0), word.charAt(0).toUpperCase());
+	});
+}
+console.log(titleCase2(a));
+思路：用正则将字符串拆分为单词数组，并对每个单词进行首字母大写处理。这里简单的把字母、数字、下划线和单撇号都视为了单词成员。
+
+4、数组+map：
+
+//数组+map
+function titleCase3(s) {
+	return s.toLowerCase().split(/\s+/).map(function(item, index) {
+		return item.slice(0, 1).toUpperCase() + item.slice(1);
+	}).join(' ');
+}
+console.log(titleCase3(a));
+
+思路：根据空白将字符串拆分为数组，对每个单词进行首字母大写处理，并将所有处理后的结果组成一个新数组然后拼接成字符串。
+
+5、数组+reduce
+
+//数组+reduce
+function titleCase4(s) {
+	return s.toLowerCase().split(/\s+/).reduce(function(prev, item, array, array) {
+		return prev + (prev.trim() && ' ') + item.slice(0, 1).toUpperCase() + item.slice(1);
+	}, '');
+}
+console.log(titleCase4(a));
+
+思路：根据空白将字符串拆分为数组，对每个单词进行首字母大写处理，并将所有处理后的结果连成一个新字符串。
+
+6、ES6写法
+
+
+//ES6写法
+function titleCase5(str) {
+	return str.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase());
+}
+console.log(titleCase5(a));
+
+思路：用正则将每个单词的首字母替换成大写。

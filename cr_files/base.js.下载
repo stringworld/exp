@@ -1,0 +1,14 @@
+/**
+ * Created by Diego on 16/3/18.
+ */
+$(function(){
+    //下拉菜单改为鼠标经过触发
+    $(".dropdown").mouseenter(function(){
+        $(this).find(".dropdown-toggle").attr("aria-expanded",true);
+        $(this).addClass("open");
+    }).mouseleave(function(){
+        $(this).find(".dropdown-toggle").attr("aria-expanded",false);
+        $(this).removeClass("open");
+    });
+    
+});

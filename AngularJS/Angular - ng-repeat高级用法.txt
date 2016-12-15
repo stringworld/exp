@@ -1,0 +1,29 @@
+﻿Angular - ng-repeat高级用法
+
+遍历数组：
+    <li ng-repeat="item in array">{{item}}</li>
+
+遍历对象：
+    key：对象的key
+    value：对象的value
+    <li ng-repeat="(key,value) in obj">{{key}} | {{value}}</li>
+
+绑定$$haskKey:
+    给每个item绑定唯一ID,当数组发生变化时，ID不变！
+    <li ng-repeat="item in items track by $id(item)"></li>
+
+过滤器：
+    对item的每个属性进行模糊匹配
+     <li ng-repeat="item in items |filter: 25"></li>
+
+
+绑定属性过滤：
+   对item的某个属性进行模糊匹配
+    <li ng-repeat="item in items |filter: 25 track by item.age"></li>
+
+保存匹配结果：
+    把匹配到的结果另存到results数组变量,可供外部使用
+    <li ng-repeat="item in items |filter: 25 as results"></li>
+
+    保存针对某个属性的过滤结果：
+    <li ng-repeat="item in items |filter: 25 as results track by item.age "></li>

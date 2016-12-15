@@ -1,0 +1,47 @@
+﻿https://segmentfault.com/a/1190000002392452
+
+
+//html
+<div class="col-sm-5">
+        <input type="text" ng-model="username" name="username" 
+            id="username" class="form-control" auto-focus-when="usernameFocus" >
+      </div>
+
+
+//自定义指令
+angular.module('shuffleApp', [])
+  .directive('autoFocusWhen', ['$log','$timeout', function($log, $timeout) {
+      return {
+          restrict: 'A',
+          scope: {
+              autoFocusWhen: '='
+          },
+          link: function(scope, element) {
+              scope.$watch('autoFocusWhen', function(newValue) {
+                  if (newValue) {
+                     $timeout(function(){
+                         element[0].focus();
+                     })
+                  }
+              });
+
+              element.on('blur', function() {
+                  scope.$apply(function() {
+                      scope.autoFocusWhen = false;
+                  })
+              })
+          }
+      }
+    }])
+
+
+//控制器测试
+angular.module('shuffleApp', [])
+  .controller('FocusCtrl', ['$scope', '$interval', function($scope, $interval) {
+      $scope.usernameFocus = false;
+      $scope.booknameFocus = true;
+      $interval(function() {
+          $scope.usernameFocus = $scope.usernameFocus ? false : true;
+          $scope.booknameFocus = $scope.booknameFocus ? false : true;
+      }, 1500, 3);
+  }])
