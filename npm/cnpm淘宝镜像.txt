@@ -1,0 +1,8 @@
+﻿cmd下运行，前提是已经安装node
+
+
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+使用
+
+cnpm install 文件

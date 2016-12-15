@@ -1,0 +1,27 @@
+﻿http://yijiebuyi.com/blog/4ef268db0dcfd2a42ad138a1a054bf0b.html
+
+
+npm install -g nrm 
+
+查看当前支持切换的源:
+
+nrm ls
+
+  npm ---- https://registry.npmjs.org/
+  cnpm --- http://r.cnpmjs.org/
+* taobao - http://registry.npm.taobao.org/
+  edunpm - http://registry.enpmjs.org/
+  eu ----- http://registry.npmjs.eu/
+  au ----- http://registry.npmjs.org.au/
+  sl ----- http://npm.strongloop.com/
+  nj ----- https://registry.nodejitsu.com/
+  pt ----- http://registry.npmjs.pt/
+
+
+上面列出了可选的 9个源,还用 * 号标记出了当前我使用的源
+
+切换指定的源:
+假如现在我想把 taobao 源 切换成 eu 的镜像源( 貌似走的教育网,我也不确定速度是不是快,只是演示切换)
+
+nrm use eu Registry has been set to: http://registry.npmjs.eu/
+
