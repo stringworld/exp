@@ -81,9 +81,9 @@
                 }
             };
             $scope.institution.forEach(function(value) {
-                // if (value.type === 'checkbox') {
-                value.result = value.quesion.filter(item => (item.checked)).map(item => item.id);
-                // }
+                if (value.type === 'checkbox') {
+                    value.result = value.quesion.filter(item => (item.checked)).map(item => item.id);
+                }
             })
 
             $scope.onchecked = function(parentIndex, index, name, value, resultId) {
@@ -99,7 +99,7 @@
                             return val === resultId
                         })) {
                         $scope.institution[parentIndex].result.splice($scope.institution[parentIndex].result.indexOf(resultId), 1);
-                        //$scope.institution[parentIndex].result.remove(resultId);
+                        //$scope.institution[parentIndex].result.remove(resultId); 
                         $scope.institution[parentIndex].quesion[index].checked = false;
                     } else {
                         $scope.institution[parentIndex].result.push(resultId);

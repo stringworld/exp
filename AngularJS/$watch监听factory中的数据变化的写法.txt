@@ -1,0 +1,27 @@
+﻿需求：
+
+在当前页面的factory中声明一个变量，在另一个页面中更改这个变量的值
+.factory('shareData', [function() {
+    return {
+        isReload: true
+    }
+}])
+
+在controller1中监听
+
+        $scope.$watch('shareData.isReload', function() {
+            search();
+        });
+
+在controller2中更改这个变量的值
+
+shareData.isReload=!shareData.isReload;
+
+
+使用以上的$watch()的使用方式是没有错的，但是$watch没有执行。正确的写法为
+
+        $scope.$watch(function() {
+            return shareData.isReload;
+        }, function() {
+            search();
+        });
